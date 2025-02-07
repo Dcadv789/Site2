@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { TextRotate } from './TextRotate';
 
 export function Hero() {
@@ -21,22 +21,16 @@ export function Hero() {
   ];
 
   const rotatingTexts = [
-    "Eleve seu patamar financeiro",
-    "Transforme sua gestão financeira",
-    "Alcance resultados extraordinários",
-    "Maximize o potencial do seu negócio"
+    "seu lucro.",
+    "seu controle.",
+    "seu tempo.",
+    "sua gestão.",
+    "sua produtividade.",
+    "sua performance."
   ];
 
   const handleCtaClick = () => {
     window.open('https://wa.me/5511999999999', '_blank');
-  };
-
-  const nextScene = () => {
-    setCurrentScene((prev) => (prev + 1) % scenes.length);
-  };
-
-  const prevScene = () => {
-    setCurrentScene((prev) => (prev - 1 + scenes.length) % scenes.length);
   };
 
   return (
@@ -45,14 +39,6 @@ export function Hero() {
         <div className="lg:grid lg:grid-cols-12 lg:gap-8">
           <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
             <div className="relative">
-              <button 
-                onClick={prevScene}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -ml-12 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-                aria-label="Cena anterior"
-              >
-                <ChevronLeft className="h-6 w-6 text-gray-600" />
-              </button>
-
               <div className="min-h-[280px] sm:min-h-[240px]">
                 <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl transition-opacity duration-500">
                   {scenes[currentScene].title}
@@ -63,20 +49,12 @@ export function Hero() {
                 </p>
               </div>
 
-              <button 
-                onClick={nextScene}
-                className="absolute right-0 top-1/2 -translate-y-1/2 -mr-12 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-                aria-label="Próxima cena"
-              >
-                <ChevronRight className="h-6 w-6 text-gray-600" />
-              </button>
-
-              <div className="flex justify-center space-x-2 mt-8">
+              <div className="flex justify-center space-x-3 mt-8">
                 {scenes.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentScene(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
                       currentScene === index 
                         ? 'bg-blue-600 w-6' 
                         : 'bg-gray-300 hover:bg-gray-400'
@@ -87,10 +65,11 @@ export function Hero() {
               </div>
 
               <div className="text-2xl font-light text-gray-600 tracking-wide text-center mt-8">
+                <span>Eleve seu patamar e otimize </span>
                 <TextRotate 
                   texts={rotatingTexts}
-                  className="text-blue-600 font-medium"
-                  rotationInterval={4000}
+                  className="text-blue-600 font-medium inline-block"
+                  rotationInterval={3000}
                 />
               </div>
 

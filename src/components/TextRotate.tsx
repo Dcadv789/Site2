@@ -3,7 +3,6 @@ import {
   useCallback,
   useEffect,
   useImperativeHandle,
-  useMemo,
   useState,
 } from "react"
 
@@ -25,7 +24,7 @@ const TextRotate = forwardRef<TextRotateRef, TextRotateProps>(
     {
       texts,
       rotationInterval = 3000,
-      className,
+      className = "",
     },
     ref
   ) => {
@@ -72,14 +71,12 @@ const TextRotate = forwardRef<TextRotateRef, TextRotateProps>(
     }, [next, rotationInterval])
 
     return (
-      <div className={className}>
-        <div
-          className={`transition-all duration-500 transform ${
-            isAnimating ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"
-          }`}
-        >
-          {texts[currentTextIndex]}
-        </div>
+      <div
+        className={`transition-all duration-500 transform ${
+          isAnimating ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"
+        } ${className}`}
+      >
+        {texts[currentTextIndex]}
       </div>
     )
   }
