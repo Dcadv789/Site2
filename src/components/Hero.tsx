@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { TextRotate } from './TextRotate';
+import { LayoutGroup, motion } from "framer-motion"
+import { TextRotate } from '../components/ui/text-rotate';
 
 export function Hero() {
   const [currentScene, setCurrentScene] = useState(0);
@@ -20,18 +21,17 @@ export function Hero() {
     }
   ];
 
-  const rotatingTexts = [
-    "seu lucro.",
-    "seu controle.",
-    "seu tempo.",
-    "sua gestão.",
-    "sua produtividade.",
-    "sua performance."
-  ];
-
   const handleCtaClick = () => {
     window.open('https://wa.me/5511999999999', '_blank');
   };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentScene((current) => (current === scenes.length - 1 ? 0 : current + 1));
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [scenes.length]);
 
   return (
     <section id="inicio" className="pt-16">
@@ -39,8 +39,8 @@ export function Hero() {
         <div className="lg:grid lg:grid-cols-12 lg:gap-8">
           <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
             <div className="relative">
-              <div className="min-h-[280px] sm:min-h-[240px]">
-                <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl transition-opacity duration-500">
+              <div className="min-h-[180px] sm:min-h-[160px]">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 transition-opacity duration-500 font-sans leading-tight max-w-[540px]">
                   {scenes[currentScene].title}
                 </h1>
                 
@@ -49,7 +49,7 @@ export function Hero() {
                 </p>
               </div>
 
-              <div className="flex justify-center space-x-3 mt-8">
+              <div className="flex justify-start space-x-3 mt-8">
                 {scenes.map((_, index) => (
                   <button
                     key={index}
@@ -64,13 +64,37 @@ export function Hero() {
                 ))}
               </div>
 
-              <div className="text-2xl font-light text-gray-600 tracking-wide text-center mt-8">
-                <span>Eleve seu patamar e otimize </span>
-                <TextRotate 
-                  texts={rotatingTexts}
-                  className="text-blue-600 font-medium inline-block"
-                  rotationInterval={3000}
-                />
+              <div className="text-2xl font-light text-gray-600 tracking-wide text-left mt-8">
+                <LayoutGroup>
+                  <motion.span className="flex whitespace-pre" layout>
+                    <motion.span
+                      className="pt-0.5 sm:pt-1 md:pt-2"
+                      layout="position"
+                      transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                    >
+                      Eleve seu patamar e otimize{" "}
+                    </motion.span>
+                    <TextRotate
+                      texts={[
+                        "seu lucro",
+                        "seu tempo",
+                        "seu controle",
+                        "sua gestão",
+                        "sua produtividade",
+                        "sua performance",
+                      ]}
+                      mainClassName="text-white px-2 sm:px-2 md:px-3 bg-blue-600 overflow-hidden py-0.5 sm:py-1 md:py-2 rounded-lg min-w-[180px]"
+                      staggerFrom="last"
+                      initial={{ y: "100%" }}
+                      animate={{ y: 0 }}
+                      exit={{ y: "-120%" }}
+                      staggerDuration={0.025}
+                      splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                      transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                      rotationInterval={2000}
+                    />
+                  </motion.span>
+                </LayoutGroup>
               </div>
 
               <div className="mt-8">
