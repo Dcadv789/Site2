@@ -8,15 +8,15 @@ export function Hero() {
 
   const scenes = [
     {
-      title: "Somos o novo financeiro da sua empresa",
+      title: <>Somos o <span className="text-blue-600">novo financeiro</span><br />da sua empresa</>,
       description: "Um time pronto para assumir seu financeiro, para que você concentre no que realmente importa: o crescimento do seu negócio."
     },
     {
-      title: "Consultoria financeira personalizada",
+      title: <>Consultoria <span className="text-blue-600">financeira</span><br />personalizada</>,
       description: "Conte com nossa consultoria para ajudá-lo a atingir seus objetivos. Forneceremos insights estratégicos e recomendações personalizadas para sua empresa."
     },
     {
-      title: "Não perca mais tempo! Contrate já!",
+      title: <>Não perca mais <span className="text-blue-600">tempo</span>!<br />Contrate já!</>,
       description: "Não quebre mais a cabeça e pare de perder tempo. Deixe-nos cuidar da burocracia enquanto você ganha dinheiro."
     }
   ];
@@ -37,10 +37,10 @@ export function Hero() {
     <section id="inicio" className="pt-16">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-32 sm:pb-28">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8">
-          <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+          <div className="sm:text-center md:max-w-3xl md:mx-auto lg:col-span-7 lg:text-left">
             <div className="relative">
-              <div className="min-h-[180px] sm:min-h-[160px]">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 transition-opacity duration-500 font-sans leading-tight max-w-[540px]">
+              <div className="min-h-[140px] sm:min-h-[120px]">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-gray-900 transition-opacity duration-500 font-sans leading-[1.1] max-w-[800px] whitespace-pre-line">
                   {scenes[currentScene].title}
                 </h1>
                 
@@ -109,11 +109,11 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
-            <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
+          <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-5 lg:flex lg:items-center">
+            <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-sm">
               <img
                 className="w-full rounded-lg"
-                src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=1000"
+                src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=1000"
                 alt="Análise financeira empresarial"
               />
             </div>
