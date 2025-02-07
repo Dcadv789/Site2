@@ -30,8 +30,46 @@ export function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100;
+      
+      const currentSection = items.find(item => {
+        const element = document.querySelector(item.url);
+        if (element) {
+          const { top, bottom } = element.getBoundingClientRect();
+          const elementTop = top + window.scrollY;
+          const elementBottom = bottom + window.scrollY;
+          return scrollPosition >= elementTop && scrollPosition < elementBottom;
+        }
+        return false;
+      });
+
+      if (currentSection) {
+        setActiveTab(currentSection.name);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, item: NavItem) => {
+    e.preventDefault();
+    const element = document.querySelector(item.url);
+    if (element) {
+      const navHeight = 40; // Reduzido ainda mais para ficar bem próximo do título
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navHeight,
+        behavior: 'smooth'
+      });
+      setActiveTab(item.name);
+    }
+  };
+
   return (
-    <div className="fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-10">
+    <div className="fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-4">
       <div className="flex items-center gap-3 bg-white/80 border border-gray-200 backdrop-blur-lg py-3 px-2 rounded-full shadow-lg">
         <div className="hidden sm:flex items-center gap-2 px-4">
           <BarChart className="h-6 w-6 text-blue-600" />
@@ -46,7 +84,7 @@ export function Navbar() {
             <a
               key={item.name}
               href={item.url}
-              onClick={() => setActiveTab(item.name)}
+              onClick={(e) => handleClick(e, item)}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-6 py-3 rounded-full transition-colors",
                 "text-gray-600 hover:text-blue-600",

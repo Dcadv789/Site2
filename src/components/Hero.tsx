@@ -34,7 +34,7 @@ export function Hero() {
   }, [scenes.length]);
 
   return (
-    <section id="inicio" className="pt-16">
+    <section id="inicio" className="pt-16 scroll-mt-16">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-32 sm:pb-28">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8">
           <div className="sm:text-center md:max-w-3xl md:mx-auto lg:col-span-7 lg:text-left">

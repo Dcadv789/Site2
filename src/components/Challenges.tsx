@@ -27,7 +27,7 @@ export function Challenges() {
   ];
 
   return (
-    <section id="desafios" className="py-20 bg-gray-50">
+    <section id="desafios" className="pt-16 pb-20 bg-gray-50 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl mb-6 uppercase tracking-wide">
