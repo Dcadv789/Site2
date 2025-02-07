@@ -66,11 +66,11 @@ export function Hero() {
 
               <div className="text-2xl font-light text-gray-600 tracking-wide text-left mt-8">
                 <LayoutGroup>
-                  <motion.span className="flex whitespace-pre" layout>
+                  <motion.span className="flex items-center whitespace-pre" layout>
                     <motion.span
-                      className="pt-0.5 sm:pt-1 md:pt-2"
                       layout="position"
                       transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                      className="flex items-center"
                     >
                       Eleve seu patamar e otimize{" "}
                     </motion.span>
@@ -83,13 +83,14 @@ export function Hero() {
                         "sua produtividade",
                         "sua performance",
                       ]}
-                      mainClassName="text-white px-2 sm:px-2 md:px-3 bg-blue-600 overflow-hidden py-0.5 sm:py-1 md:py-2 rounded-lg min-w-[180px]"
+                      mainClassName="text-white px-[24px] bg-blue-600 overflow-hidden rounded-lg flex items-center justify-center py-[12px]"
                       staggerFrom="last"
                       initial={{ y: "100%" }}
                       animate={{ y: 0 }}
                       exit={{ y: "-120%" }}
                       staggerDuration={0.025}
-                      splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                      splitLevelClassName="overflow-hidden flex items-center justify-center"
+                      elementLevelClassName="px-[1px] flex items-center justify-center"
                       transition={{ type: "spring", damping: 30, stiffness: 400 }}
                       rotationInterval={2000}
                     />
