@@ -12,6 +12,7 @@ interface NavItem {
 const items: NavItem[] = [
   { name: 'Início', url: '#inicio', icon: Home },
   { name: 'Desafios', url: '#desafios', icon: Target },
+  { name: 'Cenário', url: '#cenario', icon: BarChart },
   { name: 'Soluções', url: '#solucoes', icon: HelpCircle },
   { name: 'Contato', url: '#contato', icon: MessageSquare },
 ];
@@ -19,6 +20,7 @@ const items: NavItem[] = [
 export function Navbar() {
   const [activeTab, setActiveTab] = useState(items[0].name);
   const [isMobile, setIsMobile] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,6 +34,8 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (isScrolling) return;
+      
       const scrollPosition = window.scrollY + 100;
       
       const currentSection = items.find(item => {
@@ -52,25 +56,32 @@ export function Navbar() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isScrolling]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, item: NavItem) => {
     e.preventDefault();
+    setIsScrolling(true);
+    
     const element = document.querySelector(item.url);
     if (element) {
-      const navHeight = 40; // Reduzido ainda mais para ficar bem próximo do título
+      const navHeight = 40;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: elementPosition - navHeight,
         behavior: 'smooth'
       });
+      
       setActiveTab(item.name);
+      
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 1000);
     }
   };
 
   return (
-    <div className="fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-4">
-      <div className="flex items-center gap-3 bg-white/80 border border-gray-200 backdrop-blur-lg py-3 px-2 rounded-full shadow-lg">
+    <div className="fixed sm:top-0 left-1/2 -translate-x-1/2 z-10 sm:pt-4 pointer-events-none">
+      <div className="flex items-center gap-3 bg-white/80 border border-gray-200 backdrop-blur-lg py-3 px-2 rounded-full shadow-lg pointer-events-auto">
         <div className="hidden sm:flex items-center gap-2 px-4">
           <BarChart className="h-6 w-6 text-blue-600" />
           <span className="font-bold text-gray-900">FinanceConsult</span>
@@ -99,7 +110,6 @@ export function Navbar() {
                 <motion.div
                   layoutId="lamp"
                   className="absolute inset-0 w-full -z-10"
-                  initial={false}
                   transition={{
                     type: "spring",
                     stiffness: 300,

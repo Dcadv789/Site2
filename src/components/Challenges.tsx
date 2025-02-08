@@ -30,12 +30,11 @@ export function Challenges() {
     <section id="desafios" className="pt-16 pb-20 bg-gray-50 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl mb-6 uppercase tracking-wide">
+          <h2 className="text-[20px] sm:text-[15px] font-bold text-gray-900 mb-6 uppercase tracking-wide">
             DESAFIOS
           </h2>
-          <p className="text-3xl sm:text-4xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-            As dificuldades financeiras podem estar atrapalhando o crescimento da sua empresa. 
-            Você se identifica com algum destes problemas?
+          <p className="text-[24px] sm:text-[30px] text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+            Você se identifica com algum destes desafios?
           </p>
         </div>
 
@@ -50,17 +49,17 @@ export function Challenges() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-blue-600 group hover:-translate-y-1"
+                    className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border-2 border-gray-200 group hover:-translate-y-1"
                   >
                     <div className="flex items-center gap-6">
                       <div className="w-14 h-14 bg-orange-100 rounded-lg flex items-center justify-center group-hover:bg-orange-200 transition-colors flex-shrink-0">
                         <Icon className="h-7 w-7 text-orange-600" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                        <h3 className="text-[18px] font-semibold text-gray-900 mb-2">
                           {challenge.title}
                         </h3>
-                        <p className="text-gray-600 text-lg">
+                        <p className="text-[16px] text-gray-600">
                           {challenge.question}
                         </p>
                       </div>
@@ -70,17 +69,18 @@ export function Challenges() {
               })}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-16 text-center"
-            >
-              <div className="inline-block bg-orange-500 px-8 py-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
-                <p className="text-xl font-semibold text-white">
-                  📌 Se você se identificou com algum destes desafios, podemos ajudar!
-                </p>
-              </div>
-            </motion.div>
+            <div className="mt-16 text-center">
+              <motion.div
+                initial={false}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block"
+              >
+                <button className="bg-orange-500 hover:bg-orange-600 px-8 py-6 rounded-lg shadow-lg text-[20px] font-semibold text-white hover:shadow-xl transition-all duration-300">
+                  Diagnóstico gratuito
+                </button>
+              </motion.div>
+            </div>
           </div>
 
           <div className="w-full lg:w-5/12">

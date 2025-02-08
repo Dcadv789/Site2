@@ -1,6 +1,8 @@
 import { Navbar } from "./components/Navbar"
 import { Hero } from "./components/Hero"
 import { Challenges } from "./components/Challenges"
+import { Scenario } from "./components/Scenario"
+import { Benefits } from "./components/Benefits"
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       <Navbar />
       <Hero />
       <Challenges />
+      <Scenario />
+      <Benefits />
     </div>
   )
 }
