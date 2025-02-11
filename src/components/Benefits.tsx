@@ -67,19 +67,20 @@ export function Benefits() {
           <Tabs defaultValue={benefits[0].title} className="w-full max-w-6xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               {/* Lista de benefícios na lateral esquerda */}
-              <TabsList className="lg:col-span-4 flex lg:flex-col bg-transparent p-0 h-auto">
+              <TabsList className="lg:col-span-4 flex lg:flex-col bg-transparent p-0 h-full">
                 {benefits.map((benefit) => (
                   <TabsTrigger
                     key={benefit.title}
                     value={benefit.title}
-                    className="relative w-full flex items-center gap-3 p-4 justify-start text-lg text-gray-900 hover:text-blue-600 transition-colors data-[state=active]:bg-transparent"
+                    className="group relative w-full flex items-center gap-3 p-4 justify-start text-lg text-gray-900 hover:text-blue-600 transition-colors data-[state=active]:bg-transparent data-[state=active]:text-blue-600"
                   >
                     {React.createElement(benefit.icon, {
-                      className: "w-6 h-6 transition-colors data-[state=active]:text-blue-600"
+                      className: "w-6 h-6 transition-colors group-data-[state=active]:text-blue-600"
                     })}
                     <span className="font-medium">{benefit.title}</span>
-                    <div className="absolute right-0 top-0 bottom-0 w-[3px] bg-gray-200">
-                      <div className="h-full w-full data-[state=active]:bg-blue-600 transition-colors" />
+                    <div className="absolute right-0 top-0 bottom-0 w-[3px]">
+                      <div className="h-full w-full bg-gray-200" />
+                      <div className="absolute inset-0 bg-blue-600 transform scale-y-0 group-data-[state=active]:scale-y-100 transition-transform duration-300 ease-out origin-top" />
                     </div>
                   </TabsTrigger>
                 ))}
@@ -97,7 +98,7 @@ export function Benefits() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
-                      className="bg-white rounded-xl shadow-sm p-8"
+                      className="border border-gray-200 rounded-xl p-8 h-full"
                     >
                       <div className="flex items-start gap-6">
                         {React.createElement(benefit.icon, {
