@@ -64,7 +64,11 @@ export function Scenario() {
               ))}
             </div>
 
-            <div className="mt-12">
+            <div className="mt-2 mb-8">
+              <p className="text-[12px] text-gray-500 italic">Fonte: SEBRAE</p>
+            </div>
+
+            <div className="flex justify-center">
               <motion.div
                 initial={false}
                 whileHover={{ scale: 1.05 }}
@@ -78,17 +82,17 @@ export function Scenario() {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2 flex justify-end">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
-              className="relative rounded-2xl overflow-hidden shadow-xl"
+              className="relative"
             >
               <img
                 src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//image3.svg"
                 alt="Análise financeira"
-                className="w-full h-[400px] object-contain"
+                className="w-full h-[748px] object-contain"
               />
             </motion.div>
           </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { BarChart, Home, Target, MessageSquare, HelpCircle } from 'lucide-react';
+import { Home, Target, BarChart, HelpCircle, MessageSquare } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 interface NavItem {
@@ -83,8 +83,11 @@ export function Navbar() {
     <div className="fixed sm:top-0 left-0 right-0 z-10 sm:pt-4 pointer-events-none flex justify-center">
       <div className="flex items-center gap-3 bg-white/80 border border-gray-200 backdrop-blur-lg py-3 px-2 rounded-full shadow-lg pointer-events-auto">
         <div className="hidden sm:flex items-center gap-2 px-4">
-          <BarChart className="h-6 w-6 text-blue-600" />
-          <span className="font-bold text-gray-900">FinanceConsult</span>
+          <img
+            src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//Logo%20Azul.svg"
+            alt="Logo"
+            className="h-8 w-auto"
+          />
         </div>
 
         {items.map((item) => {
