@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Linkedin, Wallet, Target, TrendingUp, Percent } from 'lucide-react';
+import { Share2, Youtube, Instagram, Linkedin, Wallet, Target, TrendingUp, Percent } from 'lucide-react';
 import { motion } from "framer-motion"
 import { TextRotate } from '../components/ui/text-rotate';
 
@@ -13,6 +13,29 @@ export function Hero() {
     { icon: Target, label: '100%', description: 'Foco' },
     { icon: TrendingUp, label: '99%', description: 'Satisfação' },
     { icon: Percent, label: '29%', description: 'Economia Gerada' },
+  ];
+
+  const socialLinks = [
+    { 
+      icon: Share2, 
+      href: 'https://wa.me/?text=Confira este serviço de consultoria financeira: https://dcadvisors.com.br',
+      label: 'Compartilhar'
+    },
+    { 
+      icon: Instagram, 
+      href: '#',
+      label: 'Instagram'
+    },
+    { 
+      icon: Youtube, 
+      href: '#',
+      label: 'Youtube'
+    },
+    { 
+      icon: Linkedin, 
+      href: '#',
+      label: 'LinkedIn'
+    }
   ];
 
   return (
@@ -54,74 +77,88 @@ export function Hero() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="flex flex-col items-end h-full justify-between"
+              className="flex flex-col h-full justify-between"
             >
               <div className="w-full">
-                <h2 className="text-2xl font-medium text-gray-900 mb-6 text-right">
-                  Evolua sua gestão
+                <h2 className="text-xl font-medium text-gray-900 mb-6 text-left">
+                  O futuro do seu financeiro começa aqui: inovação, estratégia e crescimento. Faça um diagnóstico financeiro gratuito e descubra como evoluir!
                 </h2>
-
-                <button
-                  onClick={handleCtaClick}
-                  className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg"
-                >
-                  Diagnóstico Gratuito
-                </button>
               </div>
 
               <div className="w-full">
-                <div className="flex gap-8 items-end">
-                  {/* Stats grid */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="grid grid-cols-2 gap-4"
-                  >
-                    {stats.map((stat, index) => {
-                      const Icon = stat.icon;
-                      return (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.4 + (index * 0.1) }}
-                          className="flex flex-col items-center bg-white/50 backdrop-blur-sm p-3 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-                        >
-                          <Icon className="h-5 w-5 text-blue-600 mb-1" />
-                          <span className="text-base font-semibold text-gray-900">{stat.label}</span>
-                          <span className="text-xs text-gray-600 text-center">{stat.description}</span>
-                        </motion.div>
-                      );
-                    })}
-                  </motion.div>
+                <div className="flex flex-col items-end gap-4">
+                  <div className="flex items-center justify-between w-full">
+                    <button
+                      onClick={handleCtaClick}
+                      className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg"
+                    >
+                      Diagnóstico Gratuito
+                    </button>
 
-                  {/* Second banner image */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
-                    className="w-48"
-                  >
-                    <img
-                      src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//banner2.svg"
-                      alt="Banner secundário"
-                      className="w-full h-auto"
-                    />
-                  </motion.div>
-                </div>
+                    {/* Social icons */}
+                    <div className="flex gap-3 justify-end w-72">
+                      {socialLinks.map((social, index) => {
+                        const Icon = social.icon;
+                        return (
+                          <motion.a
+                            key={index}
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-600 hover:text-blue-600 transition-colors bg-white shadow-sm p-2 rounded-full hover:shadow-md group"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 + (index * 0.1) }}
+                            whileHover={{ y: -2 }}
+                          >
+                            <Icon size={20} className="group-hover:scale-110 transition-transform" />
+                            <span className="sr-only">{social.label}</span>
+                          </motion.a>
+                        );
+                      })}
+                    </div>
+                  </div>
 
-                {/* Social icons */}
-                <div className="mt-8 flex gap-4 justify-end">
-                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    <Facebook size={20} />
-                  </a>
-                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    <Instagram size={20} />
-                  </a>
-                  <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                    <Linkedin size={20} />
-                  </a>
+                  <div className="flex gap-8 items-end justify-end">
+                    {/* Stats grid */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="grid grid-cols-2 gap-4"
+                    >
+                      {stats.map((stat, index) => {
+                        const Icon = stat.icon;
+                        return (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 + (index * 0.1) }}
+                            className="flex flex-col items-center bg-white/50 backdrop-blur-sm p-3 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                          >
+                            <Icon className="h-5 w-5 text-blue-600 mb-1" />
+                            <span className="text-base font-semibold text-gray-900">{stat.label}</span>
+                            <span className="text-xs text-gray-600 text-center">{stat.description}</span>
+                          </motion.div>
+                        );
+                      })}
+                    </motion.div>
+
+                    {/* Second banner image */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                      className="w-64"
+                    >
+                      <img
+                        src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//banner2.svg"
+                        alt="Banner secundário"
+                        className="w-full h-full object-contain"
+                      />
+                    </motion.div>
+                  </div>
                 </div>
               </div>
             </motion.div>
