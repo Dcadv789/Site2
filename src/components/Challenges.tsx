@@ -76,7 +76,7 @@ export function Challenges() {
                 whileTap={{ scale: 0.95 }}
                 className="inline-block"
               >
-                <button className="bg-orange-500 hover:bg-orange-600 px-8 py-6 rounded-lg shadow-lg text-[20px] font-semibold text-white hover:shadow-xl transition-all duration-300">
+                <button className="bg-gray-900 hover:bg-blue-600 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg">
                   Diagnóstico gratuito
                 </button>
               </motion.div>

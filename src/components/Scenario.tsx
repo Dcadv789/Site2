@@ -71,7 +71,7 @@ export function Scenario() {
                 whileTap={{ scale: 0.95 }}
                 className="inline-block"
               >
-                <button className="bg-orange-500 hover:bg-orange-600 px-8 py-6 rounded-lg shadow-lg text-[20px] font-semibold text-white hover:shadow-xl transition-all duration-300">
+                <button className="bg-gray-900 hover:bg-blue-600 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg">
                   Evite que isso aconteça com você
                 </button>
               </motion.div>
@@ -86,11 +86,10 @@ export function Scenario() {
               className="relative rounded-2xl overflow-hidden shadow-xl"
             >
               <img
-                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800&h=1000"
+                src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//image3.svg"
                 alt="Análise financeira"
-                className="w-full h-full object-cover"
+                className="w-full h-[400px] object-contain"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-orange-500/20" />
             </motion.div>
           </div>
         </div>

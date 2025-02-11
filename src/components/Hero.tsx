@@ -39,8 +39,8 @@ export function Hero() {
   ];
 
   return (
-    <section id="inicio" className="pt-16 scroll-mt-16">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-32 sm:pb-28">
+    <section id="inicio" className="pt-12 scroll-mt-16">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16 sm:pt-24 sm:pb-28">
         {/* Main heading spanning full width */}
         <div className="text-center mb-20">
           <motion.h1 
@@ -49,7 +49,7 @@ export function Hero() {
             transition={{ duration: 0.5 }}
             className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-gray-900 leading-[1.1]"
           >
-            Somos o <span className="text-blue-600">novo financeiro</span> da sua empresa!
+            Seu <span className="text-blue-600">financeiro</span> digital, eficiente e projetado para o sucesso
           </motion.h1>
         </div>
 
@@ -96,7 +96,7 @@ export function Hero() {
                     </button>
 
                     {/* Social icons */}
-                    <div className="flex gap-3 justify-end w-72">
+                    <div className="flex gap-3 justify-end w-72 translate-x-[-30px]">
                       {socialLinks.map((social, index) => {
                         const Icon = social.icon;
                         return (
@@ -105,7 +105,7 @@ export function Hero() {
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-gray-600 hover:text-blue-600 transition-colors bg-white shadow-sm p-2 rounded-full hover:shadow-md group"
+                            className="text-gray-600 hover:text-blue-600 transition-colors bg-white shadow-md p-2 rounded-full hover:shadow-lg group border border-gray-100"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 + (index * 0.1) }}
@@ -135,7 +135,7 @@ export function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 + (index * 0.1) }}
-                            className="flex flex-col items-center bg-white/50 backdrop-blur-sm p-3 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                            className="flex flex-col items-center bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100"
                           >
                             <Icon className="h-5 w-5 text-blue-600 mb-1" />
                             <span className="text-base font-semibold text-gray-900">{stat.label}</span>
