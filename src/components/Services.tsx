@@ -14,220 +14,76 @@ import {
 export function Services() {
   const services = [
     {
-      id: "gestao-financeira",
+      id: "consultoria-empresarial",
       icon: BarChart3,
-      title: "Gestão Financeira",
+      title: "Consultoria Empresarial",
       description: "Controle completo das suas finanças com relatórios detalhados e análises estratégicas",
       content: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <img
-            src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=600&h=400"
-            alt="Gestão Financeira"
-            className="rounded-lg shadow-lg w-full h-64 object-cover"
-          />
-          <div className="space-y-4">
-            <h4 className="text-xl font-semibold text-gray-900">Gestão Financeira Completa</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Controle de receitas e despesas
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Fluxo de caixa detalhado
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Relatórios gerenciais
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Análise de custos
-              </li>
-            </ul>
-          </div>
+        <div className="grid grid-cols-3 gap-3 max-w-4xl mx-auto">
+          {[
+            "Diagnóstico Financeiro",
+            "Consultoria para Crescimento",
+            "Planejamento Estratégico",
+            "Precificação de Produtos e Serviços",
+            "Análise de Viabilidade de Projetos",
+            "Gestão de Fluxo de Caixa",
+            "Otimização de Custos e Despesas",
+            "Reestruturação Financeira",
+            "Consultoria em Financiamento e Investimentos"
+          ].map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              className="group cursor-pointer"
+            >
+              <div className="relative h-[90px] bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-blue-200 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <h3 className="text-sm font-medium text-gray-900 text-center relative z-10 group-hover:text-blue-700 transition-colors duration-300">
+                  {service}
+                </h3>
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-blue-600/60 rounded-full transform origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+              </div>
+            </motion.div>
+          ))}
         </div>
       )
     },
     {
-      id: "planejamento-tributario",
+      id: "bpo-financeiro",
       icon: Calculator,
-      title: "Planejamento Tributário",
+      title: "BPO Financeiro",
       description: "Otimização da carga tributária e conformidade fiscal",
-      content: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <img
-            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600&h=400"
-            alt="Planejamento Tributário"
-            className="rounded-lg shadow-lg w-full h-64 object-cover"
-          />
-          <div className="space-y-4">
-            <h4 className="text-xl font-semibold text-gray-900">Planejamento Tributário Estratégico</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Análise de regime tributário
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Redução legal da carga tributária
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Prevenção de contingências
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Recuperação de tributos
-              </li>
-            </ul>
-          </div>
-        </div>
-      )
+      content: null
     },
     {
-      id: "consultoria-empresarial",
+      id: "antecipacao-recebiveis",
       icon: Users,
-      title: "Consultoria Empresarial",
+      title: "Antecipação de Recebíveis",
       description: "Assessoria estratégica para crescimento sustentável",
-      content: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=600&h=400"
-            alt="Consultoria Empresarial"
-            className="rounded-lg shadow-lg w-full h-64 object-cover"
-          />
-          <div className="space-y-4">
-            <h4 className="text-xl font-semibold text-gray-900">Consultoria Empresarial Especializada</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Diagnóstico empresarial
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Planejamento estratégico
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Reestruturação organizacional
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Gestão de processos
-              </li>
-            </ul>
-          </div>
-        </div>
-      )
+      content: null
     },
     {
-      id: "analise-desempenho",
+      id: "solucoes-digitais",
       icon: TrendingUp,
-      title: "Análise de Desempenho",
+      title: "Soluções Digitais",
       description: "Métricas e indicadores para tomada de decisão",
-      content: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <img
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600&h=400"
-            alt="Análise de Desempenho"
-            className="rounded-lg shadow-lg w-full h-64 object-cover"
-          />
-          <div className="space-y-4">
-            <h4 className="text-xl font-semibold text-gray-900">Análise de Desempenho Empresarial</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                KPIs personalizados
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Dashboards gerenciais
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Análise de tendências
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Recomendações estratégicas
-              </li>
-            </ul>
-          </div>
-        </div>
-      )
+      content: null
     },
     {
-      id: "gestao-custos",
+      id: "hub-ferramentas",
       icon: PiggyBank,
-      title: "Gestão de Custos",
+      title: "Hub de Ferramentas DC",
       description: "Otimização e controle de custos empresariais",
-      content: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <img
-            src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=600&h=400"
-            alt="Gestão de Custos"
-            className="rounded-lg shadow-lg w-full h-64 object-cover"
-          />
-          <div className="space-y-4">
-            <h4 className="text-xl font-semibold text-gray-900">Gestão Estratégica de Custos</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Análise de custos fixos e variáveis
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Precificação estratégica
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Redução de desperdícios
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Otimização de recursos
-              </li>
-            </ul>
-          </div>
-        </div>
-      )
+      content: null
     },
     {
-      id: "relatorios-customizados",
+      id: "mentoria-treinamentos",
       icon: FileSpreadsheet,
-      title: "Relatórios Customizados",
+      title: "Mentoria e Treinamentos",
       description: "Informações sob medida para seu negócio",
-      content: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <img
-            src="https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=600&h=400"
-            alt="Relatórios Customizados"
-            className="rounded-lg shadow-lg w-full h-64 object-cover"
-          />
-          <div className="space-y-4">
-            <h4 className="text-xl font-semibold text-gray-900">Relatórios Personalizados</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Relatórios sob demanda
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Análises setoriais
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Indicadores personalizados
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                Visualização de dados
-              </li>
-            </ul>
-          </div>
-        </div>
-      )
+      content: null
     }
   ];
 
@@ -245,7 +101,7 @@ export function Services() {
               NOSSOS SERVIÇOS
             </h2>
             <p className="text-[24px] sm:text-[30px] text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-              Soluções financeiras estratégicas para empresas de todos os tamanhos
+              Soluções financeiras para empresas de todos os tamanhos
             </p>
           </motion.div>
         </div>
@@ -277,7 +133,7 @@ export function Services() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
-                className="rounded-xl bg-white p-8"
+                className="rounded-xl"
               >
                 {service.content}
               </motion.div>
