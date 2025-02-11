@@ -50,7 +50,7 @@ export function Benefits() {
   ];
 
   return (
-    <section id="beneficios" className="py-24 bg-gray-50 scroll-mt-16">
+    <section id="beneficios" className="py-24 bg-gray-100 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.div
