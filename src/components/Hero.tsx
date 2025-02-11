@@ -80,7 +80,7 @@ export function Hero() {
               className="flex flex-col h-full justify-between"
             >
               <div className="w-full">
-                <h2 className="text-xl font-medium text-gray-900 mb-6 text-left">
+                <h2 className="text-base font-medium text-gray-500 mb-6 text-left">
                   O futuro do seu financeiro começa aqui: inovação, estratégia e crescimento. Faça um diagnóstico financeiro gratuito e descubra como evoluir!
                 </h2>
               </div>
@@ -90,7 +90,7 @@ export function Hero() {
                   <div className="flex items-center justify-between w-full">
                     <button
                       onClick={handleCtaClick}
-                      className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg"
+                      className="bg-gray-900 hover:bg-blue-600 px-3 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg min-w-[230px]"
                     >
                       Diagnóstico Gratuito
                     </button>
