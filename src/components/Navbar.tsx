@@ -80,7 +80,7 @@ export function Navbar() {
   };
 
   return (
-    <div className="fixed sm:top-0 left-1/2 -translate-x-1/2 z-10 sm:pt-4 pointer-events-none">
+    <div className="fixed sm:top-0 left-0 right-0 z-10 sm:pt-4 pointer-events-none flex justify-center">
       <div className="flex items-center gap-3 bg-white/80 border border-gray-200 backdrop-blur-lg py-3 px-2 rounded-full shadow-lg pointer-events-auto">
         <div className="hidden sm:flex items-center gap-2 px-4">
           <BarChart className="h-6 w-6 text-blue-600" />
