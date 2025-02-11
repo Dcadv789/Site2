@@ -3,6 +3,7 @@ import { Hero } from "./components/Hero"
 import { Challenges } from "./components/Challenges"
 import { Scenario } from "./components/Scenario"
 import { Benefits } from "./components/Benefits"
+import { Services } from "./components/Services"
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Challenges />
       <Scenario />
       <Benefits />
+      <Services />
     </div>
   )
 }

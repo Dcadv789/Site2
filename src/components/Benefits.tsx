@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   PiggyBank,
@@ -44,6 +44,18 @@ export function Benefits() {
     }
   ];
 
+  const [activeTab, setActiveTab] = useState(benefits[0].title);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const currentIndex = benefits.findIndex(b => b.title === activeTab);
+      const nextIndex = (currentIndex + 1) % benefits.length;
+      setActiveTab(benefits[nextIndex].title);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [activeTab]);
+
   return (
     <section id="beneficios" className="py-16 bg-gray-100 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,7 +76,7 @@ export function Benefits() {
         </div>
 
         <div className="flex flex-col items-center">
-          <Tabs defaultValue={benefits[0].title} className="w-full max-w-6xl">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-6xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               {/* Lista de benefícios na lateral esquerda */}
               <TabsList className="lg:col-span-4 flex lg:flex-col bg-transparent p-0 h-full">
@@ -107,7 +119,7 @@ export function Benefits() {
                             className: "w-12 h-12 text-blue-600 flex-shrink-0"
                           })}
                           <div className="space-y-4">
-                            <h3 className="text-2xl font-bold text-gray-900">
+                            <h3 className="text-2xl font-bold text-blue-600">
                               {benefit.title}
                             </h3>
                             <p className="text-lg text-gray-600 leading-relaxed">
