@@ -1,46 +1,46 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  TrendingUp, 
-  Clock, 
-  LineChart, 
-  PieChart, 
-  Wallet, 
-  ShieldCheck,
+  PiggyBank,
+  BarChart3,
+  FolderKanban,
+  Hourglass,
+  Shield,
+  HeartHandshake,
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 
 export function Benefits() {
   const benefits = [
     {
-      icon: TrendingUp,
-      title: "Crescimento Acelerado",
-      description: "Aumente seu faturamento com decisões baseadas em dados precisos"
+      icon: PiggyBank,
+      title: "Economia Inteligente",
+      description: "Com a DC Advisors, sua empresa reduz desperdícios e maximiza os lucros através de uma gestão financeira estratégica. Identificamos e eliminamos gastos desnecessários, otimizamos seus recursos e estruturamos processos financeiros para que sua empresa tenha um crescimento sustentável. Nossa abordagem garante que cada real seja utilizado de forma inteligente, permitindo mais eficiência e previsibilidade no seu fluxo de caixa."
     },
     {
-      icon: Clock,
-      title: "Economia de Tempo",
-      description: "Automatize processos e foque no que realmente importa"
+      icon: BarChart3,
+      title: "Controle e Decisão Estratégica",
+      description: "Ter informações financeiras completas e acessíveis em tempo real é essencial para a tomada de decisões assertivas. Com as soluções da DC Advisors, você terá um panorama financeiro claro e preciso, garantindo que suas escolhas sejam sempre embasadas e alinhadas com seus objetivos de crescimento. Acabe com a incerteza e ganhe confiança para tomar decisões estratégicas que impulsionam seu negócio."
     },
     {
-      icon: LineChart,
-      title: "Controle Total",
-      description: "Tenha visibilidade completa sobre suas finanças"
+      icon: FolderKanban,
+      title: "Organização e Transparência",
+      description: "A falta de controle financeiro pode gerar desorganização, erros e prejuízos. Na DC Advisors, estruturamos seus processos para garantir ordem absoluta e total transparência em suas finanças. Criamos rotinas financeiras eficientes, categorizamos despesas e receitas, e mantemos todas as informações organizadas para que você tenha total clareza sobre a saúde financeira do seu negócio."
     },
     {
-      icon: PieChart,
-      title: "Gestão Eficiente",
-      description: "Otimize recursos e reduza custos operacionais"
+      icon: Hourglass,
+      title: "Mais Tempo para Crescer",
+      description: "Empreendedores passam muito tempo lidando com tarefas financeiras, quando poderiam estar focados no crescimento da empresa. Com a DC Advisors, você delega a gestão financeira para especialistas e ganha tempo para se dedicar ao que realmente importa: atrair clientes, inovar e expandir seu negócio. Nossa equipe assume o trabalho operacional e estratégico das finanças, permitindo que você tenha mais liberdade e tranquilidade no dia a dia."
     },
     {
-      icon: Wallet,
-      title: "Saúde Financeira",
-      description: "Mantenha seu fluxo de caixa sempre positivo"
+      icon: Shield,
+      title: "Segurança Financeira Total",
+      description: "A proteção das suas informações financeiras é uma prioridade absoluta na DC Advisors. Contamos com tecnologia avançada e processos robustos para garantir a segurança, confidencialidade e integridade dos seus dados. Com criptografia, backups e protocolos rigorosos, seu negócio estará protegido contra riscos e vazamentos, permitindo que você trabalhe com total tranquilidade."
     },
     {
-      icon: ShieldCheck,
-      title: "Segurança",
-      description: "Decisões estratégicas com base em dados confiáveis"
+      icon: HeartHandshake,
+      title: "Consultoria e Suporte Sob Medida",
+      description: "Cada empresa tem desafios e necessidades específicas. Na DC Advisors, não oferecemos soluções genéricas: nosso suporte é totalmente personalizado para atender as particularidades do seu negócio. Com nossa consultoria especializada, você conta com um parceiro estratégico que entende suas dores e trabalha lado a lado para implementar soluções financeiras eficientes, ajudando sua empresa a crescer de forma estruturada e sustentável."
     }
   ];
 
@@ -58,7 +58,7 @@ export function Benefits() {
               BENEFÍCIOS
             </h2>
             <p className="text-[24px] sm:text-[30px] text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-              Transforme sua gestão financeira e alcance resultados extraordinários
+              O que os clientes da DC Advisors ganham
             </p>
           </motion.div>
         </div>
@@ -72,7 +72,7 @@ export function Benefits() {
                   <TabsTrigger
                     key={benefit.title}
                     value={benefit.title}
-                    className="group relative w-full flex items-center gap-3 p-4 justify-start text-lg text-gray-900 hover:text-blue-600 transition-colors data-[state=active]:bg-transparent data-[state=active]:text-blue-600"
+                    className="group relative w-full flex items-center gap-3 p-4 justify-start text-lg text-gray-900 hover:text-blue-600 transition-colors data-[state=active]:bg-transparent data-[state=active]:text-blue-600 data-[state=active]:shadow-none"
                   >
                     {React.createElement(benefit.icon, {
                       className: "w-6 h-6 transition-colors group-data-[state=active]:text-blue-600"
@@ -87,54 +87,55 @@ export function Benefits() {
               </TabsList>
 
               {/* Conteúdo na lateral direita */}
-              <div className="lg:col-span-8">
-                {benefits.map((benefit) => (
-                  <TabsContent
-                    key={benefit.title}
-                    value={benefit.title}
-                    className="m-0"
-                  >
-                    <motion.div
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      className="border border-gray-200 rounded-xl p-8 h-full"
-                    >
-                      <div className="flex items-start gap-6">
-                        {React.createElement(benefit.icon, {
-                          className: "w-12 h-12 text-blue-600 flex-shrink-0"
-                        })}
-                        <div className="space-y-4">
-                          <h3 className="text-2xl font-bold text-gray-900">
-                            {benefit.title}
-                          </h3>
-                          <p className="text-lg text-gray-600">
-                            {benefit.description}
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </TabsContent>
-                ))}
+              <div className="lg:col-span-8 h-full">
+                <div className="border-2 border-gray-200 rounded-xl p-8 h-full min-h-[360px] relative">
+                  <AnimatePresence mode="wait">
+                    {benefits.map((benefit) => (
+                      <TabsContent
+                        key={benefit.title}
+                        value={benefit.title}
+                        className="m-0 h-full absolute inset-0 p-8"
+                      >
+                        <motion.div
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -20 }}
+                          transition={{ duration: 0.3 }}
+                          className="flex items-start gap-6"
+                        >
+                          {React.createElement(benefit.icon, {
+                            className: "w-12 h-12 text-blue-600 flex-shrink-0"
+                          })}
+                          <div className="space-y-4">
+                            <h3 className="text-2xl font-bold text-gray-900">
+                              {benefit.title}
+                            </h3>
+                            <p className="text-lg text-gray-600 leading-relaxed">
+                              {benefit.description}
+                            </p>
+                          </div>
+                        </motion.div>
+                      </TabsContent>
+                    ))}
+                  </AnimatePresence>
+                </div>
               </div>
             </div>
           </Tabs>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="mt-12 text-center"
-        >
-          <div className="inline-block relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-orange-500 rounded-lg transform rotate-1 hover:rotate-2 transition-transform duration-300" />
-            <button className="relative bg-white px-8 py-4 rounded-lg text-[18px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500 hover:shadow-xl transition-all duration-300">
-              Comece sua transformação agora
+        <div className="mt-12 text-center">
+          <motion.div
+            initial={false}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block"
+          >
+            <button className="bg-gray-900 hover:bg-blue-600 px-12 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg whitespace-nowrap min-w-[500px]">
+              Quero esses benefícios para minha empresa!
             </button>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
