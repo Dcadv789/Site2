@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { 
   TrendingUp, 
   Clock, 
@@ -7,12 +7,10 @@ import {
   PieChart, 
   Wallet, 
   ShieldCheck,
-  ChevronRight
 } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 
 export function Benefits() {
-  const [selectedBenefit, setSelectedBenefit] = useState(0);
-
   const benefits = [
     {
       icon: TrendingUp,
@@ -47,9 +45,9 @@ export function Benefits() {
   ];
 
   return (
-    <section id="beneficios" className="py-24 bg-gray-100 scroll-mt-16">
+    <section id="beneficios" className="py-16 bg-gray-100 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -65,73 +63,61 @@ export function Benefits() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Coluna da esquerda - Lista de benefícios */}
-          <div className="space-y-4">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              const isSelected = selectedBenefit === index;
-
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => setSelectedBenefit(index)}
-                  className={`cursor-pointer group ${
-                    isSelected ? 'bg-blue-50' : 'bg-white'
-                  } p-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300`}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                        isSelected ? 'bg-blue-500' : 'bg-gray-100 group-hover:bg-blue-100'
-                      } transition-colors`}>
-                        <Icon className={`w-6 h-6 ${
-                          isSelected ? 'text-white' : 'text-gray-600 group-hover:text-blue-600'
-                        }`} />
-                      </div>
-                      <h3 className={`text-lg font-semibold ${
-                        isSelected ? 'text-blue-600' : 'text-gray-900'
-                      }`}>
-                        {benefit.title}
-                      </h3>
+        <div className="flex flex-col items-center">
+          <Tabs defaultValue={benefits[0].title} className="w-full max-w-6xl">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              {/* Lista de benefícios na lateral esquerda */}
+              <TabsList className="lg:col-span-4 flex lg:flex-col bg-transparent p-0 h-auto">
+                {benefits.map((benefit) => (
+                  <TabsTrigger
+                    key={benefit.title}
+                    value={benefit.title}
+                    className="relative w-full flex items-center gap-3 p-4 justify-start text-lg text-gray-900 hover:text-blue-600 transition-colors data-[state=active]:bg-transparent"
+                  >
+                    {React.createElement(benefit.icon, {
+                      className: "w-6 h-6 transition-colors data-[state=active]:text-blue-600"
+                    })}
+                    <span className="font-medium">{benefit.title}</span>
+                    <div className="absolute right-0 top-0 bottom-0 w-[3px] bg-gray-200">
+                      <div className="h-full w-full data-[state=active]:bg-blue-600 transition-colors" />
                     </div>
-                    <ChevronRight className={`w-5 h-5 transition-transform ${
-                      isSelected ? 'text-blue-600 translate-x-1' : 'text-gray-400 group-hover:translate-x-1'
-                    }`} />
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
 
-          {/* Coluna da direita - Descrição do benefício */}
-          <div className="relative h-[300px] bg-white rounded-2xl shadow-lg p-8">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={selectedBenefit}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="h-full flex flex-col justify-center"
-              >
-                <div className="mb-6">
-                  {React.createElement(benefits[selectedBenefit].icon, {
-                    className: "w-16 h-16 text-blue-600"
-                  })}
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {benefits[selectedBenefit].title}
-                </h3>
-                <p className="text-lg text-gray-600">
-                  {benefits[selectedBenefit].description}
-                </p>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+              {/* Conteúdo na lateral direita */}
+              <div className="lg:col-span-8">
+                {benefits.map((benefit) => (
+                  <TabsContent
+                    key={benefit.title}
+                    value={benefit.title}
+                    className="m-0"
+                  >
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      className="bg-white rounded-xl shadow-sm p-8"
+                    >
+                      <div className="flex items-start gap-6">
+                        {React.createElement(benefit.icon, {
+                          className: "w-12 h-12 text-blue-600 flex-shrink-0"
+                        })}
+                        <div className="space-y-4">
+                          <h3 className="text-2xl font-bold text-gray-900">
+                            {benefit.title}
+                          </h3>
+                          <p className="text-lg text-gray-600">
+                            {benefit.description}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </TabsContent>
+                ))}
+              </div>
+            </div>
+          </Tabs>
         </div>
 
         <motion.div
@@ -139,7 +125,7 @@ export function Benefits() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="mt-16 text-center"
+          className="mt-12 text-center"
         >
           <div className="inline-block relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-orange-500 rounded-lg transform rotate-1 hover:rotate-2 transition-transform duration-300" />
