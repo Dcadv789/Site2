@@ -9,6 +9,15 @@ import {
   PiggyBank,
   TrendingUp,
   Users,
+  LineChart,
+  TrendingDown,
+  Target,
+  Wallet,
+  BarChart2,
+  ArrowUpRight,
+  Banknote,
+  Scale,
+  Building
 } from 'lucide-react';
 
 export function Services() {
@@ -19,17 +28,44 @@ export function Services() {
       title: "Consultoria Empresarial",
       description: "Controle completo das suas finanças com relatórios detalhados e análises estratégicas",
       content: (
-        <div className="grid grid-cols-3 gap-3 max-w-4xl mx-auto">
+        <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
-            "Diagnóstico Financeiro",
-            "Consultoria para Crescimento",
-            "Planejamento Estratégico",
-            "Precificação de Produtos e Serviços",
-            "Análise de Viabilidade de Projetos",
-            "Gestão de Fluxo de Caixa",
-            "Otimização de Custos e Despesas",
-            "Reestruturação Financeira",
-            "Consultoria em Financiamento e Investimentos"
+            {
+              title: "Diagnóstico Financeiro",
+              icon: LineChart
+            },
+            {
+              title: "Consultoria para Crescimento",
+              icon: TrendingUp
+            },
+            {
+              title: "Planejamento Estratégico",
+              icon: Target
+            },
+            {
+              title: "Precificação de Produtos e Serviços",
+              icon: Banknote
+            },
+            {
+              title: "Análise de Viabilidade de Projetos",
+              icon: Scale
+            },
+            {
+              title: "Gestão de Fluxo de Caixa",
+              icon: Wallet
+            },
+            {
+              title: "Otimização de Custos e Despesas",
+              icon: TrendingDown
+            },
+            {
+              title: "Reestruturação Financeira",
+              icon: Building
+            },
+            {
+              title: "Consultoria em Financiamento e Investimentos",
+              icon: BarChart2
+            }
           ].map((service, index) => (
             <motion.div
               key={index}
@@ -38,12 +74,32 @@ export function Services() {
               transition={{ duration: 0.3, delay: index * 0.05 }}
               className="group cursor-pointer"
             >
-              <div className="relative h-[90px] bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-blue-200 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <h3 className="text-sm font-medium text-gray-900 text-center relative z-10 group-hover:text-blue-700 transition-colors duration-300">
-                  {service}
-                </h3>
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-blue-600/60 rounded-full transform origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+              <div className="relative h-[160px] bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200 flex flex-col items-center justify-center gap-4 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div className="relative z-10 flex flex-col items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300 group-hover:bg-blue-600">
+                    {React.createElement(service.icon, {
+                      className: "h-6 w-6 text-gray-900 group-hover:text-white transition-colors duration-300",
+                      strokeWidth: 2
+                    })}
+                  </div>
+                  
+                  <div className="relative">
+                    <h3 className="text-base font-medium text-gray-900 text-center group-hover:text-blue-700 transition-colors duration-300 leading-tight">
+                      {service.title}
+                    </h3>
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-blue-600 rounded-full transform origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                  </div>
+                </div>
+
+                <motion.div
+                  className="absolute bottom-3 right-3"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                >
+                  <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+                </motion.div>
               </div>
             </motion.div>
           ))}
