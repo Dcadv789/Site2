@@ -50,13 +50,15 @@ export function Testimonials() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Criamos 4 conjuntos de depoimentos para garantir uma transição mais suave
-  const allTestimonials = [...testimonials, ...testimonials, ...testimonials, ...testimonials];
+  // Duplicamos os depoimentos para criar uma sequência contínua
+  const displayTestimonials = [...testimonials, ...testimonials, ...testimonials, ...testimonials];
   
   useEffect(() => {
     let animationFrameId: number;
     let lastTimestamp: number;
-    const speed = 1.5;
+    const speed = 0.5; // Velocidade mais suave
+    const itemWidth = 408; // Largura de cada item (400px + 8px gap)
+    const resetThreshold = -(testimonials.length * itemWidth); // Ponto de reset
 
     const animate = (timestamp: number) => {
       if (!lastTimestamp) lastTimestamp = timestamp;
@@ -64,14 +66,14 @@ export function Testimonials() {
       
       if (!isPaused) {
         setPosition(prev => {
-          const newPosition = prev - (speed * delta / 16);
-          const resetPoint = -(testimonials.length * 408); // 400px + 8px gap
+          let newPosition = prev - (speed * delta / 16);
           
-          // Se passou do ponto de reset, voltamos exatamente um conjunto para trás
-          // mantendo a posição relativa
-          if (newPosition < resetPoint) {
-            return newPosition + (testimonials.length * 408);
+          // Se passamos do ponto de reset, voltamos para a posição equivalente
+          // no próximo conjunto, mantendo a continuidade visual
+          if (newPosition < resetThreshold) {
+            newPosition = newPosition + (testimonials.length * itemWidth);
           }
+          
           return newPosition;
         });
       }
@@ -116,7 +118,7 @@ export function Testimonials() {
               transition: 'none'
             }}
           >
-            {allTestimonials.map((testimonial, index) => (
+            {displayTestimonials.map((testimonial, index) => (
               <div
                 key={`${testimonial.id}-${index}`}
                 className="w-[400px] flex-shrink-0"
