@@ -52,7 +52,9 @@ import {
   LineChart as LineChartIcon,
   Activity,
   ClipboardList as ClipboardListIcon,
-  DollarSign as DollarSignIcon
+  DollarSign as DollarSignIcon,
+  Laptop,
+  Workflow
 } from 'lucide-react';
 
 export function Services() {
@@ -332,6 +334,14 @@ export function Services() {
             {
               title: "Atendimento Personalizado para Empresas",
               icon: HeadphonesIcon
+            },
+            {
+              title: "Consultoria e Implantação de Sistemas",
+              icon: Laptop
+            },
+            {
+              title: "Consultoria em Transformação Tecnológica",
+              icon: Workflow
             }
           ].map((service, index) => (
             <motion.div
@@ -593,7 +603,7 @@ export function Services() {
           ))}
         </Tabs>
 
-        <div className="mt-12 text-center">
+        <div className="mt-10 text-center">
           <motion.div
             initial={false}
             whileHover={{ scale: 1.05 }}
