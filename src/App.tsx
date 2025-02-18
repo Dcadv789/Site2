@@ -4,6 +4,7 @@ import { Challenges } from "./components/Challenges"
 import { Scenario } from "./components/Scenario"
 import { Benefits } from "./components/Benefits"
 import { Services } from "./components/Services"
+import { Testimonials } from "./components/Testimonials"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Scenario />
       <Benefits />
       <Services />
+      <Testimonials />
     </div>
   )
 }
