@@ -45,28 +45,44 @@ const testimonials = [
   }
 ];
 
-// Duplicamos os depoimentos para criar o efeito de loop infinito
-const duplicatedTestimonials = [...testimonials, ...testimonials];
-
 export function Testimonials() {
   const [position, setPosition] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
+  // Criamos 4 conjuntos de depoimentos para garantir uma transição mais suave
+  const allTestimonials = [...testimonials, ...testimonials, ...testimonials, ...testimonials];
+  
   useEffect(() => {
-    const moveTestimonials = () => {
-      setPosition((prev) => {
-        const newPosition = prev - 1;
-        // Quando chegar ao final do primeiro conjunto, resetamos para o início
-        if (-newPosition >= testimonials.length * 400) {
-          return 0;
-        }
-        return newPosition;
-      });
+    let animationFrameId: number;
+    let lastTimestamp: number;
+    const speed = 1.5;
+
+    const animate = (timestamp: number) => {
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const delta = timestamp - lastTimestamp;
+      
+      if (!isPaused) {
+        setPosition(prev => {
+          const newPosition = prev - (speed * delta / 16);
+          const resetPoint = -(testimonials.length * 408); // 400px + 8px gap
+          
+          // Se passou do ponto de reset, voltamos exatamente um conjunto para trás
+          // mantendo a posição relativa
+          if (newPosition < resetPoint) {
+            return newPosition + (testimonials.length * 408);
+          }
+          return newPosition;
+        });
+      }
+      
+      lastTimestamp = timestamp;
+      animationFrameId = requestAnimationFrame(animate);
     };
 
-    const interval = setInterval(moveTestimonials, 15);
-    return () => clearInterval(interval);
-  }, []);
+    animationFrameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isPaused]);
 
   return (
     <section id="depoimentos" className="py-24 bg-gradient-to-b from-gray-50 to-white scroll-mt-16">
@@ -87,15 +103,20 @@ export function Testimonials() {
           </motion.div>
         </div>
 
-        <div className="relative overflow-hidden" ref={containerRef}>
+        <div 
+          className="relative overflow-hidden" 
+          ref={containerRef}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <motion.div 
             className="flex gap-8"
             style={{
               x: position,
-              transition: 'transform linear',
+              transition: 'none'
             }}
           >
-            {duplicatedTestimonials.map((testimonial, index) => (
+            {allTestimonials.map((testimonial, index) => (
               <div
                 key={`${testimonial.id}-${index}`}
                 className="w-[400px] flex-shrink-0"
