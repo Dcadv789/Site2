@@ -306,90 +306,6 @@ export function Services() {
       )
     },
     {
-      id: "mentoria-treinamentos",
-      icon: FileSpreadsheet,
-      title: "Mentoria e Treinamentos",
-      description: "Informações sob medida para seu negócio",
-      content: (
-        <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {[
-            {
-              title: "Treinamento de Gestão Financeira Empresarial",
-              icon: GraduationCap
-            },
-            {
-              title: "Mentoria para Precificação de Produtos e Serviços",
-              icon: PresentationChart
-            },
-            {
-              title: "Formação de Equipes Financeiras",
-              icon: Users2
-            },
-            {
-              title: "Desenvolvimento de Líderes Financeiros",
-              icon: Brain
-            },
-            {
-              title: "Palestras sobre Finanças Empresariais",
-              icon: Presentation
-            },
-            {
-              title: "Workshop de Planejamento Financeiro",
-              icon: Lightbulb
-            },
-            {
-              title: "Treinamento de Redução de Custos",
-              icon: TrendingUpIcon
-            },
-            {
-              title: "Mentoria Personalizada para Negócios",
-              icon: Target
-            },
-            {
-              title: "Estratégias para Aumento da Lucratividade",
-              icon: Gauge
-            }
-          ].map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-              className="group cursor-pointer"
-            >
-              <div className="relative h-[160px] bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200 flex flex-col items-center justify-center gap-4 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="relative z-10 flex flex-col items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300 group-hover:bg-blue-600">
-                    {React.createElement(service.icon, {
-                      className: "h-6 w-6 text-gray-900 group-hover:text-white transition-colors duration-300",
-                      strokeWidth: 2
-                    })}
-                  </div>
-                  
-                  <div className="relative">
-                    <h3 className="text-base font-medium text-gray-900 text-center group-hover:text-blue-700 transition-colors duration-300 leading-tight">
-                      {service.title}
-                    </h3>
-                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-blue-600 rounded-full transform origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                  </div>
-                </div>
-
-                <motion.div
-                  className="absolute bottom-3 right-3"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                >
-                  <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
-                </motion.div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      )
-    },
-    {
       id: "solucoes-digitais",
       icon: TrendingUp,
       title: "Soluções Digitais",
@@ -496,6 +412,90 @@ export function Services() {
             {
               title: "Ferramenta de Cálculo de Pró-Labore",
               icon: DollarSignIcon
+            }
+          ].map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              className="group cursor-pointer"
+            >
+              <div className="relative h-[160px] bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200 flex flex-col items-center justify-center gap-4 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div className="relative z-10 flex flex-col items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300 group-hover:bg-blue-600">
+                    {React.createElement(service.icon, {
+                      className: "h-6 w-6 text-gray-900 group-hover:text-white transition-colors duration-300",
+                      strokeWidth: 2
+                    })}
+                  </div>
+                  
+                  <div className="relative">
+                    <h3 className="text-base font-medium text-gray-900 text-center group-hover:text-blue-700 transition-colors duration-300 leading-tight">
+                      {service.title}
+                    </h3>
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-blue-600 rounded-full transform origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                  </div>
+                </div>
+
+                <motion.div
+                  className="absolute bottom-3 right-3"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                >
+                  <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+                </motion.div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      )
+    },
+    {
+      id: "mentoria-treinamentos",
+      icon: FileSpreadsheet,
+      title: "Mentoria e Treinamentos",
+      description: "Informações sob medida para seu negócio",
+      content: (
+        <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {[
+            {
+              title: "Treinamento de Gestão Financeira Empresarial",
+              icon: GraduationCap
+            },
+            {
+              title: "Mentoria para Precificação de Produtos e Serviços",
+              icon: PresentationChart
+            },
+            {
+              title: "Formação de Equipes Financeiras",
+              icon: Users2
+            },
+            {
+              title: "Desenvolvimento de Líderes Financeiros",
+              icon: Brain
+            },
+            {
+              title: "Palestras sobre Finanças Empresariais",
+              icon: Presentation
+            },
+            {
+              title: "Workshop de Planejamento Financeiro",
+              icon: Lightbulb
+            },
+            {
+              title: "Treinamento de Redução de Custos",
+              icon: TrendingUpIcon
+            },
+            {
+              title: "Mentoria Personalizada para Negócios",
+              icon: Target
+            },
+            {
+              title: "Estratégias para Aumento da Lucratividade",
+              icon: Gauge
             }
           ].map((service, index) => (
             <motion.div
