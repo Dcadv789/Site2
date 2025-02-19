@@ -86,10 +86,10 @@ export function Plans() {
 
             {/* Toggle de Preços */}
             <div className="flex items-center justify-center mb-8">
-              <div className="relative bg-white rounded-full p-1 flex items-center">
+              <div className="relative bg-white rounded-full p-1 flex items-center w-[228px]">
                 <button
                   onClick={() => setIsAnnual(false)}
-                  className={`relative z-10 px-6 py-2 text-sm font-medium transition-colors duration-200 rounded-full ${
+                  className={`relative z-10 w-[110px] py-2 text-sm font-medium transition-colors duration-200 rounded-full ${
                     !isAnnual ? 'text-white' : 'text-gray-600'
                   }`}
                 >
@@ -97,15 +97,15 @@ export function Plans() {
                 </button>
                 <button
                   onClick={() => setIsAnnual(true)}
-                  className={`relative z-10 px-6 py-2 text-sm font-medium transition-colors duration-200 rounded-full ${
+                  className={`relative z-10 w-[110px] py-2 text-sm font-medium transition-colors duration-200 rounded-full ${
                     isAnnual ? 'text-white' : 'text-gray-600'
                   }`}
                 >
                   Anual
                 </button>
                 <div
-                  className={`absolute inset-y-1 w-[50%] bg-blue-600 rounded-full transition-transform duration-200 ${
-                    isAnnual ? 'translate-x-full' : 'translate-x-0'
+                  className={`absolute inset-y-1 w-[108px] bg-blue-600 rounded-full transition-transform duration-200 ${
+                    isAnnual ? 'translate-x-[109px]' : 'translate-x-0.5'
                   }`}
                 />
               </div>
@@ -132,15 +132,17 @@ export function Plans() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative ${isPopular ? 'lg:-mt-8' : ''}`}
+                className={`relative group ${isPopular ? 'lg:-mt-8' : ''}`}
               >
-                {/* Tag Popular */}
+                {/* Tag Popular - Agora move junto com o card */}
                 {isPopular && (
-                  <div className="absolute -top-5 left-0 right-0 flex justify-center">
+                  <motion.div 
+                    className={`absolute ${isAnnual ? '-top-5 right-22' : '-top-5 left-0 right-0'} flex justify-center z-20 transition-all duration-300 group-hover:-translate-y-1`}
+                  >
                     <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-                      Mais Popular
+                      Mais Escolhido
                     </span>
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* Tag de Desconto */}
@@ -153,36 +155,36 @@ export function Plans() {
                 )}
 
                 <div className={`h-full bg-white rounded-2xl p-8 border-2 transition-all duration-300 
-                  ${isPopular ? 'border-blue-200 shadow-xl' : 'border-gray-100 shadow-lg'} 
+                  ${isPopular ? 'border-blue-200 shadow-xl bg-gradient-to-b from-blue-50/50 to-transparent' : 'border-gray-100 shadow-lg'} 
                   ${colorVariants[plan.color as keyof typeof colorVariants]}
-                  ${isPopular ? 'hover:shadow-2xl hover:scale-105' : 'hover:shadow-xl hover:scale-102'}
+                  ${isPopular ? 'hover:shadow-2xl hover:-translate-y-2 hover:bg-gradient-to-b hover:from-blue-50' : 'hover:shadow-xl hover:-translate-y-1'}
                 `}>
                   <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors duration-300
                       ${plan.color === 'gray' ? 'bg-gray-100' : 
                         plan.color === 'yellow' ? 'bg-yellow-100' :
-                        plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100'}
+                        plan.color === 'blue' ? `bg-blue-100 ${isPopular ? 'group-hover:bg-blue-200' : ''}` : 'bg-purple-100'}
                     `}>
-                      <Icon className={`w-6 h-6
+                      <Icon className={`w-6 h-6 transition-transform duration-300 ${isPopular ? 'group-hover:scale-110' : ''}
                         ${plan.color === 'gray' ? 'text-gray-600' :
                           plan.color === 'yellow' ? 'text-yellow-600' :
                           plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}
                       `} />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900">{plan.name}</h3>
+                    <h3 className={`text-xl font-semibold ${isPopular ? 'text-blue-600' : 'text-gray-900'}`}>{plan.name}</h3>
                   </div>
 
-                  <div className="mb-6">
+                  <div className="mb-6 h-16">
                     <p className="text-gray-600">{plan.description}</p>
                   </div>
 
-                  <ul className="space-y-4 mb-8">
+                  <ul className="space-y-4 mb-8 min-h-[280px]">
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start gap-3">
-                        <Check className={`w-5 h-5 mt-0.5
+                        <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 transition-colors duration-300
                           ${plan.color === 'gray' ? 'text-gray-600' :
                             plan.color === 'yellow' ? 'text-yellow-600' :
-                            plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}
+                            plan.color === 'blue' ? `text-blue-600 ${isPopular ? 'group-hover:text-blue-700' : ''}` : 'text-purple-600'}
                         `} />
                         <span className="text-gray-600">{feature}</span>
                       </li>
@@ -190,7 +192,7 @@ export function Plans() {
                   </ul>
 
                   <button className={`w-full py-3 px-6 rounded-full font-medium transition-all duration-300
-                    ${isPopular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-900 text-white hover:bg-gray-800'}
+                    ${isPopular ? 'bg-blue-600 text-white hover:bg-blue-700 hover:scale-105' : 'bg-gray-900 text-white hover:bg-gray-800'}
                   `}>
                     Começar Agora
                   </button>
