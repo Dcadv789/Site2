@@ -1,24 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Youtube,
   Mail,
   Phone,
   MapPin,
   ArrowRight
 } from 'lucide-react';
+import { PrivacyModal } from './modals/PrivacyModal';
+import { TermsModal } from './modals/TermsModal';
 
 export function Footer() {
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
+  const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
+
   const links = {
     empresa: [
-      { label: 'Sobre nós', href: '#' },
-      { label: 'Nosso time', href: '#' },
-      { label: 'Carreiras', href: '#' },
-      { label: 'Notícias', href: '#' },
+      { label: 'Sobre Nós', href: '#' },
+      { label: 'Planos', href: '#planos' },
+      { label: 'Política de Privacidade', href: '#', onClick: (e) => {
+        e.preventDefault();
+        setIsPrivacyModalOpen(true);
+      }},
+      { label: 'Termos de Uso', href: '#', onClick: (e) => {
+        e.preventDefault();
+        setIsTermsModalOpen(true);
+      }},
+      { label: 'FAQ', href: '#faq' },
     ],
     servicos: [
       { label: 'Consultoria Empresarial', href: '#' },
@@ -28,21 +35,7 @@ export function Footer() {
       { label: 'Hub de Ferramentas', href: '#' },
       { label: 'Mentoria e Treinamentos', href: '#' },
     ],
-    suporte: [
-      { label: 'Central de Ajuda', href: '#' },
-      { label: 'Política de Privacidade', href: '#' },
-      { label: 'Termos de Uso', href: '#' },
-      { label: 'FAQ', href: '#' },
-    ],
   };
-
-  const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
-  ];
 
   return (
     <footer className="bg-gray-900 text-white pt-24 pb-12">
@@ -50,16 +43,16 @@ export function Footer() {
         {/* Grid principal */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-gray-800">
           {/* Coluna da logo e newsletter */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-3">
             <div className="space-y-8">
               <img
                 src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//Logo%20Azul.svg"
                 alt="DC Advisors"
-                className="h-8 w-auto brightness-0 invert"
+                className="h-12 w-auto brightness-0 invert"
               />
               
               <p className="text-gray-400 leading-relaxed">
-                Transformando a gestão financeira da sua empresa com soluções inovadoras e personalizadas.
+                Levando sua empresa à outro patamar financeiro
               </p>
 
               <div className="space-y-4">
@@ -83,14 +76,15 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          <div className="lg:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div className="lg:col-span-3">
             <div>
-              <h3 className="text-lg font-medium mb-6">Empresa</h3>
+              <h3 className="text-lg font-medium mb-6">Sobre Nós</h3>
               <ul className="space-y-4">
                 {links.empresa.map((link, index) => (
                   <li key={index}>
                     <a
                       href={link.href}
+                      onClick={link.onClick}
                       className="text-gray-400 hover:text-white transition-colors duration-200"
                     >
                       {link.label}
@@ -99,7 +93,9 @@ export function Footer() {
                 ))}
               </ul>
             </div>
+          </div>
 
+          <div className="lg:col-span-3">
             <div>
               <h3 className="text-lg font-medium mb-6">Serviços</h3>
               <ul className="space-y-4">
@@ -115,59 +111,26 @@ export function Footer() {
                 ))}
               </ul>
             </div>
-
-            <div>
-              <h3 className="text-lg font-medium mb-6">Suporte</h3>
-              <ul className="space-y-4">
-                {links.suporte.map((link, index) => (
-                  <li key={index}>
-                    <a
-                      href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-200"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
           {/* Informações de contato */}
-          <div className="lg:col-span-3 space-y-8">
-            <h3 className="text-lg font-medium">Contato</h3>
-            <div className="space-y-4">
-              <a href="tel:+551199999999" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-200">
-                <Phone className="w-5 h-5" />
-                (11) 99999-9999
-              </a>
-              <a href="mailto:contato@dcadvisors.com.br" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-200">
-                <Mail className="w-5 h-5" />
-                contato@dcadvisors.com.br
-              </a>
-              <div className="flex items-center gap-3 text-gray-400">
-                <MapPin className="w-5 h-5" />
-                Av. Paulista, 1000 - São Paulo, SP
+          <div className="lg:col-span-3">
+            <div className="bg-gray-800/50 rounded-xl p-6">
+              <h3 className="text-lg font-medium mb-6">Contato</h3>
+              <div className="space-y-4">
+                <a href="tel:+551199999999" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-200">
+                  <Phone className="w-5 h-5" />
+                  (11) 99999-9999
+                </a>
+                <a href="mailto:contato@dcadvisors.com.br" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-200">
+                  <Mail className="w-5 h-5" />
+                  contato@dcadvisors.com.br
+                </a>
+                <div className="flex items-start gap-3 text-gray-400">
+                  <MapPin className="w-5 h-5 flex-shrink-0" />
+                  <span>Rua Teodoro Sampaio, 744 Cj 108 - São Paulo - SP - Brasil</span>
+                </div>
               </div>
-            </div>
-
-            {/* Redes sociais */}
-            <div className="flex gap-4">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors duration-200"
-                  >
-                    <Icon className="w-5 h-5" />
-                    <span className="sr-only">{social.label}</span>
-                  </motion.a>
-                );
-              })}
             </div>
           </div>
         </div>
@@ -177,6 +140,10 @@ export function Footer() {
           <p>© 2024 DC Advisors. Todos os direitos reservados.</p>
         </div>
       </div>
+
+      {/* Modais */}
+      <PrivacyModal isOpen={isPrivacyModalOpen} onClose={() => setIsPrivacyModalOpen(false)} />
+      <TermsModal isOpen={isTermsModalOpen} onClose={() => setIsTermsModalOpen(false)} />
     </footer>
   );
 }
