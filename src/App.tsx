@@ -6,6 +6,9 @@ import { Benefits } from "./components/Benefits"
 import { Services } from "./components/Services"
 // import { Testimonials } from "./components/Testimonials"
 import { Plans } from "./components/Plans"
+import { FAQ } from "./components/FAQ"
+import { Contact } from "./components/Contact"
+import { Footer } from "./components/Footer"
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
       <Services />
       {/* <Testimonials /> */}
       <Plans />
+      <FAQ />
+      <Contact />
+      <Footer />
     </div>
   )
 }
