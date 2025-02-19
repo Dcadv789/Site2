@@ -4,7 +4,8 @@ import { Challenges } from "./components/Challenges"
 import { Scenario } from "./components/Scenario"
 import { Benefits } from "./components/Benefits"
 import { Services } from "./components/Services"
-import { Testimonials } from "./components/Testimonials"
+// import { Testimonials } from "./components/Testimonials"
+import { Plans } from "./components/Plans"
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       <Scenario />
       <Benefits />
       <Services />
-      <Testimonials />
+      {/* <Testimonials /> */}
+      <Plans />
     </div>
   )
 }
