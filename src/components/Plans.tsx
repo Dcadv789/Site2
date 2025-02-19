@@ -5,17 +5,10 @@ import { Check, Star, Crown, Diamond, Gem } from 'lucide-react';
 export function Plans() {
   const [isAnnual, setIsAnnual] = useState(false);
 
-  const calculateAnnualPrice = (monthlyPrice: number, discount: number) => {
-    const annualPrice = monthlyPrice * 12;
-    const discountAmount = annualPrice * (discount / 100);
-    return annualPrice - discountAmount;
-  };
-
   const plans = [
     {
       name: "Silver",
       icon: Star,
-      monthlyPrice: 997,
       discount: 10,
       description: "Ideal para pequenas empresas iniciando sua jornada financeira",
       features: [
@@ -30,7 +23,6 @@ export function Plans() {
     {
       name: "Gold",
       icon: Gem,
-      monthlyPrice: 1997,
       discount: 10,
       description: "Perfeito para empresas em crescimento",
       features: [
@@ -45,7 +37,6 @@ export function Plans() {
     {
       name: "Platinum",
       icon: Crown,
-      monthlyPrice: 2997,
       discount: 15,
       description: "Nosso plano mais popular para empresas estabelecidas",
       features: [
@@ -62,7 +53,6 @@ export function Plans() {
     {
       name: "Diamond",
       icon: Diamond,
-      monthlyPrice: 4997,
       discount: 15,
       description: "Solução premium para empresas que buscam excelência",
       features: [
@@ -95,19 +85,30 @@ export function Plans() {
             </p>
 
             {/* Toggle de Preços */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <span className={`text-lg ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>Mensal</span>
-              <button
-                onClick={() => setIsAnnual(!isAnnual)}
-                className="relative w-16 h-8 rounded-full bg-blue-600 transition-colors duration-300"
-              >
+            <div className="flex items-center justify-center mb-8">
+              <div className="relative bg-white rounded-full p-1 flex items-center">
+                <button
+                  onClick={() => setIsAnnual(false)}
+                  className={`relative z-10 px-6 py-2 text-sm font-medium transition-colors duration-200 rounded-full ${
+                    !isAnnual ? 'text-white' : 'text-gray-600'
+                  }`}
+                >
+                  Mensal
+                </button>
+                <button
+                  onClick={() => setIsAnnual(true)}
+                  className={`relative z-10 px-6 py-2 text-sm font-medium transition-colors duration-200 rounded-full ${
+                    isAnnual ? 'text-white' : 'text-gray-600'
+                  }`}
+                >
+                  Anual
+                </button>
                 <div
-                  className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white transition-transform duration-300 ${
-                    isAnnual ? 'translate-x-8' : 'translate-x-0'
+                  className={`absolute inset-y-1 w-[50%] bg-blue-600 rounded-full transition-transform duration-200 ${
+                    isAnnual ? 'translate-x-full' : 'translate-x-0'
                   }`}
                 />
-              </button>
-              <span className={`text-lg ${isAnnual ? 'text-white' : 'text-gray-400'}`}>Anual</span>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -116,9 +117,6 @@ export function Plans() {
           {plans.map((plan, index) => {
             const Icon = plan.icon;
             const isPopular = plan.popular;
-            const price = isAnnual 
-              ? calculateAnnualPrice(plan.monthlyPrice, plan.discount)
-              : plan.monthlyPrice;
             
             const colorVariants = {
               gray: "hover:border-gray-400 hover:shadow-gray-100",
@@ -136,20 +134,20 @@ export function Plans() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`relative ${isPopular ? 'lg:-mt-8' : ''}`}
               >
-                {/* Tag de Desconto */}
-                {isAnnual && (
-                  <div className="absolute -top-5 right-4 z-10">
-                    <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      {plan.discount}% OFF
-                    </span>
-                  </div>
-                )}
-                
                 {/* Tag Popular */}
                 {isPopular && (
                   <div className="absolute -top-5 left-0 right-0 flex justify-center">
                     <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
                       Mais Popular
+                    </span>
+                  </div>
+                )}
+
+                {/* Tag de Desconto */}
+                {isAnnual && (
+                  <div className="absolute -top-5 right-4 z-10">
+                    <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {plan.discount}% OFF
                     </span>
                   </div>
                 )}
@@ -175,20 +173,7 @@ export function Plans() {
                   </div>
 
                   <div className="mb-6">
-                    <div className="flex items-baseline gap-2">
-                      <p className="text-3xl font-bold text-gray-900">
-                        R$ {price.toLocaleString('pt-BR')}
-                      </p>
-                      <span className="text-sm text-gray-500">
-                        /{isAnnual ? 'ano' : 'mês'}
-                      </span>
-                    </div>
-                    {isAnnual && (
-                      <p className="text-sm text-green-600 mt-1">
-                        Economia de R$ {((plan.monthlyPrice * 12 * plan.discount / 100)).toLocaleString('pt-BR')}
-                      </p>
-                    )}
-                    <p className="text-gray-600 mt-2">{plan.description}</p>
+                    <p className="text-gray-600">{plan.description}</p>
                   </div>
 
                   <ul className="space-y-4 mb-8">
