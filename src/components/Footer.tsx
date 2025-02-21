@@ -150,7 +150,7 @@ export function Footer() {
           </div>
 
           {/* Informações de contato */}
-          <div className="lg:col-span-3 lg:col-start-10">
+          <div className="lg:col-span-3 lg:col-start-10" style={{ marginTop: '-25px' }}>
             <div className="bg-gray-800/50 rounded-xl p-6">
               <h3 className="text-lg font-medium mb-4">Contato</h3>
               <div className="space-y-4">
@@ -189,7 +189,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="pt-8 text-center text-gray-400">
-          <p>© 2024 DC Advisors. Todos os direitos reservados.</p>
+          <p>© 2025 DC Advisors. Todos os direitos reservados.</p>
         </div>
       </div>
 
