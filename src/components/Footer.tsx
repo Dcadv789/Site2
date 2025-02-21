@@ -32,12 +32,36 @@ export function Footer() {
       { label: 'FAQ', href: '#faq' },
     ],
     servicos: [
-      { label: 'Consultoria Empresarial', href: '#' },
-      { label: 'BPO Financeiro', href: '#' },
-      { label: 'Antecipação de Recebíveis', href: '#' },
-      { label: 'Soluções Digitais', href: '#' },
-      { label: 'Hub de Ferramentas', href: '#' },
-      { label: 'Mentoria e Treinamentos', href: '#' },
+      { label: 'Consultoria Empresarial', href: '#servicos', onClick: () => {
+        const tabsElement = document.querySelector('[role="tablist"]');
+        const consultoriaTab = tabsElement?.querySelector('[value="consultoria-empresarial"]') as HTMLButtonElement;
+        if (consultoriaTab) consultoriaTab.click();
+      }},
+      { label: 'BPO Financeiro', href: '#servicos', onClick: () => {
+        const tabsElement = document.querySelector('[role="tablist"]');
+        const bpoTab = tabsElement?.querySelector('[value="bpo-financeiro"]') as HTMLButtonElement;
+        if (bpoTab) bpoTab.click();
+      }},
+      { label: 'Antecipação de Recebíveis', href: '#servicos', onClick: () => {
+        const tabsElement = document.querySelector('[role="tablist"]');
+        const antecipacaoTab = tabsElement?.querySelector('[value="antecipacao-recebiveis"]') as HTMLButtonElement;
+        if (antecipacaoTab) antecipacaoTab.click();
+      }},
+      { label: 'Soluções Digitais', href: '#servicos', onClick: () => {
+        const tabsElement = document.querySelector('[role="tablist"]');
+        const solucoesTab = tabsElement?.querySelector('[value="solucoes-digitais"]') as HTMLButtonElement;
+        if (solucoesTab) solucoesTab.click();
+      }},
+      { label: 'Hub de Ferramentas', href: '#servicos', onClick: () => {
+        const tabsElement = document.querySelector('[role="tablist"]');
+        const hubTab = tabsElement?.querySelector('[value="hub-ferramentas"]') as HTMLButtonElement;
+        if (hubTab) hubTab.click();
+      }},
+      { label: 'Mentoria e Treinamentos', href: '#servicos', onClick: () => {
+        const tabsElement = document.querySelector('[role="tablist"]');
+        const mentoriaTab = tabsElement?.querySelector('[value="mentoria-treinamentos"]') as HTMLButtonElement;
+        if (mentoriaTab) mentoriaTab.click();
+      }},
     ],
   };
 
@@ -114,6 +138,7 @@ export function Footer() {
                   <li key={index}>
                     <a
                       href={link.href}
+                      onClick={link.onClick}
                       className="text-gray-400 hover:text-white transition-colors duration-200"
                     >
                       {link.label}
@@ -125,7 +150,7 @@ export function Footer() {
           </div>
 
           {/* Informações de contato */}
-          <div className="lg:col-span-3 -mt-5">
+          <div className="lg:col-span-3 lg:col-start-10">
             <div className="bg-gray-800/50 rounded-xl p-6">
               <h3 className="text-lg font-medium mb-4">Contato</h3>
               <div className="space-y-4">
