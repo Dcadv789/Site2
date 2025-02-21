@@ -4,7 +4,11 @@ import {
   Mail,
   Phone,
   MapPin,
-  ArrowRight
+  ArrowRight,
+  Instagram,
+  Youtube,
+  Linkedin,
+  MessageCircle
 } from 'lucide-react';
 import { PrivacyModal } from './modals/PrivacyModal';
 import { TermsModal } from './modals/TermsModal';
@@ -37,11 +41,18 @@ export function Footer() {
     ],
   };
 
+  const socialLinks = [
+    { icon: MessageCircle, href: 'https://wa.me/5511999999999', label: 'WhatsApp' },
+    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Youtube, href: '#', label: 'YouTube' },
+    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+  ];
+
   return (
     <footer className="bg-gray-900 text-white pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Grid principal */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-gray-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 pb-16 border-b border-gray-800">
           {/* Coluna da logo e newsletter */}
           <div className="lg:col-span-3">
             <div className="space-y-8">
@@ -76,10 +87,10 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 lg:ml-12">
             <div>
-              <h3 className="text-lg font-medium mb-6">Sobre Nós</h3>
-              <ul className="space-y-4">
+              <h3 className="text-lg font-medium mb-4">Sobre Nós</h3>
+              <ul className="space-y-1">
                 {links.empresa.map((link, index) => (
                   <li key={index}>
                     <a
@@ -95,10 +106,10 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-2">
             <div>
-              <h3 className="text-lg font-medium mb-6">Serviços</h3>
-              <ul className="space-y-4">
+              <h3 className="text-lg font-medium mb-4">Serviços</h3>
+              <ul className="space-y-1">
                 {links.servicos.map((link, index) => (
                   <li key={index}>
                     <a
@@ -114,9 +125,9 @@ export function Footer() {
           </div>
 
           {/* Informações de contato */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 -mt-5">
             <div className="bg-gray-800/50 rounded-xl p-6">
-              <h3 className="text-lg font-medium mb-6">Contato</h3>
+              <h3 className="text-lg font-medium mb-4">Contato</h3>
               <div className="space-y-4">
                 <a href="tel:+551199999999" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-200">
                   <Phone className="w-5 h-5" />
@@ -129,6 +140,22 @@ export function Footer() {
                 <div className="flex items-start gap-3 text-gray-400">
                   <MapPin className="w-5 h-5 flex-shrink-0" />
                   <span>Rua Teodoro Sampaio, 744 Cj 108 - São Paulo - SP - Brasil</span>
+                </div>
+
+                {/* Redes Sociais */}
+                <div className="flex gap-4 pt-2">
+                  {socialLinks.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-white transition-colors duration-200"
+                    >
+                      <social.icon className="w-6 h-6" />
+                      <span className="sr-only">{social.label}</span>
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
