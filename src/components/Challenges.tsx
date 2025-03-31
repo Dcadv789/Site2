@@ -1,28 +1,31 @@
 import React from 'react';
 import { TrendingDown, FileQuestion, DollarSign, Target } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export function Challenges() {
+  const { t } = useTranslation();
+
   const challenges = [
     {
       icon: TrendingDown,
-      title: "Resultados Abaixo do Esperado",
-      question: "Seus indicadores estão imprecisos ou nem existem?"
+      title: t('challenges.items.results.title'),
+      question: t('challenges.items.results.question')
     },
     {
       icon: FileQuestion,
-      title: "Desorganização",
-      question: "Seu financeiro está desorganizado e você não sabe para onde está indo o dinheiro?"
+      title: t('challenges.items.disorganization.title'),
+      question: t('challenges.items.disorganization.question')
     },
     {
       icon: DollarSign,
-      title: "Fluxo de Caixa",
-      question: "Você sente que está sempre no vermelho, mesmo faturando bem?"
+      title: t('challenges.items.cashflow.title'),
+      question: t('challenges.items.cashflow.question')
     },
     {
       icon: Target,
-      title: "Decisões Estratégicas",
-      question: "Tem dificuldades para definir preços justos e lucrativos para seus produtos e serviços?"
+      title: t('challenges.items.decisions.title'),
+      question: t('challenges.items.decisions.question')
     }
   ];
 
@@ -31,10 +34,10 @@ export function Challenges() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-[20px] sm:text-[15px] font-bold text-gray-900 mb-6 uppercase tracking-wide">
-            DESAFIOS
+            {t('challenges.title')}
           </h2>
           <p className="text-[24px] sm:text-[30px] text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-            Você se identifica com algum destes desafios?
+            {t('challenges.subtitle')}
           </p>
         </div>
 
@@ -88,7 +91,7 @@ export function Challenges() {
             className="inline-block"
           >
             <button className="bg-gray-900 hover:bg-blue-600 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg">
-              Diagnóstico gratuito
+              {t('challenges.cta')}
             </button>
           </motion.div>
         </div>

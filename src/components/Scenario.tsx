@@ -1,8 +1,11 @@
 import React from 'react';
 import { BarChart as ChartBar } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export function Scenario() {
+  const { t } = useTranslation();
+
   const failureReasons = [
     { reason: "Impostos/custos/despesas/juros", percentage: 31 },
     { reason: "Vendas/pouca procura/concorrência", percentage: 29 },
@@ -24,13 +27,13 @@ export function Scenario() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-[20px] sm:text-[15px] font-bold text-gray-900 mb-6 uppercase tracking-wide">
-            CENÁRIO
+            {t('scenario.title')}
           </h2>
           <p className="text-[24px] sm:text-[30px] text-gray-600 max-w-3xl mx-auto leading-relaxed font-light mb-4">
-            Você controla seu financeiro ou seu financeiro te controla?
+            {t('scenario.subtitle')}
           </p>
           <h3 className="text-[20px] font-semibold text-gray-800 mt-8 mb-6">
-            Principais motivos de falência de empresas no Brasil
+            {t('scenario.failureTitle')}
           </h3>
         </div>
 
@@ -65,7 +68,7 @@ export function Scenario() {
             </div>
 
             <div className="mt-2 mb-8">
-              <p className="text-[12px] text-gray-500 italic">Fonte: SEBRAE</p>
+              <p className="text-[12px] text-gray-500 italic">{t('scenario.source')}</p>
             </div>
 
             <div className="flex justify-center">
@@ -76,7 +79,7 @@ export function Scenario() {
                 className="inline-block"
               >
                 <button className="bg-gray-900 hover:bg-blue-600 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg">
-                  Evite que isso aconteça com você
+                  {t('scenario.cta')}
                 </button>
               </motion.div>
             </div>

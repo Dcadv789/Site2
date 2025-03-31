@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Home, Target, BarChart, Gift, Sparkles, CreditCard, HelpCircle } from 'lucide-react';
+import { Home, Target, BarChart, Gift, Sparkles, CreditCard, HelpCircle, Languages } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { useTranslation } from 'react-i18next';
 
 interface NavItem {
   name: string;
@@ -9,20 +10,21 @@ interface NavItem {
   icon: React.ElementType;
 }
 
-const items: NavItem[] = [
-  { name: 'Início', url: '#inicio', icon: Home },
-  { name: 'Desafios', url: '#desafios', icon: Target },
-  { name: 'Cenário', url: '#cenario', icon: BarChart },
-  { name: 'Benefícios', url: '#beneficios', icon: Gift },
-  { name: 'Soluções', url: '#servicos', icon: Sparkles },
-  { name: 'Planos', url: '#planos', icon: CreditCard },
-  { name: 'FAQ', url: '#faq', icon: HelpCircle },
-];
-
 export function Navbar() {
-  const [activeTab, setActiveTab] = useState(items[0].name);
+  const { t, i18n } = useTranslation();
+  const [activeTab, setActiveTab] = useState('Início');
   const [isMobile, setIsMobile] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
+
+  const items: NavItem[] = [
+    { name: t('nav.home'), url: '#inicio', icon: Home },
+    { name: t('nav.challenges'), url: '#desafios', icon: Target },
+    { name: t('nav.scenario'), url: '#cenario', icon: BarChart },
+    { name: t('nav.benefits'), url: '#beneficios', icon: Gift },
+    { name: t('nav.solutions'), url: '#servicos', icon: Sparkles },
+    { name: t('nav.plans'), url: '#planos', icon: CreditCard },
+    { name: t('nav.faq'), url: '#faq', icon: HelpCircle },
+  ];
 
   useEffect(() => {
     const handleResize = () => {
@@ -58,7 +60,7 @@ export function Navbar() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isScrolling]);
+  }, [isScrolling, items]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, item: NavItem) => {
     e.preventDefault();
@@ -81,6 +83,12 @@ export function Navbar() {
     }
   };
 
+  const toggleLanguage = () => {
+    const currentLang = i18n.language;
+    const newLang = currentLang === 'pt-BR' ? 'en-US' : 'pt-BR';
+    i18n.changeLanguage(newLang);
+  };
+
   return (
     <div className="fixed sm:top-0 left-0 right-0 z-10 sm:pt-4 pointer-events-none flex justify-center">
       <div className="flex items-center gap-3 bg-white/80 border border-gray-200 backdrop-blur-lg py-3 px-2 rounded-full shadow-lg pointer-events-auto">
@@ -91,6 +99,13 @@ export function Navbar() {
             className="h-8 w-auto"
           />
         </div>
+
+        <button
+          onClick={toggleLanguage}
+          className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition-colors"
+        >
+          <Languages className="w-5 h-5 text-gray-600" />
+        </button>
 
         {items.map((item) => {
           const Icon = item.icon;
@@ -133,7 +148,7 @@ export function Navbar() {
         })}
 
         <button className="hidden sm:block bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors whitespace-nowrap">
-          Agende uma Reunião
+          {t('nav.schedule')}
         </button>
       </div>
     </div>

@@ -1,18 +1,21 @@
 import React from 'react';
 import { Share2, Youtube, Instagram, Linkedin, Wallet, Target, TrendingUp, Percent } from 'lucide-react';
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import { TextRotate } from '../components/ui/text-rotate';
+import { useTranslation } from 'react-i18next';
 
 export function Hero() {
+  const { t } = useTranslation();
+
   const handleCtaClick = () => {
     window.open('https://wa.me/5511999999999', '_blank');
   };
 
   const stats = [
-    { icon: Wallet, label: '+2,5M', description: 'Gerenciados' },
-    { icon: Target, label: '100%', description: 'Foco' },
-    { icon: TrendingUp, label: '99%', description: 'Satisfação' },
-    { icon: Percent, label: '29%', description: 'Economia Gerada' },
+    { icon: Wallet, label: '+2,5M', description: t('hero.stats.managed') },
+    { icon: Target, label: '100%', description: t('hero.stats.focus') },
+    { icon: TrendingUp, label: '99%', description: t('hero.stats.satisfaction') },
+    { icon: Percent, label: '29%', description: t('hero.stats.savings') },
   ];
 
   const socialLinks = [
@@ -41,7 +44,6 @@ export function Hero() {
   return (
     <section id="inicio" className="pt-12 scroll-mt-16">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16 sm:pt-24 sm:pb-28">
-        {/* Main heading spanning full width */}
         <div className="text-center mb-20">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -49,13 +51,11 @@ export function Hero() {
             transition={{ duration: 0.5 }}
             className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-gray-900 leading-[1.1]"
           >
-            Seu <span className="text-blue-600">financeiro</span> digital, eficiente e projetado para o sucesso
+            {t('hero.title')}
           </motion.h1>
         </div>
 
-        {/* Two column layout */}
         <div className="grid grid-cols-12 gap-8">
-          {/* Left column - 60% width */}
           <div className="col-span-12 lg:col-span-7 flex items-end">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -71,7 +71,6 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right column */}
           <div className="col-span-12 lg:col-span-5">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -81,7 +80,7 @@ export function Hero() {
             >
               <div className="w-full">
                 <h2 className="text-base font-medium text-gray-500 mb-6 text-left">
-                  O futuro do seu financeiro começa aqui: inovação, estratégia e crescimento. Faça um diagnóstico financeiro gratuito e descubra como evoluir!
+                  {t('hero.subtitle')}
                 </h2>
               </div>
 
@@ -92,10 +91,9 @@ export function Hero() {
                       onClick={handleCtaClick}
                       className="bg-gray-900 hover:bg-blue-600 px-3 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg min-w-[230px]"
                     >
-                      Diagnóstico Gratuito
+                      {t('hero.cta')}
                     </button>
 
-                    {/* Social icons */}
                     <div className="flex gap-3 justify-end w-72 translate-x-[-30px]">
                       {socialLinks.map((social, index) => {
                         const Icon = social.icon;
@@ -120,7 +118,6 @@ export function Hero() {
                   </div>
 
                   <div className="flex gap-8 items-end justify-end">
-                    {/* Stats grid */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -145,7 +142,6 @@ export function Hero() {
                       })}
                     </motion.div>
 
-                    {/* Second banner image */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -165,7 +161,6 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Hidden TextRotate component */}
         <div className="hidden">
           <TextRotate
             texts={[
