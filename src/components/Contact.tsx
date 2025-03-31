@@ -52,7 +52,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-gray-900">Telefone</h3>
-                  <p className="text-gray-600">(11) 99999-9999</p>
+                  <p className="text-gray-600">(11) 99456-1052</p>
                 </div>
               </motion.div>
 
@@ -84,7 +84,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-gray-900">Endereço</h3>
-                  <p className="text-gray-600">Av. Paulista, 1000 - São Paulo, SP</p>
+                  <p className="text-gray-600">Rua Teodoro Sampaio, 744 Cj 108 - São Paulo - SP - Brasil</p>
                 </div>
               </motion.div>
             </div>

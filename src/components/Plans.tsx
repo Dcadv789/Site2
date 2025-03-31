@@ -12,11 +12,12 @@ export function Plans() {
       discount: 10,
       description: "Ideal para pequenas empresas iniciando sua jornada financeira",
       features: [
-        "Consultoria financeira mensal",
-        "Análise básica de fluxo de caixa",
-        "Relatórios financeiros trimestrais",
-        "Suporte por email",
-        "Acesso básico ao hub de ferramentas"
+        "Conciliação financeira",
+        "Relatórios de acompanhamento",
+        "Contas a pagar",
+        "Contas a receber",
+        "Gestão de documentos",
+        "Implantação e Suporte"
       ],
       color: "gray"
     },
@@ -24,13 +25,14 @@ export function Plans() {
       name: "Gold",
       icon: Gem,
       discount: 10,
-      description: "Perfeito para empresas em crescimento",
+      description: "Perfeito para empresas em crescimento que desejam maior eficiência financeira",
       features: [
-        "Tudo do plano Silver",
-        "Consultoria financeira quinzenal",
-        "Análise detalhada de custos",
-        "Planejamento tributário básico",
-        "Suporte prioritário por email e WhatsApp"
+        "Plano Silver +",
+        "Consultoria financeira trimentral",
+        "Emissão de boletos",
+        "Emissão de notas fiscais",
+        "Agendamento bancário",
+        "Cobrança (Básico)"
       ],
       color: "yellow"
     },
@@ -38,14 +40,14 @@ export function Plans() {
       name: "Platinum",
       icon: Crown,
       discount: 15,
-      description: "Nosso plano mais popular para empresas estabelecidas",
+      description: "Nosso plano mais escolhido para empresas estabelecidas que precisam de insights",
       features: [
-        "Tudo do plano Gold",
-        "Consultoria financeira semanal",
-        "Planejamento estratégico mensal",
-        "Dashboard financeiro personalizado",
-        "Suporte prioritário 24/7",
-        "Acesso completo ao hub de ferramentas"
+        "Plano Gold +",
+        "Consultoria financeira mensal",
+        "Projeção (fluxo de caixa)",
+        "Gestão de inadimplência",
+        "DRE financeira",
+        "Relatórios customizados"
       ],
       color: "blue",
       popular: true
@@ -54,14 +56,14 @@ export function Plans() {
       name: "Diamond",
       icon: Diamond,
       discount: 15,
-      description: "Solução premium para empresas que buscam excelência",
+      description: "Solução premium para empresas que buscam atendimento exclusivo",
       features: [
-        "Tudo do plano Platinum",
+        "Plano Platinum +",
         "Consultoria financeira ilimitada",
-        "Planejamento estratégico semanal",
-        "Análise setorial personalizada",
-        "Consultor financeiro dedicado",
-        "Acesso VIP a workshops e eventos"
+        "Reuniões semanais",
+        "Análise setorial",
+        "Painel de Indicadores",
+        "Atendimento exclusivo"
       ],
       color: "purple"
     }

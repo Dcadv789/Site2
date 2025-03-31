@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Home, Target, BarChart, HelpCircle, MessageSquare } from 'lucide-react';
+import { Home, Target, BarChart, Gift, Sparkles, CreditCard, HelpCircle } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 interface NavItem {
@@ -13,8 +13,10 @@ const items: NavItem[] = [
   { name: 'Início', url: '#inicio', icon: Home },
   { name: 'Desafios', url: '#desafios', icon: Target },
   { name: 'Cenário', url: '#cenario', icon: BarChart },
-  { name: 'Soluções', url: '#solucoes', icon: HelpCircle },
-  { name: 'Contato', url: '#contato', icon: MessageSquare },
+  { name: 'Benefícios', url: '#beneficios', icon: Gift },
+  { name: 'Soluções', url: '#servicos', icon: Sparkles },
+  { name: 'Planos', url: '#planos', icon: CreditCard },
+  { name: 'FAQ', url: '#faq', icon: HelpCircle },
 ];
 
 export function Navbar() {
@@ -100,7 +102,7 @@ export function Navbar() {
               href={item.url}
               onClick={(e) => handleClick(e, item)}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-6 py-3 rounded-full transition-colors",
+                "relative cursor-pointer text-sm font-semibold px-4 py-3 rounded-full transition-colors",
                 "text-gray-600 hover:text-blue-600",
                 isActive && "text-blue-600"
               )}
