@@ -8,36 +8,24 @@ const faqs = {
     title: "Consultoria Empresarial",
     questions: [
       {
-        question: "Como a consultoria pode ajudar minha empresa?",
-        answer: "Nossa consultoria oferece análise detalhada do seu negócio, identificando oportunidades de melhoria, otimizando processos e desenvolvendo estratégias personalizadas para aumentar a lucratividade e eficiência operacional."
+        question: "O que está incluído na consultoria empresarial da DC Advisors?",
+        answer: "Nossa consultoria oferece análise detalhada do seu negócio, identificando oportunidades de melhoria, otimizando processos e desenvolvendo estratégias personalizadas para aumentar a lucratividade e eficiência operacional, dando também suporte para decisões estratégicas."
       },
       {
-        question: "Qual é a duração média de um projeto de consultoria?",
-        answer: "A duração varia conforme as necessidades específicas, mas geralmente os projetos iniciais têm duração de 3 a 6 meses, com possibilidade de acompanhamento contínuo posterior."
+        question: "Para quais empresas a consultoria é indicada?",
+        answer: "Atendemos desde pequenas empresas em crescimento até negócios consolidados que buscam otimizar sua gestão financeira."
       },
       {
-        question: "Como é feito o diagnóstico inicial?",
-        answer: "Realizamos uma análise completa da sua empresa, incluindo aspectos financeiros, operacionais e estratégicos, através de reuniões, análise de documentos e avaliação de processos."
+        question: "Quanto tempo leva para ver resultados na empresa?",
+        answer: "Depende da complexidade do negócio, mas muitas empresas começam a notar melhorias em 3 a 6 meses."
       },
       {
-        question: "Quais são os principais benefícios da consultoria?",
-        answer: "Os benefícios incluem redução de custos, aumento de produtividade, melhoria nos processos decisórios, otimização do fluxo de caixa e desenvolvimento de estratégias de crescimento sustentável."
+        question: "A consultoria é online ou presencial?",
+        answer: "Nossa consultoria pode ser feita tanto online quanto presencial. A maioria dos clientes opta pelo atendimento online, pois é mais prático e eficiente. No entanto, dependendo do serviço e das necessidades do cliente, também realizamos atendimentos presenciais."
       },
       {
-        question: "Como é medido o retorno sobre o investimento?",
-        answer: "Estabelecemos KPIs específicos para seu negócio e realizamos acompanhamento mensal dos resultados, com relatórios detalhados de performance e retorno financeiro."
-      },
-      {
-        question: "Vocês atendem empresas de qual porte?",
-        answer: "Atendemos empresas de todos os portes, desde startups até grandes corporações, com soluções personalizadas para cada perfil de negócio."
-      },
-      {
-        question: "Como funciona o processo de implementação?",
-        answer: "Desenvolvemos um plano de ação detalhado, com cronograma, metas e responsabilidades definidas, além de acompanhamento próximo durante toda a implementação."
-      },
-      {
-        question: "Qual é a frequência das reuniões de acompanhamento?",
-        answer: "Realizamos reuniões semanais ou quinzenais, conforme a necessidade do projeto, além de relatórios periódicos de progresso."
+        question: "Quantas reuniões estão incluídas na consultoria?",
+        answer: "O número de reuniões varia de acordo com o projeto. Alguns clientes precisam de encontros semanais, enquanto outros demandam reuniões mais espaçadas. Tudo é definido conforme a necessidade do negócio e o plano contratado."
       }
     ]
   },
@@ -45,36 +33,24 @@ const faqs = {
     title: "BPO Financeiro",
     questions: [
       {
-        question: "O que é BPO Financeiro?",
-        answer: "BPO Financeiro é a terceirização dos processos financeiros da sua empresa, incluindo contas a pagar, contas a receber, conciliação bancária e gestão do fluxo de caixa."
+        question: "O que é BPO Financeiro e como pode ajudar minha empresa?",
+        answer: "BPO Financeiro é a terceirização dos processos financeiros da sua empresa, incluindo contas a pagar, contas a receber, conciliação bancária, gestão do fluxo de caixa e relatórios precisos."
       },
       {
-        question: "Quais serviços estão inclusos no BPO?",
-        answer: "Oferecemos gestão completa de contas a pagar e receber, conciliação bancária, emissão de relatórios financeiros, controle de fluxo de caixa e gestão de documentos fiscais."
+        question: "Minha empresa perde o controle ao terceirizar as finanças?",
+        answer: "Não! Pelo contrário, você ganha mais visibilidade e pode focar no crescimento do seu negócio."
       },
       {
-        question: "Como é garantida a segurança das informações?",
-        answer: "Utilizamos sistemas de alta segurança com criptografia, backups regulares e políticas rígidas de confidencialidade, além de acordos de sigilo com toda a equipe."
+        question: "Quanto tempo leva para implantar o BPO Financeiro na minha empresa?",
+        answer: "O prazo de implantação depende do nível de organização atual das finanças da empresa. Em média, a estruturação inicial leva entre 30 e 60 dias, mas podemos adaptar conforme a necessidade do cliente."
       },
       {
-        question: "Qual é o prazo de implementação?",
-        answer: "A implementação leva em média 30 dias, incluindo a configuração dos sistemas, treinamento da equipe e definição dos processos."
+        question: "Qual é a diferença entre a consultoria e o BPO Financeiro?",
+        answer: "A consultoria orienta e traça estratégias, enquanto o BPO cuida da operação financeira do dia a dia."
       },
       {
-        question: "Como é feita a transição dos processos?",
-        answer: "Realizamos uma transição gradual e assistida, garantindo que não haja interrupção nas operações da sua empresa."
-      },
-      {
-        question: "Quais relatórios são fornecidos?",
-        answer: "Fornecemos relatórios personalizados de fluxo de caixa, DRE, balanço patrimonial, indicadores financeiros e análises específicas conforme necessidade."
-      },
-      {
-        question: "Como é feito o acesso às informações?",
-        answer: "Através de um portal online seguro, onde você tem acesso 24/7 a todos os relatórios e informações financeiras da sua empresa."
-      },
-      {
-        question: "Qual é o nível de personalização do serviço?",
-        answer: "O serviço é totalmente personalizado, adaptando-se aos processos e necessidades específicas da sua empresa."
+        question: "Posso contratar apenas alguns serviços do BPO?",
+        answer: "Sim, oferecemos planos personalizados para atender às necessidades específicas da sua empresa."
       }
     ]
   },
@@ -82,36 +58,24 @@ const faqs = {
     title: "Antecipação de Recebíveis",
     questions: [
       {
+        question: "O que é antecipação de recebíveis?",
+        answer: "É a possibilidade de adiantar valores que sua empresa tem a receber, garantindo mais fluxo de caixa."
+      },
+      {
         question: "Quais tipos de recebíveis podem ser antecipados?",
-        answer: "Aceitamos diversos tipos de recebíveis, incluindo boletos, duplicatas, cheques, cartões de crédito e contratos."
+        answer: "Atualmente, trabalhamos com antecipação de boletos e duplicatas, garantindo maior previsibilidade no fluxo de caixa da sua empresa."
       },
       {
-        question: "Qual é o prazo para aprovação?",
-        answer: "A aprovação é rápida, geralmente em até 24 horas após o envio da documentação completa."
+        question: "A antecipação de recebíveis gera endividamento?",
+        answer: "Não! Trata-se de um adiantamento de um valor que já é seu, sem necessidade de empréstimo."
       },
       {
-        question: "Quais são as taxas praticadas?",
-        answer: "As taxas são personalizadas e variam conforme o volume, prazo e tipo de recebível, sempre com as melhores condições do mercado."
+        question: "Quais são as taxas cobradas na antecipação?",
+        answer: "As taxas variam conforme o prazo e o perfil da empresa, mas buscamos sempre as melhores condições do mercado."
       },
       {
-        question: "Qual é o valor mínimo para antecipação?",
-        answer: "Trabalhamos com valores a partir de R$ 10.000, mas as condições podem variar conforme análise."
-      },
-      {
-        question: "Como é feita a análise de crédito?",
-        answer: "Realizamos uma análise rápida e simplificada, considerando o histórico da empresa e a qualidade dos recebíveis."
-      },
-      {
-        question: "Quanto tempo leva para receber o valor?",
-        answer: "Após a aprovação, o valor é liberado em até 24 horas úteis."
-      },
-      {
-        question: "Quais documentos são necessários?",
-        answer: "Documentação básica da empresa, comprovantes dos recebíveis e demonstrativos financeiros recentes."
-      },
-      {
-        question: "Existe fidelização ou carência?",
-        answer: "Não há fidelização ou carência, você utiliza o serviço conforme sua necessidade."
+        question: "Como funciona a cobrança após a antecipação dos recebíveis?",
+        answer: "A cobrança é feita diretamente no cliente final que emitiu o título. Ou seja, sua empresa recebe o valor antecipado e a responsabilidade pelo pagamento continua sendo do devedor original, sem afetar sua relação financeira com ele."
       }
     ]
   },
@@ -119,36 +83,24 @@ const faqs = {
     title: "Soluções Digitais",
     questions: [
       {
-        question: "Quais soluções digitais são oferecidas?",
-        answer: "Oferecemos sistemas de gestão financeira, emissão de certificados digitais, automação de processos e integrações com sistemas existentes."
+        question: "Quais soluções digitais a DC Advisors oferece?",
+        answer: "Além de ferramentas financeiras, oferecemos serviços como certificado digital e automação de processos empresariais para otimizar a gestão das empresas."
       },
       {
-        question: "Como funciona a implementação?",
-        answer: "A implementação é feita em fases, com treinamento completo da equipe e suporte contínuo."
+        question: "Vocês oferecem plataformas para gestão financeira?",
+        answer: "Ainda não temos um software ERP completo de gestão, mas o DC Hub atende algumas necessidades específicas, oferecendo ferramentas pontuais para ajudar na administração financeira."
       },
       {
-        question: "Qual é o prazo de implementação?",
-        answer: "O prazo varia conforme a solução, mas geralmente leva de 15 a 45 dias."
+        question: "As soluções digitais são adaptáveis para diferentes negócios?",
+        answer: "Sim, nossos produtos podem ser personalizados de acordo com as necessidades do seu negócio."
       },
       {
-        question: "As soluções são integradas?",
-        answer: "Sim, todas as nossas soluções podem ser integradas entre si e com outros sistemas da sua empresa."
+        question: "Minha empresa pode integrar suas ferramentas com nosso sistema atual?",
+        answer: "Em muitos casos, sim. Avaliamos a possibilidade de integração via API."
       },
       {
-        question: "Como funciona o suporte técnico?",
-        answer: "Oferecemos suporte técnico 24/7 através de diversos canais de atendimento."
-      },
-      {
-        question: "É possível personalizar as soluções?",
-        answer: "Sim, todas as soluções podem ser personalizadas conforme as necessidades específicas da sua empresa."
-      },
-      {
-        question: "Qual é o investimento necessário?",
-        answer: "O investimento varia conforme as soluções escolhidas, com planos que se adequam a diferentes orçamentos."
-      },
-      {
-        question: "Como é garantida a segurança dos dados?",
-        answer: "Utilizamos as mais avançadas tecnologias de segurança e criptografia, com backups regulares e conformidade com LGPD."
+        question: "Quais são os benefícios de adotar soluções digitais na gestão financeira?",
+        answer: "edução de erros, automação de tarefas repetitivas e melhor tomada de decisões baseada em dados."
       }
     ]
   },
@@ -156,36 +108,24 @@ const faqs = {
     title: "Hub de Ferramentas DC",
     questions: [
       {
-        question: "O que é o Hub de Ferramentas?",
-        answer: "É uma plataforma centralizada com diversas ferramentas de gestão financeira, incluindo planilhas, calculadoras e simuladores."
+        question: "O que é o Hub de Ferramentas DC?",
+        answer: "O Hub é um conjunto de ferramentas digitais criadas para facilitar a rotina dos nossos clientes, oferecendo soluções práticas e diretas."
       },
       {
-        question: "Como posso acessar as ferramentas?",
-        answer: "O acesso é feito através de uma plataforma online, com login e senha exclusivos."
+        question: "O Hub substitui as planilhas financeiras?",
+        answer: "Nosso objetivo é oferecer uma experiência mais prática e intuitiva, mas algumas funcionalidades podem complementar o uso de planilhas para quem ainda prefere esse modelo."
       },
       {
-        question: "Quais ferramentas estão disponíveis?",
-        answer: "Oferecemos planilhas de controle financeiro, simuladores de investimentos, calculadoras de precificação e muito mais."
+        question: "Posso acessar as ferramentas do Hub pelo celular?",
+        answer: "Sim, o acesso pelo celular é possível, mas recomendamos o uso no computador para garantir o funcionamento completo de todas as funcionalidades."
       },
       {
-        question: "É necessário instalar algum software?",
-        answer: "Não, todas as ferramentas são baseadas em nuvem e acessíveis via navegador."
+        question: "Existe um plano gratuito para testar o Hub?",
+        answer: "Oferecemos um período de teste gratuito para que você conheça as funcionalidades antes de contratar."
       },
       {
-        question: "Como funciona o treinamento?",
-        answer: "Oferecemos treinamentos online e materiais de apoio para todas as ferramentas."
-      },
-      {
-        question: "As ferramentas são atualizadas?",
-        answer: "Sim, realizamos atualizações regulares com novas funcionalidades e melhorias."
-      },
-      {
-        question: "Posso exportar os dados?",
-        answer: "Sim, todas as ferramentas permitem exportação de dados em diversos formatos."
-      },
-      {
-        question: "Existe limite de usuários?",
-        answer: "O número de usuários varia conforme o plano contratado."
+        question: "Quais integrações estão disponíveis no Hub?",
+        answer: "Atualmente, o Hub não possui integrações nativas. Ele oferece ferramentas diretas e pontuais para auxiliar nossos clientes sem necessidade de integrações complexas."
       }
     ]
   },
@@ -193,36 +133,24 @@ const faqs = {
     title: "Mentoria e Treinamentos",
     questions: [
       {
-        question: "Como funcionam as mentorias?",
-        answer: "As mentorias são personalizadas, com encontros regulares focados nos objetivos específicos da sua empresa."
-      },
-      {
-        question: "Quais tipos de treinamentos são oferecidos?",
-        answer: "Oferecemos treinamentos em gestão financeira, liderança, processos operacionais e desenvolvimento de equipes."
+        question: "Como funciona a mentoria financeira da DC Advisors?",
+        answer: "Nossa mentoria ajuda empreendedores e indivíduos a estruturarem suas finanças e tomarem decisões estratégicas."
       },
       {
         question: "Os treinamentos são presenciais ou online?",
-        answer: "Oferecemos ambas as modalidades, adaptando-nos à sua preferência e necessidade."
+        answer: "Atualmente, nossos treinamentos são 100% online para o público geral. No entanto, para empresas, oferecemos treinamentos presenciais personalizados, capacitando equipes de forma prática e estratégica. Esses treinamentos podem ser adaptados às necessidades da empresa, abordando temas como gestão financeira, planejamento estratégico e controle de custos, sempre com foco em resultados reais."
       },
       {
-        question: "Qual é a duração dos programas?",
-        answer: "A duração varia conforme o programa, desde workshops de um dia até programas de 6 meses."
+        question: "Para quem é indicado o programa de mentoria?",
+        answer: "Para empresários, autônomos e qualquer pessoa que deseja melhorar sua gestão financeira pessoal ou empresarial."
       },
       {
-        question: "Como é feita a avaliação dos resultados?",
-        answer: "Realizamos avaliações periódicas com métricas específicas para cada programa."
+        question: "A mentoria inclui acompanhamento individual?",
+        answer: "Sim, oferecemos sessões personalizadas para atender às necessidades específicas de cada cliente."
       },
       {
-        question: "É possível personalizar os conteúdos?",
-        answer: "Sim, todos os programas podem ser customizados para atender às necessidades específicas da sua empresa."
-      },
-      {
-        question: "Quantas pessoas podem participar?",
-        answer: "O número de participantes varia conforme o programa, mas geralmente limitamos para garantir a qualidade."
-      },
-      {
-        question: "Existe material de apoio?",
-        answer: "Sim, fornecemos material completo, incluindo apostilas, vídeos e exercícios práticos."
+        question: "Os treinamentos são certificados?",
+        answer: "Sim! Emitimos certificados de participação para todos os treinamentos concluídos."
       }
     ]
   }
