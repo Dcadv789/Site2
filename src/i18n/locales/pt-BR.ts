@@ -49,7 +49,22 @@ export const ptBR = {
       subtitle: 'Você controla seu financeiro ou seu financeiro te controla?',
       failureTitle: 'Principais motivos de falência de empresas no Brasil',
       source: 'Fonte: SEBRAE',
-      cta: 'Evite que isso aconteça com você'
+      cta: 'Evite que isso aconteça com você',
+      reasons: {
+        taxes: 'Impostos/custos/despesas/juros',
+        sales: 'Vendas/pouca procura/concorrência',
+        financial: 'Problemas financeiros/inadimplência',
+        management: 'Gestão/logística/administrativo/contábil',
+        opportunity: 'Oportunidade/fim da empresa, contrato',
+        employees: 'Funcionários/preparo/crise econômica',
+        bureaucracy: 'Burocracia',
+        personal: 'Problemas pessoais/família',
+        location: 'Localização/ponto',
+        others: 'Outros motivos diversos',
+        time: 'Tempo (carga horária/incompatibilidade)',
+        force: 'Força maior/doença/aposentadoria',
+        support: 'Falta de apoio'
+      }
     },
     benefits: {
       title: 'BENEFÍCIOS',
@@ -86,13 +101,93 @@ export const ptBR = {
       title: 'NOSSOS SERVIÇOS',
       subtitle: 'Soluções financeiras para empresas de todos os tamanhos',
       cta: 'Solicite uma proposta personalizada',
-      categories: {
-        consulting: 'Consultoria Empresarial',
-        bpo: 'BPO Financeiro',
-        receivables: 'Antecipação de Recebíveis',
-        digital: 'Soluções Digitais',
-        tools: 'Hub de Ferramentas DC',
-        mentoring: 'Mentoria e Treinamentos'
+      items: {
+        consulting: {
+          title: 'Consultoria Empresarial',
+          description: 'Controle completo das suas finanças com relatórios detalhados e análises estratégicas',
+          services: {
+            diagnosis: 'Diagnóstico Financeiro',
+            growth: 'Consultoria para Crescimento',
+            planning: 'Planejamento Estratégico',
+            pricing: 'Precificação de Produtos e Serviços',
+            viability: 'Análise de Viabilidade de Projetos',
+            cashflow: 'Gestão de Fluxo de Caixa',
+            costs: 'Otimização de Custos e Despesas',
+            restructuring: 'Reestruturação Financeira',
+            investments: 'Consultoria em Financiamento e Investimentos'
+          }
+        },
+        bpo: {
+          title: 'BPO Financeiro',
+          description: 'Otimização da carga tributária e conformidade fiscal',
+          services: {
+            accounts: 'Gestão de Contas a Pagar e Receber',
+            reconciliation: 'Conciliação Bancária',
+            reports: 'Emissão de Relatórios Financeiros',
+            cashflow: 'Controle de Fluxo de Caixa',
+            invoices: 'Emissão de Notas Fiscais e Boletos',
+            defaulters: 'Gestão de Inadimplência',
+            documentation: 'Organização de Documentação Financeira',
+            contracts: 'Gestão de Contratos e Faturamento',
+            errors: 'Redução de Erros e Retrabalho'
+          }
+        },
+        receivables: {
+          title: 'Antecipação de Recebíveis',
+          description: 'Assessoria estratégica para crescimento sustentável',
+          services: {
+            credit: 'Análise de Crédito para Empresas',
+            cashflow: 'Melhoria no Fluxo de Caixa',
+            risk: 'Redução de Risco Financeiro',
+            liquidity: 'Liquidez Imediata para o Negócio',
+            alternative: 'Alternativa ao Empréstimo Bancário',
+            suppliers: 'Solução para Pagamento de Fornecedores',
+            conditions: 'Condições Especiais para Empresas',
+            support: 'Suporte na Negociação de Recebíveis'
+          }
+        },
+        digital: {
+          title: 'Soluções Digitais',
+          description: 'Métricas e indicadores para tomada de decisão',
+          services: {
+            certificate: 'Emissão de Certificado Digital',
+            renewal: 'Renovação de Certificado Digital',
+            support: 'Suporte para Certificação Digital',
+            signature: 'Autenticação e Assinatura Eletrônica',
+            service: 'Atendimento Personalizado para Empresas',
+            consulting: 'Consultoria e Implantação de Sistemas',
+            transformation: 'Consultoria em Transformação Tecnológica'
+          }
+        },
+        tools: {
+          title: 'Hub de Ferramentas DC',
+          description: 'Otimização e controle de custos empresariais',
+          services: {
+            control: 'Planilha de Controle Financeiro Empresarial',
+            pricing: 'Planilha de Precificação Inteligente',
+            cashflow: 'Planilha de Gestão de Fluxo de Caixa',
+            investments: 'Simulador de Investimentos',
+            budget: 'Planilha de Planejamento Orçamentário',
+            indicators: 'Painel de Indicadores Financeiros',
+            subscriptions: 'Ferramenta para Gestão de Assinaturas e Serviços',
+            prolabore: 'Ferramenta de Cálculo de Pró-Labore'
+          }
+        },
+        mentoring: {
+          title: 'Mentoria e Treinamentos',
+          description: 'Informações sob medida para seu negócio',
+          services: {
+            management: 'Treinamento de Gestão Financeira Empresarial',
+            pricing: 'Mentoria para Precificação de Produtos e Serviços',
+            teams: 'Formação de Equipes Financeiras',
+            leaders: 'Desenvolvimento de Líderes Financeiros',
+            lectures: 'Palestras sobre Finanças Empresariais',
+            workshop: 'Workshop de Planejamento Financeiro',
+            costs: 'Treinamento de Redução de Custos',
+            business: 'Mentoria Personalizada para Negócios',
+            profitability: 'Estratégias para Aumento da Lucratividade'
+          }
+        }
       }
     },
     plans: {

@@ -7,19 +7,19 @@ export function Scenario() {
   const { t } = useTranslation();
 
   const failureReasons = [
-    { reason: "Impostos/custos/despesas/juros", percentage: 31 },
-    { reason: "Vendas/pouca procura/concorrência", percentage: 29 },
-    { reason: "Problemas financeiros/inadimplência", percentage: 25 },
-    { reason: "Gestão/logística/administrativo/contábil", percentage: 25 },
-    { reason: "Oportunidade/fim da empresa, contrato", percentage: 13 },
-    { reason: "Funcionários/preparo/crise econômica", percentage: 12 },
-    { reason: "Burocracia", percentage: 10 },
-    { reason: "Problemas pessoais/família", percentage: 5 },
-    { reason: "Localização/ponto", percentage: 4 },
-    { reason: "Outros motivos diversos", percentage: 3 },
-    { reason: "Tempo (carga horária/incompatibilidade)", percentage: 3 },
-    { reason: "Força maior/doença/aposentadoria", percentage: 3 },
-    { reason: "Falta de apoio", percentage: 2 }
+    { reason: t('scenario.reasons.taxes'), percentage: 31 },
+    { reason: t('scenario.reasons.sales'), percentage: 29 },
+    { reason: t('scenario.reasons.financial'), percentage: 25 },
+    { reason: t('scenario.reasons.management'), percentage: 25 },
+    { reason: t('scenario.reasons.opportunity'), percentage: 13 },
+    { reason: t('scenario.reasons.employees'), percentage: 12 },
+    { reason: t('scenario.reasons.bureaucracy'), percentage: 10 },
+    { reason: t('scenario.reasons.personal'), percentage: 5 },
+    { reason: t('scenario.reasons.location'), percentage: 4 },
+    { reason: t('scenario.reasons.others'), percentage: 3 },
+    { reason: t('scenario.reasons.time'), percentage: 3 },
+    { reason: t('scenario.reasons.force'), percentage: 3 },
+    { reason: t('scenario.reasons.support'), percentage: 2 }
   ];
 
   return (

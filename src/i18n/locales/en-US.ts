@@ -49,7 +49,22 @@ export const enUS = {
       subtitle: 'Do you control your finances or do your finances control you?',
       failureTitle: 'Main reasons for business failure in Brazil',
       source: 'Source: SEBRAE',
-      cta: 'Prevent this from happening to you'
+      cta: 'Prevent this from happening to you',
+      reasons: {
+        taxes: 'Taxes/costs/expenses/interest',
+        sales: 'Sales/low demand/competition',
+        financial: 'Financial problems/default',
+        management: 'Management/logistics/administrative/accounting',
+        opportunity: 'Opportunity/end of company, contract',
+        employees: 'Employees/preparation/economic crisis',
+        bureaucracy: 'Bureaucracy',
+        personal: 'Personal/family problems',
+        location: 'Location/point',
+        others: 'Other various reasons',
+        time: 'Time (workload/incompatibility)',
+        force: 'Force majeure/illness/retirement',
+        support: 'Lack of support'
+      }
     },
     benefits: {
       title: 'BENEFITS',
@@ -86,13 +101,93 @@ export const enUS = {
       title: 'OUR SERVICES',
       subtitle: 'Financial solutions for companies of all sizes',
       cta: 'Request a personalized proposal',
-      categories: {
-        consulting: 'Business Consulting',
-        bpo: 'Financial BPO',
-        receivables: 'Receivables Anticipation',
-        digital: 'Digital Solutions',
-        tools: 'DC Tools Hub',
-        mentoring: 'Mentoring and Training'
+      items: {
+        consulting: {
+          title: 'Business Consulting',
+          description: 'Complete control of your finances with detailed reports and strategic analysis',
+          services: {
+            diagnosis: 'Financial Diagnosis',
+            growth: 'Growth Consulting',
+            planning: 'Strategic Planning',
+            pricing: 'Product and Service Pricing',
+            viability: 'Project Viability Analysis',
+            cashflow: 'Cash Flow Management',
+            costs: 'Cost and Expense Optimization',
+            restructuring: 'Financial Restructuring',
+            investments: 'Financing and Investment Consulting'
+          }
+        },
+        bpo: {
+          title: 'Financial BPO',
+          description: 'Tax burden optimization and fiscal compliance',
+          services: {
+            accounts: 'Accounts Payable and Receivable Management',
+            reconciliation: 'Bank Reconciliation',
+            reports: 'Financial Reports Issuance',
+            cashflow: 'Cash Flow Control',
+            invoices: 'Invoice and Bill Issuance',
+            defaulters: 'Default Management',
+            documentation: 'Financial Documentation Organization',
+            contracts: 'Contract and Billing Management',
+            errors: 'Error and Rework Reduction'
+          }
+        },
+        receivables: {
+          title: 'Receivables Anticipation',
+          description: 'Strategic advisory for sustainable growth',
+          services: {
+            credit: 'Business Credit Analysis',
+            cashflow: 'Cash Flow Improvement',
+            risk: 'Financial Risk Reduction',
+            liquidity: 'Immediate Business Liquidity',
+            alternative: 'Bank Loan Alternative',
+            suppliers: 'Supplier Payment Solution',
+            conditions: 'Special Business Conditions',
+            support: 'Receivables Negotiation Support'
+          }
+        },
+        digital: {
+          title: 'Digital Solutions',
+          description: 'Metrics and indicators for decision making',
+          services: {
+            certificate: 'Digital Certificate Issuance',
+            renewal: 'Digital Certificate Renewal',
+            support: 'Digital Certification Support',
+            signature: 'Electronic Authentication and Signature',
+            service: 'Personalized Business Service',
+            consulting: 'System Implementation Consulting',
+            transformation: 'Digital Transformation Consulting'
+          }
+        },
+        tools: {
+          title: 'DC Tools Hub',
+          description: 'Business cost optimization and control',
+          services: {
+            control: 'Business Financial Control Spreadsheet',
+            pricing: 'Smart Pricing Spreadsheet',
+            cashflow: 'Cash Flow Management Spreadsheet',
+            investments: 'Investment Simulator',
+            budget: 'Budget Planning Spreadsheet',
+            indicators: 'Financial Indicators Dashboard',
+            subscriptions: 'Subscription and Service Management Tool',
+            prolabore: 'Pro-Labore Calculation Tool'
+          }
+        },
+        mentoring: {
+          title: 'Mentoring and Training',
+          description: 'Tailored information for your business',
+          services: {
+            management: 'Business Financial Management Training',
+            pricing: 'Product and Service Pricing Mentoring',
+            teams: 'Financial Team Formation',
+            leaders: 'Financial Leaders Development',
+            lectures: 'Business Finance Lectures',
+            workshop: 'Financial Planning Workshop',
+            costs: 'Cost Reduction Training',
+            business: 'Personalized Business Mentoring',
+            profitability: 'Profitability Increase Strategies'
+          }
+        }
       }
     },
     plans: {
