@@ -251,7 +251,159 @@ export const enUS = {
     },
     faq: {
       title: 'FAQ',
-      subtitle: 'Frequently Asked Questions'
+      subtitle: 'Frequently Asked Questions',
+      categories: {
+        "consultoria-empresarial": {
+          title: "Business Consulting",
+          questions: [
+            {
+              question: "What is included in DC Advisors' business consulting?",
+              answer: "Our consulting offers detailed analysis of your business, identifying improvement opportunities, optimizing processes, and developing personalized strategies to increase profitability and operational efficiency, also providing support for strategic decisions."
+            },
+            {
+              question: "Which companies is the consulting recommended for?",
+              answer: "We serve from small growing companies to established businesses looking to optimize their financial management."
+            },
+            {
+              question: "How long does it take to see results in the company?",
+              answer: "It depends on the business complexity, but many companies start to notice improvements in 3 to 6 months."
+            },
+            {
+              question: "Is consulting online or in-person?",
+              answer: "Our consulting can be done both online and in-person. Most clients opt for online service as it's more practical and efficient. However, depending on the service and client needs, we also conduct in-person meetings."
+            },
+            {
+              question: "How many meetings are included in the consulting?",
+              answer: "The number of meetings varies according to the project. Some clients need weekly meetings, while others require more spaced meetings. Everything is defined according to the business needs and the contracted plan."
+            }
+          ]
+        },
+        "bpo-financeiro": {
+          title: "Financial BPO",
+          questions: [
+            {
+              question: "What is Financial BPO and how can it help my company?",
+              answer: "Financial BPO is the outsourcing of your company's financial processes, including accounts payable, accounts receivable, bank reconciliation, cash flow management, and accurate reports."
+            },
+            {
+              question: "Does my company lose control when outsourcing finances?",
+              answer: "No! On the contrary, you gain more visibility and can focus on growing your business."
+            },
+            {
+              question: "How long does it take to implement Financial BPO in my company?",
+              answer: "The implementation timeline depends on the current level of organization of the company's finances. On average, the initial structuring takes between 30 and 60 days, but we can adapt according to client needs."
+            },
+            {
+              question: "What's the difference between consulting and Financial BPO?",
+              answer: "Consulting guides and outlines strategies, while BPO handles day-to-day financial operations."
+            },
+            {
+              question: "Can I hire only some BPO services?",
+              answer: "Yes, we offer customized plans to meet your company's specific needs."
+            }
+          ]
+        },
+        "antecipacao-recebiveis": {
+          title: "Receivables Anticipation",
+          questions: [
+            {
+              question: "What is receivables anticipation?",
+              answer: "It's the possibility of advancing values that your company has to receive, ensuring more cash flow."
+            },
+            {
+              question: "What types of receivables can be anticipated?",
+              answer: "Currently, we work with anticipation of bank slips and trade notes, ensuring greater predictability in your company's cash flow."
+            },
+            {
+              question: "Does receivables anticipation generate debt?",
+              answer: "No! It's an advance on a value that's already yours, without the need for a loan."
+            },
+            {
+              question: "What are the fees charged for anticipation?",
+              answer: "Fees vary according to the term and company profile, but we always seek the best market conditions."
+            },
+            {
+              question: "How does collection work after receivables anticipation?",
+              answer: "Collection is made directly from the end customer who issued the title. In other words, your company receives the advanced amount and the responsibility for payment remains with the original debtor, without affecting your financial relationship with them."
+            }
+          ]
+        },
+        "solucoes-digitais": {
+          title: "Digital Solutions",
+          questions: [
+            {
+              question: "What digital solutions does DC Advisors offer?",
+              answer: "In addition to financial tools, we offer services such as digital certificates and business process automation to optimize company management."
+            },
+            {
+              question: "Do you offer platforms for financial management?",
+              answer: "We don't have a complete ERP management software yet, but DC Hub meets some specific needs, offering specific tools to help with financial administration."
+            },
+            {
+              question: "Are digital solutions adaptable for different businesses?",
+              answer: "Yes, our products can be customized according to your business needs."
+            },
+            {
+              question: "Can my company integrate your tools with our current system?",
+              answer: "In many cases, yes. We evaluate the possibility of integration via API."
+            },
+            {
+              question: "What are the benefits of adopting digital solutions in financial management?",
+              answer: "Error reduction, automation of repetitive tasks, and better data-driven decision making."
+            }
+          ]
+        },
+        "hub-ferramentas": {
+          title: "DC Tools Hub",
+          questions: [
+            {
+              question: "What is the DC Tools Hub?",
+              answer: "The Hub is a set of digital tools created to facilitate our clients' routine, offering practical and direct solutions."
+            },
+            {
+              question: "Does the Hub replace financial spreadsheets?",
+              answer: "Our goal is to offer a more practical and intuitive experience, but some functionalities can complement the use of spreadsheets for those who still prefer this model."
+            },
+            {
+              question: "Can I access Hub tools on mobile?",
+              answer: "Yes, mobile access is possible, but we recommend using a computer to ensure full functionality of all features."
+            },
+            {
+              question: "Is there a free plan to test the Hub?",
+              answer: "We offer a free trial period so you can get to know the features before hiring."
+            },
+            {
+              question: "What integrations are available in the Hub?",
+              answer: "Currently, the Hub doesn't have native integrations. It offers direct and specific tools to help our clients without the need for complex integrations."
+            }
+          ]
+        },
+        "mentoria-treinamentos": {
+          title: "Mentoring and Training",
+          questions: [
+            {
+              question: "How does DC Advisors' financial mentoring work?",
+              answer: "Our mentoring helps entrepreneurs and individuals structure their finances and make strategic decisions."
+            },
+            {
+              question: "Are trainings in-person or online?",
+              answer: "Currently, our trainings are 100% online for the general public. However, for companies, we offer customized in-person training, empowering teams in a practical and strategic way. These trainings can be adapted to company needs, covering topics such as financial management, strategic planning, and cost control, always focusing on real results."
+            },
+            {
+              question: "Who is the mentoring program recommended for?",
+              answer: "For business owners, freelancers, and anyone who wants to improve their personal or business financial management."
+            },
+            {
+              question: "Does mentoring include individual follow-up?",
+              answer: "Yes, we offer personalized sessions to meet each client's specific needs."
+            },
+            {
+              question: "Are trainings certified?",
+              answer: "Yes! We issue participation certificates for all completed trainings."
+            }
+          ]
+        }
+      }
     },
     contact: {
       title: 'CONTACT',
