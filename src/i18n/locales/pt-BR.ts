@@ -273,13 +273,17 @@ export const ptBR = {
       }
     },
     footer: {
-      about: 'Sobre Nós',
-      privacy: 'Política de Privacidade',
-      terms: 'Termos de Uso',
+      about: 'Sobre nós',
+      privacy: 'Política de privacidade',
+      terms: 'Termos de uso',
       newsletter: 'Newsletter',
       emailPlaceholder: 'Seu e-mail',
       rights: '© 2025 DC Advisors. Todos os direitos reservados.',
-      slogan: 'Levando sua empresa à outro patamar financeiro'
+      slogan: 'Levando sua empresa à outro patamar financeiro',
+      links: {
+        plans: 'Planos',
+        services: 'Nossos serviços'
+      }
     }
   }
 };

@@ -273,13 +273,17 @@ export const enUS = {
       }
     },
     footer: {
-      about: 'About Us',
-      privacy: 'Privacy Policy',
-      terms: 'Terms of Use',
+      about: 'About us',
+      privacy: 'Privacy policy',
+      terms: 'Terms of use',
       newsletter: 'Newsletter',
       emailPlaceholder: 'Your email',
       rights: '© 2025 DC Advisors. All rights reserved.',
-      slogan: 'Taking your company to the next financial level'
+      slogan: 'Taking your company to the next financial level',
+      links: {
+        plans: 'Plans',
+        services: 'Our services'
+      }
     }
   }
 };

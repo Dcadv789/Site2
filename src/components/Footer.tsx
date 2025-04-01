@@ -22,7 +22,7 @@ export function Footer() {
   const links = {
     empresa: [
       { label: t('footer.about'), href: '#' },
-      { label: t('plans.title'), href: '#planos' },
+      { label: t('footer.links.plans'), href: '#planos' },
       { label: t('footer.privacy'), href: '#', onClick: (e) => {
         e.preventDefault();
         setIsPrivacyModalOpen(true);
@@ -134,7 +134,7 @@ export function Footer() {
 
           <div className="lg:col-span-2">
             <div>
-              <h3 className="text-lg font-medium mb-4">{t('services.title')}</h3>
+              <h3 className="text-lg font-medium mb-4">{t('footer.links.services')}</h3>
               <ul className="space-y-1">
                 {links.servicos.map((link, index) => (
                   <li key={index}>
