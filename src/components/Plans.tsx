@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Star, Crown, Diamond, Gem } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export function Plans() {
+  const { t } = useTranslation();
   const [isAnnual, setIsAnnual] = useState(false);
 
   const plans = [
@@ -80,22 +82,23 @@ export function Plans() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-[20px] sm:text-[15px] font-bold text-white mb-6 uppercase tracking-wide">
-              PLANOS
+              {t('plans.title')}
             </h2>
             <p className="text-[24px] sm:text-[30px] text-gray-200 max-w-3xl mx-auto leading-relaxed font-light mb-12">
-              Escolha o plano ideal para o seu negócio
+              {t('plans.subtitle')}
             </p>
 
             {/* Toggle de Preços */}
             <div className="flex items-center justify-center mb-8">
-              <div className="relative bg-white rounded-full p-1 flex items-center w-[228px]">
+              <div className="relative bg-white rounde
+d-full p-1 flex items-center w-[228px]">
                 <button
                   onClick={() => setIsAnnual(false)}
                   className={`relative z-10 w-[110px] py-2 text-sm font-medium transition-colors duration-200 rounded-full ${
                     !isAnnual ? 'text-white' : 'text-gray-600'
                   }`}
                 >
-                  Mensal
+                  {t('plans.billing.monthly')}
                 </button>
                 <button
                   onClick={() => setIsAnnual(true)}
@@ -103,7 +106,7 @@ export function Plans() {
                     isAnnual ? 'text-white' : 'text-gray-600'
                   }`}
                 >
-                  Anual
+                  {t('plans.billing.annual')}
                 </button>
                 <div
                   className={`absolute inset-y-1 w-[108px] bg-blue-600 rounded-full transition-transform duration-200 ${
@@ -136,13 +139,13 @@ export function Plans() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`relative group ${isPopular ? 'lg:-mt-8' : ''}`}
               >
-                {/* Tag Popular - Agora move junto com o card */}
+                {/* Tag Popular */}
                 {isPopular && (
                   <motion.div 
                     className={`absolute ${isAnnual ? '-top-5 right-22' : '-top-5 left-0 right-0'} flex justify-center z-20 transition-all duration-300 group-hover:-translate-y-1`}
                   >
                     <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-                      Mais Escolhido
+                      {t('plans.popular')}
                     </span>
                   </motion.div>
                 )}
@@ -151,7 +154,7 @@ export function Plans() {
                 {isAnnual && (
                   <div className="absolute -top-5 right-4 z-10">
                     <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      {plan.discount}% OFF
+                      {plan.discount}% {t('plans.discount')}
                     </span>
                   </div>
                 )}
@@ -196,7 +199,7 @@ export function Plans() {
                   <button className={`w-full py-3 px-6 rounded-full font-medium transition-all duration-300
                     ${isPopular ? 'bg-blue-600 text-white hover:bg-blue-700 hover:scale-105' : 'bg-gray-900 text-white hover:bg-gray-800'}
                   `}>
-                    Começar Agora
+                    {t('plans.cta')}
                   </button>
                 </div>
               </motion.div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ScrollArea, ScrollBar } from './ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import { useTranslation } from 'react-i18next';
 import { 
   BarChart3, 
   Calculator, 
@@ -58,49 +59,51 @@ import {
 } from 'lucide-react';
 
 export function Services() {
+  const { t } = useTranslation();
+
   const services = [
     {
       id: "consultoria-empresarial",
       icon: BarChart3,
-      title: "Consultoria Empresarial",
-      description: "Controle completo das suas finanças com relatórios detalhados e análises estratégicas",
+      title: t('services.items.consulting.title'),
+      description: t('services.items.consulting.description'),
       content: (
         <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
             {
-              title: "Diagnóstico Financeiro",
+              title: t('services.items.consulting.services.diagnosis'),
               icon: LineChart
             },
             {
-              title: "Consultoria para Crescimento",
+              title: t('services.items.consulting.services.growth'),
               icon: TrendingUp
             },
             {
-              title: "Planejamento Estratégico",
+              title: t('services.items.consulting.services.planning'),
               icon: Target
             },
             {
-              title: "Precificação de Produtos e Serviços",
+              title: t('services.items.consulting.services.pricing'),
               icon: Banknote
             },
             {
-              title: "Análise de Viabilidade de Projetos",
+              title: t('services.items.consulting.services.viability'),
               icon: Scale
             },
             {
-              title: "Gestão de Fluxo de Caixa",
+              title: t('services.items.consulting.services.cashflow'),
               icon: Wallet
             },
             {
-              title: "Otimização de Custos e Despesas",
+              title: t('services.items.consulting.services.costs'),
               icon: TrendingDown
             },
             {
-              title: "Reestruturação Financeira",
+              title: t('services.items.consulting.services.restructuring'),
               icon: Building
             },
             {
-              title: "Consultoria em Financiamento e Investimentos",
+              title: t('services.items.consulting.services.investments'),
               icon: BarChart2
             }
           ].map((service, index) => (
@@ -146,45 +149,45 @@ export function Services() {
     {
       id: "bpo-financeiro",
       icon: Calculator,
-      title: "BPO Financeiro",
-      description: "Otimização da carga tributária e conformidade fiscal",
+      title: t('services.items.bpo.title'),
+      description: t('services.items.bpo.description'),
       content: (
         <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
             {
-              title: "Gestão de Contas a Pagar e Receber",
+              title: t('services.items.bpo.services.accounts'),
               icon: Receipt
             },
             {
-              title: "Conciliação Bancária",
+              title: t('services.items.bpo.services.reconciliation'),
               icon: CreditCard
             },
             {
-              title: "Emissão de Relatórios Financeiros",
+              title: t('services.items.bpo.services.reports'),
               icon: FileText
             },
             {
-              title: "Controle de Fluxo de Caixa",
+              title: t('services.items.bpo.services.cashflow'),
               icon: DollarSign
             },
             {
-              title: "Emissão de Notas Fiscais e Boletos",
+              title: t('services.items.bpo.services.invoices'),
               icon: FileCheck
             },
             {
-              title: "Gestão de Inadimplência",
+              title: t('services.items.bpo.services.defaulters'),
               icon: UserCheck
             },
             {
-              title: "Organização de Documentação Financeira",
+              title: t('services.items.bpo.services.documentation'),
               icon: Files
             },
             {
-              title: "Gestão de Contratos e Faturamento",
+              title: t('services.items.bpo.services.contracts'),
               icon: ClipboardList
             },
             {
-              title: "Redução de Erros e Retrabalho",
+              title: t('services.items.bpo.services.errors'),
               icon: BadgeCheck
             }
           ].map((service, index) => (
@@ -230,41 +233,41 @@ export function Services() {
     {
       id: "antecipacao-recebiveis",
       icon: Users,
-      title: "Antecipação de Recebíveis",
-      description: "Assessoria estratégica para crescimento sustentável",
+      title: t('services.items.receivables.title'),
+      description: t('services.items.receivables.description'),
       content: (
         <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
             {
-              title: "Análise de Crédito para Empresas",
+              title: t('services.items.receivables.services.credit'),
               icon: Landmark
             },
             {
-              title: "Melhoria no Fluxo de Caixa",
+              title: t('services.items.receivables.services.cashflow'),
               icon: CandlestickChart
             },
             {
-              title: "Redução de Risco Financeiro",
+              title: t('services.items.receivables.services.risk'),
               icon: TrendingDown
             },
             {
-              title: "Liquidez Imediata para o Negócio",
+              title: t('services.items.receivables.services.liquidity'),
               icon: Coins
             },
             {
-              title: "Alternativa ao Empréstimo Bancário",
+              title: t('services.items.receivables.services.alternative'),
               icon: HandCoins
             },
             {
-              title: "Solução para Pagamento de Fornecedores",
+              title: t('services.items.receivables.services.suppliers'),
               icon: Briefcase
             },
             {
-              title: "Condições Especiais para Empresas",
+              title: t('services.items.receivables.services.conditions'),
               icon: BadgeCheck
             },
             {
-              title: "Suporte na Negociação de Recebíveis",
+              title: t('services.items.receivables.services.support'),
               icon: HandCoins
             }
           ].map((service, index) => (
@@ -310,37 +313,37 @@ export function Services() {
     {
       id: "solucoes-digitais",
       icon: TrendingUp,
-      title: "Soluções Digitais",
-      description: "Métricas e indicadores para tomada de decisão",
+      title: t('services.items.digital.title'),
+      description: t('services.items.digital.description'),
       content: (
         <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
             {
-              title: "Emissão de Certificado Digital",
+              title: t('services.items.digital.services.certificate'),
               icon: KeyRound
             },
             {
-              title: "Renovação de Certificado Digital",
+              title: t('services.items.digital.services.renewal'),
               icon: RefreshCw
             },
             {
-              title: "Suporte para Certificação Digital",
+              title: t('services.items.digital.services.support'),
               icon: HelpCircle
             },
             {
-              title: "Autenticação e Assinatura Eletrônica",
+              title: t('services.items.digital.services.signature'),
               icon: FileSignature
             },
             {
-              title: "Atendimento Personalizado para Empresas",
+              title: t('services.items.digital.services.service'),
               icon: HeadphonesIcon
             },
             {
-              title: "Consultoria e Implantação de Sistemas",
+              title: t('services.items.digital.services.consulting'),
               icon: Laptop
             },
             {
-              title: "Consultoria em Transformação Tecnológica",
+              title: t('services.items.digital.services.transformation'),
               icon: Workflow
             }
           ].map((service, index) => (
@@ -386,41 +389,41 @@ export function Services() {
     {
       id: "hub-ferramentas",
       icon: PiggyBank,
-      title: "Hub de Ferramentas DC",
-      description: "Otimização e controle de custos empresariais",
+      title: t('services.items.tools.title'),
+      description: t('services.items.tools.description'),
       content: (
         <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
             {
-              title: "Planilha de Controle Financeiro Empresarial",
+              title: t('services.items.tools.services.control'),
               icon: TableProperties
             },
             {
-              title: "Planilha de Precificação Inteligente",
+              title: t('services.items.tools.services.pricing'),
               icon: CalculatorIcon
             },
             {
-              title: "Planilha de Gestão de Fluxo de Caixa",
+              title: t('services.items.tools.services.cashflow'),
               icon: BarChart
             },
             {
-              title: "Simulador de Investimentos",
+              title: t('services.items.tools.services.investments'),
               icon: PiggyBankIcon
             },
             {
-              title: "Planilha de Planejamento Orçamentário",
+              title: t('services.items.tools.services.budget'),
               icon: LineChartIcon
             },
             {
-              title: "Painel de Indicadores Financeiros",
+              title: t('services.items.tools.services.indicators'),
               icon: Activity
             },
             {
-              title: "Ferramenta para Gestão de Assinaturas e Serviços",
+              title: t('services.items.tools.services.subscriptions'),
               icon: ClipboardListIcon
             },
             {
-              title: "Ferramenta de Cálculo de Pró-Labore",
+              title: t('services.items.tools.services.prolabore'),
               icon: DollarSignIcon
             }
           ].map((service, index) => (
@@ -466,45 +469,45 @@ export function Services() {
     {
       id: "mentoria-treinamentos",
       icon: FileSpreadsheet,
-      title: "Mentoria e Treinamentos",
-      description: "Informações sob medida para seu negócio",
+      title: t('services.items.mentoring.title'),
+      description: t('services.items.mentoring.description'),
       content: (
         <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
             {
-              title: "Treinamento de Gestão Financeira Empresarial",
+              title: t('services.items.mentoring.services.management'),
               icon: GraduationCap
             },
             {
-              title: "Mentoria para Precificação de Produtos e Serviços",
+              title: t('services.items.mentoring.services.pricing'),
               icon: PresentationChart
             },
             {
-              title: "Formação de Equipes Financeiras",
+              title: t('services.items.mentoring.services.teams'),
               icon: Users2
             },
             {
-              title: "Desenvolvimento de Líderes Financeiros",
+              title: t('services.items.mentoring.services.leaders'),
               icon: Brain
             },
             {
-              title: "Palestras sobre Finanças Empresariais",
+              title: t('services.items.mentoring.services.lectures'),
               icon: Presentation
             },
             {
-              title: "Workshop de Planejamento Financeiro",
+              title: t('services.items.mentoring.services.workshop'),
               icon: Lightbulb
             },
             {
-              title: "Treinamento de Redução de Custos",
+              title: t('services.items.mentoring.services.costs'),
               icon: TrendingUpIcon
             },
             {
-              title: "Mentoria Personalizada para Negócios",
+              title: t('services.items.mentoring.services.business'),
               icon: Target
             },
             {
-              title: "Estratégias para Aumento da Lucratividade",
+              title: t('services.items.mentoring.services.profitability'),
               icon: Gauge
             }
           ].map((service, index) => (
@@ -560,10 +563,10 @@ export function Services() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-[20px] sm:text-[15px] font-bold text-gray-900 mb-6 uppercase tracking-wide">
-              NOSSOS SERVIÇOS
+              {t('services.title')}
             </h2>
             <p className="text-[24px] sm:text-[30px] text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-              Soluções financeiras para empresas de todos os tamanhos
+              {t('services.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -611,7 +614,7 @@ export function Services() {
             className="inline-block"
           >
             <button className="bg-gray-900 hover:bg-blue-600 px-12 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg">
-              Solicite uma proposta personalizada
+              {t('services.cta')}
             </button>
           </motion.div>
         </div>
