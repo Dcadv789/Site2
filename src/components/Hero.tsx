@@ -43,7 +43,8 @@ export function Hero() {
 
   return (
     <section id="inicio" className="pt-12 scroll-mt-16">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16 sm:pt-24 sm:pb-28">
+      {/* Layout Desktop */}
+      <div className="hidden md:block relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16 sm:pt-24 sm:pb-28">
         <div className="text-center mb-20">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -160,20 +161,112 @@ export function Hero() {
             </motion.div>
           </div>
         </div>
+      </div>
 
-        <div className="hidden">
-          <TextRotate
-            texts={[
-              "seu lucro",
-              "seu tempo",
-              "seu controle",
-              "sua gestão",
-              "sua produtividade",
-              "sua performance",
-            ]}
-            rotationInterval={2000}
+      {/* Layout Mobile */}
+      <div className="md:hidden px-4 pt-8">
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-medium tracking-tight text-gray-900 leading-tight mb-4"
+        >
+          {t('hero.title')}
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-base text-gray-500 mb-8"
+        >
+          {t('hero.subtitle')}
+        </motion.p>
+
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          onClick={handleCtaClick}
+          className="w-full bg-gray-900 hover:bg-blue-600 py-4 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg mb-6"
+        >
+          {t('hero.cta')}
+        </motion.button>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="grid grid-cols-4 gap-3 mb-8"
+        >
+          {socialLinks.map((social, index) => {
+            const Icon = social.icon;
+            return (
+              <motion.a
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center py-3 bg-white shadow-md rounded-full hover:shadow-lg border border-gray-100 text-gray-600 hover:text-blue-600 transition-all"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Icon size={20} />
+              </motion.a>
+            );
+          })}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="grid grid-cols-2 gap-3 mb-8"
+        >
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 + (index * 0.1) }}
+                className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md border border-gray-100"
+              >
+                <Icon className="h-6 w-6 text-blue-600 mb-2" />
+                <span className="text-lg font-semibold text-gray-900">{stat.label}</span>
+                <span className="text-sm text-gray-600 text-center">{stat.description}</span>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+          className="w-full"
+        >
+          <img
+            src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//banner1.svg"
+            alt="Banner ilustrativo"
+            className="w-full h-auto"
           />
-        </div>
+        </motion.div>
+      </div>
+
+      <div className="hidden">
+        <TextRotate
+          texts={[
+            "seu lucro",
+            "seu tempo",
+            "seu controle",
+            "sua gestão",
+            "sua produtividade",
+            "sua performance",
+          ]}
+          rotationInterval={2000}
+        />
       </div>
     </section>
   );
