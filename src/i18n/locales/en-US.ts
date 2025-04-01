@@ -199,7 +199,55 @@ export const enUS = {
       },
       cta: 'Start Now',
       popular: 'Most Chosen',
-      discount: 'OFF'
+      discount: 'OFF',
+      silver: {
+        name: 'Silver',
+        description: 'Ideal for small businesses starting their financial journey',
+        features: [
+          'Financial reconciliation',
+          'Monitoring reports',
+          'Accounts payable',
+          'Accounts receivable',
+          'Document management',
+          'Implementation and Support'
+        ]
+      },
+      gold: {
+        name: 'Gold',
+        description: 'Perfect for growing companies that want greater financial efficiency',
+        features: [
+          'Silver Plan +',
+          'Quarterly financial consulting',
+          'Bill issuance',
+          'Invoice issuance',
+          'Bank scheduling',
+          'Collection (Basic)'
+        ]
+      },
+      platinum: {
+        name: 'Platinum',
+        description: 'Our most chosen plan for established companies that need insights',
+        features: [
+          'Gold Plan +',
+          'Monthly financial consulting',
+          'Projection (cash flow)',
+          'Default management',
+          'Financial income statement',
+          'Custom reports'
+        ]
+      },
+      diamond: {
+        name: 'Diamond',
+        description: 'Premium solution for companies seeking exclusive service',
+        features: [
+          'Platinum Plan +',
+          'Unlimited financial consulting',
+          'Weekly meetings',
+          'Sector analysis',
+          'Indicators Dashboard',
+          'Exclusive service'
+        ]
+      }
     },
     faq: {
       title: 'FAQ',

@@ -9,64 +9,28 @@ export function Plans() {
 
   const plans = [
     {
-      name: "Silver",
+      id: "silver",
       icon: Star,
       discount: 10,
-      description: "Ideal para pequenas empresas iniciando sua jornada financeira",
-      features: [
-        "Conciliação financeira",
-        "Relatórios de acompanhamento",
-        "Contas a pagar",
-        "Contas a receber",
-        "Gestão de documentos",
-        "Implantação e Suporte"
-      ],
       color: "gray"
     },
     {
-      name: "Gold",
+      id: "gold",
       icon: Gem,
       discount: 10,
-      description: "Perfeito para empresas em crescimento que desejam maior eficiência financeira",
-      features: [
-        "Plano Silver +",
-        "Consultoria financeira trimentral",
-        "Emissão de boletos",
-        "Emissão de notas fiscais",
-        "Agendamento bancário",
-        "Cobrança (Básico)"
-      ],
       color: "yellow"
     },
     {
-      name: "Platinum",
+      id: "platinum",
       icon: Crown,
       discount: 15,
-      description: "Nosso plano mais escolhido para empresas estabelecidas que precisam de insights",
-      features: [
-        "Plano Gold +",
-        "Consultoria financeira mensal",
-        "Projeção (fluxo de caixa)",
-        "Gestão de inadimplência",
-        "DRE financeira",
-        "Relatórios customizados"
-      ],
       color: "blue",
       popular: true
     },
     {
-      name: "Diamond",
+      id: "diamond",
       icon: Diamond,
       discount: 15,
-      description: "Solução premium para empresas que buscam atendimento exclusivo",
-      features: [
-        "Plano Platinum +",
-        "Consultoria financeira ilimitada",
-        "Reuniões semanais",
-        "Análise setorial",
-        "Painel de Indicadores",
-        "Atendimento exclusivo"
-      ],
       color: "purple"
     }
   ];
@@ -90,8 +54,7 @@ export function Plans() {
 
             {/* Toggle de Preços */}
             <div className="flex items-center justify-center mb-8">
-              <div className="relative bg-white rounde
-d-full p-1 flex items-center w-[228px]">
+              <div className="relative bg-white rounded-full p-1 flex items-center w-[228px]">
                 <button
                   onClick={() => setIsAnnual(false)}
                   className={`relative z-10 w-[110px] py-2 text-sm font-medium transition-colors duration-200 rounded-full ${
@@ -132,7 +95,7 @@ d-full p-1 flex items-center w-[228px]">
 
             return (
               <motion.div
-                key={plan.name}
+                key={plan.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -176,15 +139,17 @@ d-full p-1 flex items-center w-[228px]">
                           plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}
                       `} />
                     </div>
-                    <h3 className={`text-xl font-semibold ${isPopular ? 'text-blue-600' : 'text-gray-900'}`}>{plan.name}</h3>
+                    <h3 className={`text-xl font-semibold ${isPopular ? 'text-blue-600' : 'text-gray-900'}`}>
+                      {t(`plans.${plan.id}.name`)}
+                    </h3>
                   </div>
 
                   <div className="mb-6 h-16">
-                    <p className="text-gray-600">{plan.description}</p>
+                    <p className="text-gray-600">{t(`plans.${plan.id}.description`)}</p>
                   </div>
 
                   <ul className="space-y-4 mb-8 min-h-[280px]">
-                    {plan.features.map((feature, featureIndex) => (
+                    {t(`plans.${plan.id}.features`, { returnObjects: true }).map((feature: string, featureIndex: number) => (
                       <li key={featureIndex} className="flex items-start gap-3">
                         <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 transition-colors duration-300
                           ${plan.color === 'gray' ? 'text-gray-600' :

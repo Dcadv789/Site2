@@ -199,7 +199,55 @@ export const ptBR = {
       },
       cta: 'Começar Agora',
       popular: 'Mais Escolhido',
-      discount: 'OFF'
+      discount: 'OFF',
+      silver: {
+        name: 'Silver',
+        description: 'Ideal para pequenas empresas iniciando sua jornada financeira',
+        features: [
+          'Conciliação financeira',
+          'Relatórios de acompanhamento',
+          'Contas a pagar',
+          'Contas a receber',
+          'Gestão de documentos',
+          'Implantação e Suporte'
+        ]
+      },
+      gold: {
+        name: 'Gold',
+        description: 'Perfeito para empresas em crescimento que desejam maior eficiência financeira',
+        features: [
+          'Plano Silver +',
+          'Consultoria financeira trimestral',
+          'Emissão de boletos',
+          'Emissão de notas fiscais',
+          'Agendamento bancário',
+          'Cobrança (Básico)'
+        ]
+      },
+      platinum: {
+        name: 'Platinum',
+        description: 'Nosso plano mais escolhido para empresas estabelecidas que precisam de insights',
+        features: [
+          'Plano Gold +',
+          'Consultoria financeira mensal',
+          'Projeção (fluxo de caixa)',
+          'Gestão de inadimplência',
+          'DRE financeira',
+          'Relatórios customizados'
+        ]
+      },
+      diamond: {
+        name: 'Diamond',
+        description: 'Solução premium para empresas que buscam atendimento exclusivo',
+        features: [
+          'Plano Platinum +',
+          'Consultoria financeira ilimitada',
+          'Reuniões semanais',
+          'Análise setorial',
+          'Painel de Indicadores',
+          'Atendimento exclusivo'
+        ]
+      }
     },
     faq: {
       title: 'FAQ',
