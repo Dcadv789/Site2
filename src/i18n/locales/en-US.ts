@@ -256,10 +256,12 @@ export const enUS = {
     contact: {
       title: 'CONTACT',
       subtitle: 'Let\'s talk about the future of your business',
+      officeImage: 'Modern office',
       form: {
         name: 'Full name',
         email: 'Email',
         phone: 'Phone',
+        address: 'Address',
         message: 'Message',
         placeholders: {
           name: 'Enter your name',

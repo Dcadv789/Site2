@@ -36,7 +36,7 @@ export function Contact() {
             >
               <img
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop"
-                alt="Escritório moderno"
+                alt={t('contact.officeImage')}
                 className="w-full h-[300px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-gray-900/0" />
@@ -86,7 +86,7 @@ export function Contact() {
                   <MapPin className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium text-gray-900">Endereço</h3>
+                  <h3 className="text-lg font-medium text-gray-900">{t('contact.form.address')}</h3>
                   <p className="text-gray-600">Rua Teodoro Sampaio, 744 Cj 108 - São Paulo - SP - Brasil</p>
                 </div>
               </motion.div>

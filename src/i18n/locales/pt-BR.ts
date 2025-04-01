@@ -256,10 +256,12 @@ export const ptBR = {
     contact: {
       title: 'CONTATO',
       subtitle: 'Vamos conversar sobre o futuro do seu negócio',
+      officeImage: 'Escritório moderno',
       form: {
         name: 'Nome completo',
         email: 'E-mail',
         phone: 'Telefone',
+        address: 'Endereço',
         message: 'Mensagem',
         placeholders: {
           name: 'Digite seu nome',
