@@ -23,7 +23,7 @@ export function Scenario() {
   ];
 
   return (
-    <section id="cenario" className="pt-16 pb-20 bg-[#FAFAFA] scroll-mt-16">
+    <section id="cenario" className="pt-12 md:pt-16 pb-12 md:pb-16 bg-[#FAFAFA] scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-[20px] sm:text-[15px] font-bold text-gray-900 mb-6 uppercase tracking-wide">

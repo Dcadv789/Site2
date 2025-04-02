@@ -58,7 +58,7 @@ export function Benefits() {
   };
 
   return (
-    <section id="beneficios" className="py-16 bg-gray-100 scroll-mt-16">
+    <section id="beneficios" className="pt-12 md:pt-16 pb-12 md:pb-16 bg-gray-100 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <motion.div
