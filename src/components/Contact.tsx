@@ -10,6 +10,34 @@ export function Contact() {
   const [userAnswer, setUserAnswer] = useState('');
   const correctAnswer = num1 + num2;
 
+  // Função para formatar o número de WhatsApp
+  const formatWhatsApp = (value: string) => {
+    // Remove tudo que não for número
+    const numbers = value.replace(/\D/g, '');
+    
+    // Aplica a máscara conforme o usuário digita
+    let formatted = numbers;
+    if (numbers.length > 0) {
+      formatted = `(${numbers.slice(0, 2)}`;
+      if (numbers.length > 2) {
+        formatted += `) ${numbers.slice(2, 7)}`;
+        if (numbers.length > 7) {
+          formatted += `-${numbers.slice(7, 11)}`;
+        }
+      }
+    }
+    
+    return formatted;
+  };
+
+  const handleWhatsAppChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatWhatsApp(e.target.value);
+    // Limita o tamanho máximo considerando a máscara
+    if (formatted.length <= 15) {
+      e.target.value = formatted;
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (parseInt(userAnswer) === correctAnswer) {
@@ -84,6 +112,7 @@ export function Contact() {
                   id="whatsapp-mobile"
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="(00) 00000-0000"
+                  onChange={handleWhatsAppChange}
                   required
                 />
               </div>
@@ -290,6 +319,7 @@ export function Contact() {
                   id="whatsapp"
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="(00) 00000-0000"
+                  onChange={handleWhatsAppChange}
                   required
                 />
               </div>
