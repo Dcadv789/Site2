@@ -65,7 +65,6 @@ export function Plans() {
               {t('plans.subtitle')}
             </p>
 
-            {/* Toggle de Preços */}
             <div className="flex items-center justify-center">
               <div className="relative bg-white rounded-full p-1 flex items-center w-[228px]">
                 <button
@@ -94,7 +93,6 @@ export function Plans() {
           </motion.div>
         </div>
 
-        {/* Versão Mobile */}
         <div className="lg:hidden relative">
           <div className="overflow-hidden px-6">
             <AnimatePresence mode="wait">
@@ -119,10 +117,11 @@ export function Plans() {
                           ${isPopular ? 'border-blue-200 shadow-xl' : 'border-gray-100 shadow-lg'}
                         `}
                       >
-                        {/* Tag Popular */}
                         {isPopular && (
                           <motion.div 
-                            className="absolute -top-3 left-4 z-20"
+                            className={`absolute -top-3 z-20 ${
+                              isAnnual ? 'right-4' : 'left-1/2 -translate-x-1/2'
+                            }`}
                             initial={{ y: -10, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.2 }}
@@ -133,10 +132,9 @@ export function Plans() {
                           </motion.div>
                         )}
 
-                        {/* Tag de Desconto */}
                         {isAnnual && (
                           <motion.div 
-                            className="absolute -top-3 right-4 z-10"
+                            className="absolute -top-3 left-4 z-10"
                             initial={{ y: -10, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.3 }}
@@ -188,7 +186,6 @@ export function Plans() {
             </AnimatePresence>
           </div>
 
-          {/* Botões de navegação */}
           <button
             onClick={previousPlan}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center z-10 hover:bg-gray-50 transition-colors"
@@ -202,7 +199,6 @@ export function Plans() {
             <ChevronRight className="w-6 h-6 text-gray-600" />
           </button>
 
-          {/* Indicadores */}
           <div className="flex justify-center gap-2 mt-6">
             {plans.map((_, index) => (
               <button
@@ -216,7 +212,6 @@ export function Plans() {
           </div>
         </div>
 
-        {/* Versão Desktop */}
         <div className="hidden lg:grid grid-cols-4 gap-8">
           {plans.map((plan, index) => {
             const Icon = plan.icon;
@@ -231,7 +226,6 @@ export function Plans() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`relative ${isPopular ? 'lg:-mt-8' : ''}`}
               >
-                {/* Tag Popular */}
                 {isPopular && (
                   <motion.div 
                     className={`absolute -top-5 ${isAnnual ? 'left-4' : 'left-1/2 -translate-x-1/2'} z-20`}
@@ -242,7 +236,6 @@ export function Plans() {
                   </motion.div>
                 )}
 
-                {/* Tag de Desconto */}
                 {isAnnual && (
                   <div className="absolute -top-5 right-4 z-10">
                     <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
