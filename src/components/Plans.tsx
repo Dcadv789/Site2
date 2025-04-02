@@ -120,7 +120,7 @@ export function Plans() {
                         {isPopular && (
                           <motion.div 
                             className={`absolute -top-3 z-20 ${
-                              isAnnual ? 'right-4' : 'left-1/2 -translate-x-1/2'
+                              isAnnual ? 'left-4' : 'left-1/2 -translate-x-1/2'
                             }`}
                             initial={{ y: -10, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
@@ -134,7 +134,7 @@ export function Plans() {
 
                         {isAnnual && (
                           <motion.div 
-                            className="absolute -top-3 left-4 z-10"
+                            className="absolute -top-3 right-4 z-10"
                             initial={{ y: -10, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.3 }}

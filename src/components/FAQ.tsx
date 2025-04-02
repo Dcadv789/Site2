@@ -22,7 +22,7 @@ export function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-white scroll-mt-16">
+    <section id="faq" className="pt-12 md:pt-16 pb-12 md:pb-16 bg-white scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.div

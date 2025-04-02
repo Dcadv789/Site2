@@ -7,7 +7,7 @@ export function Contact() {
   const { t } = useTranslation();
 
   return (
-    <section id="contato" className="py-24 bg-gray-50 scroll-mt-16">
+    <section id="contato" className="pt-12 md:pt-16 pb-12 md:pb-16 bg-gray-50 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Coluna da esquerda - Imagem e Informações de Contato */}
