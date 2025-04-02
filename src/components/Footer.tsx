@@ -82,12 +82,12 @@ export function Footer() {
           <img
             src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//Logo%20Azul.svg"
             alt="DC Advisors"
-            className="h-12 w-auto brightness-0 invert mb-6"
+            className="w-full h-auto brightness-0 invert mb-6"
           />
           <p className="text-gray-400 leading-relaxed mb-8">
             {t('footer.slogan')}
           </p>
-          <div className="text-gray-400 text-sm">
+          <div className="text-gray-400 text-sm border-t border-gray-800 w-full pt-8">
             {t('footer.rights')}
           </div>
         </div>

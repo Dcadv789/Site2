@@ -8,7 +8,6 @@ import {
   PiggyBank,
   TrendingUp,
   Users,
-  ArrowUpRight,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
@@ -143,12 +142,9 @@ export function ServicesMobile() {
                           transition={{ duration: 0.3, delay: index * 0.05 }}
                           className="group relative bg-gray-50 rounded-lg p-4 hover:bg-blue-50 transition-colors"
                         >
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm text-gray-700 group-hover:text-blue-700 transition-colors">
-                              {value}
-                            </span>
-                            <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" />
-                          </div>
+                          <span className="text-sm text-gray-700 group-hover:text-blue-700 transition-colors">
+                            {value}
+                          </span>
                         </motion.div>
                       ))}
                     </div>
