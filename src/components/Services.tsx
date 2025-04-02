@@ -4,64 +4,15 @@ import { ScrollArea, ScrollBar } from './ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { useTranslation } from 'react-i18next';
 import { ServicesMobile } from './services.mobile';
-import { 
-  BarChart3, 
-  Calculator, 
-  FileSpreadsheet,
-  PiggyBank,
-  TrendingUp,
-  Users,
-  LineChart,
-  TrendingDown,
-  Target,
-  Wallet,
-  BarChart2,
-  ArrowUpRight,
-  Banknote,
-  Scale,
-  Building,
-  Receipt,
-  CreditCard,
-  FileText,
-  DollarSign,
-  FileCheck,
-  UserCheck,
-  Files,
-  ClipboardList,
-  BadgeCheck,
-  Landmark,
-  CandlestickChart,
-  Coins,
-  HandCoins,
-  Briefcase,
-  GraduationCap,
-  Presentation as PresentationChart,
-  Users2,
-  Brain,
-  Lightbulb,
-  TrendingUp as TrendingUpIcon,
-  Presentation,
-  Gauge,
-  KeyRound,
-  RefreshCw,
-  HelpCircle,
-  FileSignature,
-  HeadphonesIcon,
-  TableProperties,
-  Calculator as CalculatorIcon,
-  BarChart,
-  PiggyBank as PiggyBankIcon,
-  LineChart as LineChartIcon,
-  Activity,
-  ClipboardList as ClipboardListIcon,
-  DollarSign as DollarSignIcon,
-  Laptop,
-  Workflow
-} from 'lucide-react';
+import { BarChart3, Calculator, FileSpreadsheet, PiggyBank, TrendingUp, Users, LineChart, TrendingDown, Target, Wallet, BarChart2, ArrowUpRight, Banknote, Scale, Building, Receipt, CreditCard, FileText, DollarSign, FileCheck, UserCheck, Files, ClipboardList, BadgeCheck, Landmark, CandlestickChart, Coins, HandCoins, Briefcase, GraduationCap, Presentation as PresentationChart, Users2, Brain, Lightbulb, TrendingUp as TrendingUpIcon, Presentation, Gauge, KeyRound, RefreshCw, HelpCircle, FileSignature, HeadphonesIcon, TableProperties, Calculator as CalculatorIcon, BarChart, PiggyBank as PiggyBankIcon, LineChart as LineChartIcon, Activity, ClipboardList as ClipboardListIcon, DollarSign as DollarSignIcon, Laptop, Workflow } from 'lucide-react';
 
 export function Services() {
   const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(false);
+
+  const handleCtaClick = () => {
+    window.open('https://wa.me/5511994561052?text=Ol%C3%A1,%20vim%20atrav%C3%A9s%20do%20site%20e%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20DC%20Advisors.', '_blank');
+  };
 
   useEffect(() => {
     const checkMobile = () => {
@@ -632,7 +583,10 @@ export function Services() {
             whileTap={{ scale: 0.95 }}
             className="inline-block"
           >
-            <button className="bg-gray-900 hover:bg-blue-600 px-12 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg">
+            <button 
+              onClick={handleCtaClick}
+              className="bg-gray-900 hover:bg-blue-600 px-12 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg"
+            >
               {t('services.cta')}
             </button>
           </motion.div>

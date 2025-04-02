@@ -6,6 +6,10 @@ import { useTranslation } from 'react-i18next';
 export function Scenario() {
   const { t } = useTranslation();
 
+  const handleCtaClick = () => {
+    window.open('https://wa.me/5511994561052?text=Ol%C3%A1,%20n%C3%A3o%20quero%20fazer%20parte%20das%20estat%C3%ADsticas%20negativa%20sobre%20empresas%20no%20Brasil.%20Quero%20resolver%20os%20problemas%20financeiros%20da%20minha%20empresa.', '_blank');
+  };
+
   const failureReasons = [
     { reason: t('scenario.reasons.taxes'), percentage: 31 },
     { reason: t('scenario.reasons.sales'), percentage: 29 },
@@ -78,7 +82,10 @@ export function Scenario() {
                 whileTap={{ scale: 0.95 }}
                 className="inline-block w-full lg:w-auto"
               >
-                <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg w-full lg:w-auto lg:bg-gray-900 lg:hover:bg-blue-600">
+                <button 
+                  onClick={handleCtaClick}
+                  className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg w-full lg:w-auto lg:bg-gray-900 lg:hover:bg-blue-600"
+                >
                   {t('scenario.cta')}
                 </button>
               </motion.div>

@@ -6,6 +6,10 @@ import { useTranslation } from 'react-i18next';
 export function Challenges() {
   const { t } = useTranslation();
 
+  const handleCtaClick = () => {
+    window.open('https://wa.me/5511994561052?text=Ol%C3%A1!%20Passei%20por%20alguns%20desafios%20que%20vi%20no%20site%20e%20quero%20resolver%20os%20problemas%20financeiros%20da%20minha%20empresa.', '_blank');
+  };
+
   const challenges = [
     {
       icon: TrendingDown,
@@ -90,7 +94,10 @@ export function Challenges() {
             whileTap={{ scale: 0.95 }}
             className="inline-block"
           >
-            <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg">
+            <button 
+              onClick={handleCtaClick}
+              className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg"
+            >
               {t('challenges.cta')}
             </button>
           </motion.div>

@@ -17,6 +17,10 @@ export function Benefits() {
   const [activeTab, setActiveTab] = useState(t('benefits.items.savings.title'));
   const [openItems, setOpenItems] = useState<{ [key: string]: boolean }>({});
 
+  const handleCtaClick = () => {
+    window.open('https://wa.me/5511994561052?text=Ol%C3%A1,%20quero%20os%20benef%C3%ADcios%20que%20encontrei%20no%20site%20para%20a%20minha%20empresa.%20O%20que%20preciso?', '_blank');
+  };
+
   const benefits = [
     {
       icon: PiggyBank,
@@ -200,7 +204,10 @@ export function Benefits() {
             whileTap={{ scale: 0.95 }}
             className="inline-block w-full lg:w-auto"
           >
-            <button className="bg-blue-600 hover:bg-blue-700 px-12 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg w-full lg:w-auto lg:bg-gray-900 lg:hover:bg-blue-600">
+            <button 
+              onClick={handleCtaClick}
+              className="bg-blue-600 hover:bg-blue-700 px-12 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg w-full lg:w-auto lg:bg-gray-900 lg:hover:bg-blue-600"
+            >
               {t('benefits.cta')}
             </button>
           </motion.div>

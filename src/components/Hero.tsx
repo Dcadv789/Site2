@@ -8,7 +8,7 @@ export function Hero() {
   const { t } = useTranslation();
 
   const handleCtaClick = () => {
-    window.open('https://wa.me/5511999999999', '_blank');
+    window.open('https://wa.me/5511994561052?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20e%20quero%20agendar%20o%20diagn%C3%B3stico%20financeiro%20GRATUITO%20para%20minha%20empresa.', '_blank');
   };
 
   const stats = [

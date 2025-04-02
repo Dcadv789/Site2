@@ -16,6 +16,10 @@ export function ServicesMobile() {
   const { t } = useTranslation();
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
 
+  const handleCtaClick = () => {
+    window.open('https://wa.me/5511994561052?text=Ol%C3%A1,%20vim%20atrav%C3%A9s%20do%20site%20e%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20DC%20Advisors.', '_blank');
+  };
+
   const services = [
     {
       id: "consultoria-empresarial",
@@ -162,7 +166,10 @@ export function ServicesMobile() {
             whileTap={{ scale: 0.95 }}
             className="inline-block"
           >
-            <button className="bg-blue-600 hover:bg-blue-700 px-12 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg">
+            <button 
+              onClick={handleCtaClick}
+              className="bg-blue-600 hover:bg-blue-700 px-12 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg"
+            >
               {t('services.cta')}
             </button>
           </motion.div>
