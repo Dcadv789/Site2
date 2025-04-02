@@ -10,9 +10,12 @@ import {
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { useTranslation } from 'react-i18next';
+import { cn } from '../lib/utils';
 
 export function Benefits() {
   const { t } = useTranslation();
+  const [activeTab, setActiveTab] = useState(t('benefits.items.savings.title'));
+  const [openItems, setOpenItems] = useState<{ [key: string]: boolean }>({});
 
   const benefits = [
     {
@@ -47,17 +50,12 @@ export function Benefits() {
     }
   ];
 
-  const [activeTab, setActiveTab] = useState(benefits[0].title);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const currentIndex = benefits.findIndex(b => b.title === activeTab);
-      const nextIndex = (currentIndex + 1) % benefits.length;
-      setActiveTab(benefits[nextIndex].title);
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, [activeTab, benefits]);
+  const toggleItem = (title: string) => {
+    setOpenItems(prev => ({
+      ...prev,
+      [title]: !prev[title]
+    }));
+  };
 
   return (
     <section id="beneficios" className="py-16 bg-gray-100 scroll-mt-16">
@@ -78,7 +76,63 @@ export function Benefits() {
           </motion.div>
         </div>
 
-        <div className="flex flex-col items-center">
+        {/* Versão Mobile */}
+        <div className="lg:hidden space-y-4">
+          {benefits.map((benefit, index) => {
+            const Icon = benefit.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="border border-gray-200 rounded-lg bg-white overflow-hidden"
+              >
+                <button
+                  onClick={() => toggleItem(benefit.title)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <span className="font-medium text-gray-900">{benefit.title}</span>
+                  </div>
+                  <svg
+                    className={cn(
+                      "w-5 h-5 text-gray-500 transition-transform duration-200",
+                      openItems[benefit.title] ? "rotate-180" : ""
+                    )}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                <AnimatePresence>
+                  {openItems[benefit.title] && (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: "auto" }}
+                      exit={{ height: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 py-4 bg-gray-50 text-gray-600">
+                        {benefit.description}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Versão Desktop */}
+        <div className="hidden lg:flex flex-col items-center">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-6xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               {/* Lista de benefícios na lateral esquerda */}
