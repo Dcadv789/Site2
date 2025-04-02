@@ -13,26 +13,30 @@ export function Plans() {
       id: "silver",
       icon: Star,
       discount: 10,
-      color: "gray"
+      color: "gray",
+      checkColor: "text-gray-400"
     },
     {
       id: "gold",
       icon: Gem,
       discount: 10,
-      color: "yellow"
+      color: "yellow",
+      checkColor: "text-yellow-600"
     },
     {
       id: "platinum",
       icon: Crown,
       discount: 15,
       color: "blue",
-      popular: true
+      popular: true,
+      checkColor: "text-blue-600"
     },
     {
       id: "diamond",
       icon: Diamond,
       discount: 15,
-      color: "purple"
+      color: "purple",
+      checkColor: "text-purple-600"
     }
   ];
 
@@ -90,20 +94,13 @@ export function Plans() {
           </motion.div>
         </div>
 
-        {/* Versão Mobile (Carrossel) */}
+        {/* Versão Mobile */}
         <div className="lg:hidden relative">
           <div className="overflow-hidden">
             <AnimatePresence mode="wait">
               {plans.map((plan, index) => {
                 const Icon = plan.icon;
                 const isPopular = plan.popular;
-                
-                const colorVariants = {
-                  gray: "hover:border-gray-400 hover:shadow-gray-100",
-                  yellow: "hover:border-yellow-400 hover:shadow-yellow-100",
-                  blue: "hover:border-blue-400 hover:shadow-blue-100",
-                  purple: "hover:border-purple-400 hover:shadow-purple-100"
-                };
 
                 if (index !== currentPlanIndex) return null;
 
@@ -114,7 +111,7 @@ export function Plans() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -100 }}
                     transition={{ duration: 0.3 }}
-                    className="relative group"
+                    className="relative"
                   >
                     {/* Tag Popular */}
                     {isPopular && (
@@ -144,28 +141,24 @@ export function Plans() {
                       </motion.div>
                     )}
 
-                    <motion.div 
-                      className={`group h-full bg-white rounded-2xl p-8 border-2 transition-all duration-300 
+                    <div 
+                      className={`h-full bg-white rounded-2xl p-8 border-2 
                         ${isPopular ? 'border-blue-200 shadow-xl' : 'border-gray-100 shadow-lg'}
-                        hover:-translate-y-2 hover:shadow-2xl
                       `}
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
                     >
                       <div className="flex items-center gap-4 mb-6">
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors duration-300
-                          ${plan.color === 'gray' ? 'bg-gray-100 group-hover:bg-blue-100' : 
-                            plan.color === 'yellow' ? 'bg-yellow-100 group-hover:bg-blue-100' :
-                            plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100 group-hover:bg-blue-100'}
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center
+                          ${plan.color === 'gray' ? 'bg-gray-100' : 
+                            plan.color === 'yellow' ? 'bg-yellow-100' :
+                            plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100'}
                         `}>
-                          <Icon className={`w-6 h-6 transition-all duration-300
-                            ${plan.color === 'gray' ? 'text-gray-600 group-hover:text-blue-600' :
-                              plan.color === 'yellow' ? 'text-yellow-600 group-hover:text-blue-600' :
-                              plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600 group-hover:text-blue-600'}
-                            group-hover:scale-110
+                          <Icon className={`w-6 h-6
+                            ${plan.color === 'gray' ? 'text-gray-600' :
+                              plan.color === 'yellow' ? 'text-yellow-600' :
+                              plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}
                           `} />
                         </div>
-                        <h3 className={`text-xl font-semibold transition-colors duration-300 ${isPopular ? 'text-blue-600' : 'text-gray-900'} group-hover:text-blue-600`}>
+                        <h3 className={`text-xl font-semibold ${isPopular ? 'text-blue-600' : 'text-gray-900'}`}>
                           {t(`plans.${plan.id}.name`)}
                         </h3>
                       </div>
@@ -177,16 +170,16 @@ export function Plans() {
                       <ul className="space-y-4 mb-8 min-h-[280px]">
                         {t(`plans.${plan.id}.features`, { returnObjects: true }).map((feature: string, featureIndex: number) => (
                           <li key={featureIndex} className="flex items-start gap-3">
-                            <Check className="w-5 h-5 mt-0.5 flex-shrink-0 text-blue-600" />
+                            <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.checkColor}`} />
                             <span className="text-gray-600">{feature}</span>
                           </li>
                         ))}
                       </ul>
 
-                      <button className="w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white hover:bg-blue-700 hover:scale-105">
+                      <button className="w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white hover:bg-blue-700">
                         {t('plans.cta')}
                       </button>
-                    </motion.div>
+                    </div>
                   </motion.div>
                 );
               })}
@@ -265,19 +258,20 @@ export function Plans() {
                   transition={{ duration: 0.3 }}
                 >
                   <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors duration-300
-                      ${plan.color === 'gray' ? 'bg-gray-100 group-hover:bg-blue-100' : 
-                        plan.color === 'yellow' ? 'bg-yellow-100 group-hover:bg-blue-100' :
-                        plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100 group-hover:bg-blue-100'}
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300
+                      ${plan.color === 'gray' ? 'bg-gray-100' : 
+                        plan.color === 'yellow' ? 'bg-yellow-100' :
+                        plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100'}
+                      group-hover:scale-110
                     `}>
-                      <Icon className={`w-6 h-6 transition-all duration-300
-                        ${plan.color === 'gray' ? 'text-gray-600 group-hover:text-blue-600' :
-                          plan.color === 'yellow' ? 'text-yellow-600 group-hover:text-blue-600' :
-                          plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600 group-hover:text-blue-600'}
+                      <Icon className={`w-6 h-6 transition-transform duration-300
+                        ${plan.color === 'gray' ? 'text-gray-600' :
+                          plan.color === 'yellow' ? 'text-yellow-600' :
+                          plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}
                         group-hover:scale-110
                       `} />
                     </div>
-                    <h3 className={`text-xl font-semibold transition-colors duration-300 ${isPopular ? 'text-blue-600' : 'text-gray-900'} group-hover:text-blue-600`}>
+                    <h3 className={`text-xl font-semibold ${isPopular ? 'text-blue-600' : 'text-gray-900'}`}>
                       {t(`plans.${plan.id}.name`)}
                     </h3>
                   </div>
@@ -289,7 +283,7 @@ export function Plans() {
                   <ul className="space-y-4 mb-8 min-h-[280px]">
                     {t(`plans.${plan.id}.features`, { returnObjects: true }).map((feature: string, featureIndex: number) => (
                       <li key={featureIndex} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 mt-0.5 flex-shrink-0 text-blue-600" />
+                        <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.checkColor}`} />
                         <span className="text-gray-600">{feature}</span>
                       </li>
                     ))}
