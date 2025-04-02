@@ -76,9 +76,9 @@ export function Scenario() {
                 initial={false}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-block"
+                className="inline-block w-full lg:w-auto"
               >
-                <button className="bg-gray-900 hover:bg-blue-600 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg">
+                <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg w-full lg:w-auto lg:bg-gray-900 lg:hover:bg-blue-600">
                   {t('scenario.cta')}
                 </button>
               </motion.div>

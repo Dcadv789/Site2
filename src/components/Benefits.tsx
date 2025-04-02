@@ -198,9 +198,9 @@ export function Benefits() {
             initial={false}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block"
+            className="inline-block w-full lg:w-auto"
           >
-            <button className="bg-gray-900 hover:bg-blue-600 px-12 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg whitespace-nowrap min-w-[500px]">
+            <button className="bg-blue-600 hover:bg-blue-700 px-12 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg w-full lg:w-auto lg:bg-gray-900 lg:hover:bg-blue-600">
               {t('benefits.cta')}
             </button>
           </motion.div>
