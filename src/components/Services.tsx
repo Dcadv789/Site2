@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ScrollArea, ScrollBar } from './ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { useTranslation } from 'react-i18next';
+import { ServicesMobile } from './services.mobile';
 import { 
   BarChart3, 
   Calculator, 
@@ -60,6 +61,24 @@ import {
 
 export function Services() {
   const { t } = useTranslation();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
+  if (isMobile) {
+    return <ServicesMobile />;
+  }
 
   const services = [
     {
