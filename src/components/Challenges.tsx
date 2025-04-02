@@ -30,9 +30,9 @@ export function Challenges() {
   ];
 
   return (
-    <section id="desafios" className="pt-16 pb-20 bg-gray-100 scroll-mt-16">
+    <section id="desafios" className="pt-12 md:pt-16 pb-16 md:pb-20 bg-gray-100 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-[20px] sm:text-[15px] font-bold text-gray-900 mb-6 uppercase tracking-wide">
             {t('challenges.title')}
           </h2>
@@ -45,7 +45,7 @@ export function Challenges() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="w-full mb-16"
+          className="w-full mb-16 hidden md:block"
         >
           <img
             src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//Banner%20desafios.svg"
@@ -83,14 +83,14 @@ export function Challenges() {
           })}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-12 text-center">
           <motion.div
             initial={false}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-block"
           >
-            <button className="bg-gray-900 hover:bg-blue-600 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg">
+            <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg">
               {t('challenges.cta')}
             </button>
           </motion.div>
