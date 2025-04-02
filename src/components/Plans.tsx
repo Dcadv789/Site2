@@ -51,7 +51,7 @@ export function Plans() {
   return (
     <section id="planos" className="pt-12 md:pt-16 pb-12 md:pb-16 bg-gradient-to-b from-gray-900 to-gray-800 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 lg:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -61,12 +61,12 @@ export function Plans() {
             <h2 className="text-[20px] sm:text-[15px] font-bold text-white mb-6 uppercase tracking-wide">
               {t('plans.title')}
             </h2>
-            <p className="text-[24px] sm:text-[30px] text-gray-200 max-w-3xl mx-auto leading-relaxed font-light mb-12">
+            <p className="text-[24px] sm:text-[30px] text-gray-200 max-w-3xl mx-auto leading-relaxed font-light mb-8">
               {t('plans.subtitle')}
             </p>
 
             {/* Toggle de Preços */}
-            <div className="flex items-center justify-center mb-8">
+            <div className="flex items-center justify-center">
               <div className="relative bg-white rounded-full p-1 flex items-center w-[228px]">
                 <button
                   onClick={() => setIsAnnual(false)}
@@ -96,7 +96,7 @@ export function Plans() {
 
         {/* Versão Mobile */}
         <div className="lg:hidden relative">
-          <div className="overflow-hidden">
+          <div className="overflow-hidden px-6">
             <AnimatePresence mode="wait">
               {plans.map((plan, index) => {
                 const Icon = plan.icon;
@@ -111,12 +111,12 @@ export function Plans() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -100 }}
                     transition={{ duration: 0.3 }}
-                    className="relative"
+                    className="relative pt-12"
                   >
                     {/* Tag Popular */}
                     {isPopular && (
                       <motion.div 
-                        className="absolute -top-5 left-0 right-0 flex justify-center z-20"
+                        className="absolute -top-2 left-4 z-20"
                         initial={{ y: -10, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.2 }}
@@ -130,7 +130,7 @@ export function Plans() {
                     {/* Tag de Desconto */}
                     {isAnnual && (
                       <motion.div 
-                        className="absolute -top-5 right-4 z-10"
+                        className="absolute -top-2 right-4 z-10"
                         initial={{ y: -10, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.3 }}
@@ -176,7 +176,7 @@ export function Plans() {
                         ))}
                       </ul>
 
-                      <button className="w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white hover:bg-blue-700">
+                      <button className="w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white hover:scale-105">
                         {t('plans.cta')}
                       </button>
                     </div>
@@ -214,7 +214,7 @@ export function Plans() {
           </div>
         </div>
 
-        {/* Versão Desktop (Grid original) */}
+        {/* Versão Desktop */}
         <div className="hidden lg:grid grid-cols-4 gap-8">
           {plans.map((plan, index) => {
             const Icon = plan.icon;
@@ -227,14 +227,14 @@ export function Plans() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative group ${isPopular ? 'lg:-mt-8' : ''}`}
+                className={`relative ${isPopular ? 'lg:-mt-8' : ''}`}
               >
                 {/* Tag Popular */}
                 {isPopular && (
                   <motion.div 
-                    className="absolute -top-5 left-0 right-0 flex justify-center z-20 transition-all duration-300 group-hover:-translate-y-1"
+                    className={`absolute -top-5 ${isAnnual ? 'left-4' : 'left-1/2 -translate-x-1/2'} z-20`}
                   >
-                    <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium whitespace-nowrap">
                       {t('plans.popular')}
                     </span>
                   </motion.div>
@@ -249,26 +249,21 @@ export function Plans() {
                   </div>
                 )}
 
-                <motion.div 
-                  className={`group h-full bg-white rounded-2xl p-8 border-2 transition-all duration-300 
+                <div 
+                  className={`h-full bg-white rounded-2xl p-8 border-2 
                     ${isPopular ? 'border-blue-200 shadow-xl' : 'border-gray-100 shadow-lg'}
-                    hover:-translate-y-2 hover:shadow-2xl
                   `}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
                 >
                   <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center
                       ${plan.color === 'gray' ? 'bg-gray-100' : 
                         plan.color === 'yellow' ? 'bg-yellow-100' :
                         plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100'}
-                      group-hover:scale-110
                     `}>
-                      <Icon className={`w-6 h-6 transition-transform duration-300
+                      <Icon className={`w-6 h-6
                         ${plan.color === 'gray' ? 'text-gray-600' :
                           plan.color === 'yellow' ? 'text-yellow-600' :
                           plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}
-                        group-hover:scale-110
                       `} />
                     </div>
                     <h3 className={`text-xl font-semibold ${isPopular ? 'text-blue-600' : 'text-gray-900'}`}>
@@ -289,10 +284,10 @@ export function Plans() {
                     ))}
                   </ul>
 
-                  <button className="w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white hover:bg-blue-700 hover:scale-105">
+                  <button className="w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white hover:scale-105">
                     {t('plans.cta')}
                   </button>
-                </motion.div>
+                </div>
               </motion.div>
             );
           })}
