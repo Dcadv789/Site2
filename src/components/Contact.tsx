@@ -148,7 +148,7 @@ export function Contact() {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-blue-600 text-white py-4 px-8 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-2"
+                className="w-full bg-blue-600 text-white py-4 px-8 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2"
               >
                 <Send className="w-5 h-5" />
                 {t('contact.form.submit')}
@@ -355,7 +355,7 @@ export function Contact() {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-blue-600 text-white py-4 px-8 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center gap-2"
+                className="w-full bg-gray-900 hover:bg-blue-600 text-white py-4 px-8 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2"
               >
                 <Send className="w-5 h-5" />
                 {t('contact.form.submit')}

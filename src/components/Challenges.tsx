@@ -92,11 +92,11 @@ export function Challenges() {
             initial={false}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block"
+            className="inline-block w-full lg:w-auto"
           >
             <button 
               onClick={handleCtaClick}
-              className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg"
+              className="bg-blue-600 md:bg-gray-900 md:hover:bg-blue-600 px-8 py-3 rounded-full text-white text-base font-medium transition-all duration-300 w-full lg:w-auto"
             >
               {t('challenges.cta')}
             </button>
