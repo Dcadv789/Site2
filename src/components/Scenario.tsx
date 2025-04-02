@@ -85,7 +85,8 @@ export function Scenario() {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2 flex justify-end">
+          {/* Imagem apenas visível no desktop */}
+          <div className="hidden lg:flex w-full lg:w-1/2 justify-end">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}

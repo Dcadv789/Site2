@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { useTranslation } from 'react-i18next';
@@ -8,12 +8,17 @@ export function FAQ() {
   const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = React.useState("consultoria-empresarial");
   const [openQuestions, setOpenQuestions] = React.useState<{ [key: string]: boolean }>({});
+  const [activeMobileCategory, setActiveMobileCategory] = React.useState<string | null>(null);
 
   const toggleQuestion = (questionId: string) => {
     setOpenQuestions(prev => ({
       ...prev,
       [questionId]: !prev[questionId]
     }));
+  };
+
+  const toggleMobileCategory = (categoryId: string) => {
+    setActiveMobileCategory(prev => prev === categoryId ? null : categoryId);
   };
 
   return (
@@ -35,9 +40,79 @@ export function FAQ() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Versão Mobile */}
+        <div className="lg:hidden space-y-4">
+          {Object.entries(t('faq.categories', { returnObjects: true })).map(([key, category]) => (
+            <div key={key} className="border border-gray-200 rounded-lg overflow-hidden">
+              <button
+                onClick={() => toggleMobileCategory(key)}
+                className="w-full px-6 py-4 text-left flex items-center justify-between bg-white"
+              >
+                <span className="text-lg font-medium text-gray-900">
+                  {category.title}
+                </span>
+                <ChevronDown
+                  className={cn(
+                    "w-5 h-5 text-gray-500 transition-transform duration-200",
+                    activeMobileCategory === key ? "transform rotate-180" : ""
+                  )}
+                />
+              </button>
+              
+              <AnimatePresence>
+                {activeMobileCategory === key && (
+                  <motion.div
+                    initial={{ height: 0 }}
+                    animate={{ height: "auto" }}
+                    exit={{ height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-6 py-4 space-y-4 bg-gray-50">
+                      {t(`faq.categories.${key}.questions`, { returnObjects: true }).map((faq: any, index: number) => (
+                        <div key={index} className="border-b border-gray-200 last:border-0">
+                          <button
+                            onClick={() => toggleQuestion(`${key}-${index}`)}
+                            className="w-full py-3 text-left flex items-center justify-between"
+                          >
+                            <span className="text-gray-700 pr-8">{faq.question}</span>
+                            <ChevronDown
+                              className={cn(
+                                "w-4 h-4 text-gray-500 transition-transform duration-200 flex-shrink-0",
+                                openQuestions[`${key}-${index}`] ? "transform rotate-180" : ""
+                              )}
+                            />
+                          </button>
+                          
+                          <AnimatePresence>
+                            {openQuestions[`${key}-${index}`] && (
+                              <motion.div
+                                initial={{ height: 0 }}
+                                animate={{ height: "auto" }}
+                                exit={{ height: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="pb-3 text-gray-600">
+                                  {faq.answer}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+
+        {/* Versão Desktop */}
+        <div className="hidden lg:grid grid-cols-12 gap-8">
           {/* Sidebar com categorias */}
-          <div className="lg:col-span-3">
+          <div className="col-span-3">
             <div className="sticky top-24 space-y-2">
               {Object.entries(t('faq.categories', { returnObjects: true })).map(([key, category]) => (
                 <button
@@ -58,7 +133,7 @@ export function FAQ() {
           </div>
 
           {/* Lista de perguntas e respostas */}
-          <div className="lg:col-span-9">
+          <div className="col-span-9">
             <div className="space-y-4">
               {t(`faq.categories.${activeCategory}.questions`, { returnObjects: true }).map((faq: any, index: number) => (
                 <motion.div
