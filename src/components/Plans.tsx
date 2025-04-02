@@ -111,74 +111,76 @@ export function Plans() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -100 }}
                     transition={{ duration: 0.3 }}
-                    className="relative pt-12"
+                    className="relative"
                   >
-                    {/* Tag Popular */}
-                    {isPopular && (
-                      <motion.div 
-                        className="absolute -top-2 left-4 z-20"
-                        initial={{ y: -10, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.2 }}
+                    <div className="relative">
+                      <div 
+                        className={`h-full bg-white rounded-2xl p-8 border-2 mt-4
+                          ${isPopular ? 'border-blue-200 shadow-xl' : 'border-gray-100 shadow-lg'}
+                        `}
                       >
-                        <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-                          {t('plans.popular')}
-                        </span>
-                      </motion.div>
-                    )}
+                        {/* Tag Popular */}
+                        {isPopular && (
+                          <motion.div 
+                            className="absolute -top-3 left-4 z-20"
+                            initial={{ y: -10, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.2 }}
+                          >
+                            <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+                              {t('plans.popular')}
+                            </span>
+                          </motion.div>
+                        )}
 
-                    {/* Tag de Desconto */}
-                    {isAnnual && (
-                      <motion.div 
-                        className="absolute -top-2 right-4 z-10"
-                        initial={{ y: -10, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.3 }}
-                      >
-                        <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                          {plan.discount}% {t('plans.discount')}
-                        </span>
-                      </motion.div>
-                    )}
+                        {/* Tag de Desconto */}
+                        {isAnnual && (
+                          <motion.div 
+                            className="absolute -top-3 right-4 z-10"
+                            initial={{ y: -10, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.3 }}
+                          >
+                            <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                              {plan.discount}% {t('plans.discount')}
+                            </span>
+                          </motion.div>
+                        )}
 
-                    <div 
-                      className={`h-full bg-white rounded-2xl p-8 border-2 
-                        ${isPopular ? 'border-blue-200 shadow-xl' : 'border-gray-100 shadow-lg'}
-                      `}
-                    >
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center
-                          ${plan.color === 'gray' ? 'bg-gray-100' : 
-                            plan.color === 'yellow' ? 'bg-yellow-100' :
-                            plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100'}
-                        `}>
-                          <Icon className={`w-6 h-6
-                            ${plan.color === 'gray' ? 'text-gray-600' :
-                              plan.color === 'yellow' ? 'text-yellow-600' :
-                              plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}
-                          `} />
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className={`w-12 h-12 rounded-xl flex items-center justify-center
+                            ${plan.color === 'gray' ? 'bg-gray-100' : 
+                              plan.color === 'yellow' ? 'bg-yellow-100' :
+                              plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100'}
+                          `}>
+                            <Icon className={`w-6 h-6
+                              ${plan.color === 'gray' ? 'text-gray-600' :
+                                plan.color === 'yellow' ? 'text-yellow-600' :
+                                plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}
+                            `} />
+                          </div>
+                          <h3 className={`text-xl font-semibold ${isPopular ? 'text-blue-600' : 'text-gray-900'}`}>
+                            {t(`plans.${plan.id}.name`)}
+                          </h3>
                         </div>
-                        <h3 className={`text-xl font-semibold ${isPopular ? 'text-blue-600' : 'text-gray-900'}`}>
-                          {t(`plans.${plan.id}.name`)}
-                        </h3>
+
+                        <div className="mb-6 h-16">
+                          <p className="text-gray-600">{t(`plans.${plan.id}.description`)}</p>
+                        </div>
+
+                        <ul className="space-y-4 mb-8 min-h-[280px]">
+                          {t(`plans.${plan.id}.features`, { returnObjects: true }).map((feature: string, featureIndex: number) => (
+                            <li key={featureIndex} className="flex items-start gap-3">
+                              <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.checkColor}`} />
+                              <span className="text-gray-600">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <button className="w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white hover:scale-105">
+                          {t('plans.cta')}
+                        </button>
                       </div>
-
-                      <div className="mb-6 h-16">
-                        <p className="text-gray-600">{t(`plans.${plan.id}.description`)}</p>
-                      </div>
-
-                      <ul className="space-y-4 mb-8 min-h-[280px]">
-                        {t(`plans.${plan.id}.features`, { returnObjects: true }).map((feature: string, featureIndex: number) => (
-                          <li key={featureIndex} className="flex items-start gap-3">
-                            <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.checkColor}`} />
-                            <span className="text-gray-600">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <button className="w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white hover:scale-105">
-                        {t('plans.cta')}
-                      </button>
                     </div>
                   </motion.div>
                 );
