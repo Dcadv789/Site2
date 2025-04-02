@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Check, Star, Crown, Diamond, Gem } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Check, Star, Crown, Diamond, Gem, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export function Plans() {
   const { t } = useTranslation();
   const [isAnnual, setIsAnnual] = useState(false);
+  const [currentPlanIndex, setCurrentPlanIndex] = useState(0);
 
   const plans = [
     {
@@ -34,6 +35,14 @@ export function Plans() {
       color: "purple"
     }
   ];
+
+  const nextPlan = () => {
+    setCurrentPlanIndex((prev) => (prev === plans.length - 1 ? 0 : prev + 1));
+  };
+
+  const previousPlan = () => {
+    setCurrentPlanIndex((prev) => (prev === 0 ? plans.length - 1 : prev - 1));
+  };
 
   return (
     <section id="planos" className="pt-12 md:pt-16 pb-12 md:pb-16 bg-gradient-to-b from-gray-900 to-gray-800 scroll-mt-16">
@@ -81,17 +90,142 @@ export function Plans() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Versão Mobile (Carrossel) */}
+        <div className="lg:hidden relative">
+          <div className="overflow-hidden">
+            <AnimatePresence mode="wait">
+              {plans.map((plan, index) => {
+                const Icon = plan.icon;
+                const isPopular = plan.popular;
+                
+                const colorVariants = {
+                  gray: "hover:border-gray-400 hover:shadow-gray-100",
+                  yellow: "hover:border-yellow-400 hover:shadow-yellow-100",
+                  blue: "hover:border-blue-400 hover:shadow-blue-100",
+                  purple: "hover:border-purple-400 hover:shadow-purple-100"
+                };
+
+                if (index !== currentPlanIndex) return null;
+
+                return (
+                  <motion.div
+                    key={plan.id}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -100 }}
+                    transition={{ duration: 0.3 }}
+                    className="relative group"
+                  >
+                    {/* Tag Popular */}
+                    {isPopular && (
+                      <motion.div 
+                        className="absolute -top-5 left-0 right-0 flex justify-center z-20"
+                        initial={{ y: -10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                      >
+                        <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+                          {t('plans.popular')}
+                        </span>
+                      </motion.div>
+                    )}
+
+                    {/* Tag de Desconto */}
+                    {isAnnual && (
+                      <motion.div 
+                        className="absolute -top-5 right-4 z-10"
+                        initial={{ y: -10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                          {plan.discount}% {t('plans.discount')}
+                        </span>
+                      </motion.div>
+                    )}
+
+                    <motion.div 
+                      className={`group h-full bg-white rounded-2xl p-8 border-2 transition-all duration-300 
+                        ${isPopular ? 'border-blue-200 shadow-xl' : 'border-gray-100 shadow-lg'}
+                        hover:-translate-y-2 hover:shadow-2xl
+                      `}
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors duration-300
+                          ${plan.color === 'gray' ? 'bg-gray-100 group-hover:bg-blue-100' : 
+                            plan.color === 'yellow' ? 'bg-yellow-100 group-hover:bg-blue-100' :
+                            plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100 group-hover:bg-blue-100'}
+                        `}>
+                          <Icon className={`w-6 h-6 transition-all duration-300
+                            ${plan.color === 'gray' ? 'text-gray-600 group-hover:text-blue-600' :
+                              plan.color === 'yellow' ? 'text-yellow-600 group-hover:text-blue-600' :
+                              plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600 group-hover:text-blue-600'}
+                            group-hover:scale-110
+                          `} />
+                        </div>
+                        <h3 className={`text-xl font-semibold transition-colors duration-300 ${isPopular ? 'text-blue-600' : 'text-gray-900'} group-hover:text-blue-600`}>
+                          {t(`plans.${plan.id}.name`)}
+                        </h3>
+                      </div>
+
+                      <div className="mb-6 h-16">
+                        <p className="text-gray-600">{t(`plans.${plan.id}.description`)}</p>
+                      </div>
+
+                      <ul className="space-y-4 mb-8 min-h-[280px]">
+                        {t(`plans.${plan.id}.features`, { returnObjects: true }).map((feature: string, featureIndex: number) => (
+                          <li key={featureIndex} className="flex items-start gap-3">
+                            <Check className="w-5 h-5 mt-0.5 flex-shrink-0 text-blue-600" />
+                            <span className="text-gray-600">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <button className="w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white hover:bg-blue-700 hover:scale-105">
+                        {t('plans.cta')}
+                      </button>
+                    </motion.div>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </div>
+
+          {/* Botões de navegação */}
+          <button
+            onClick={previousPlan}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center z-10 hover:bg-gray-50 transition-colors"
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-600" />
+          </button>
+          <button
+            onClick={nextPlan}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center z-10 hover:bg-gray-50 transition-colors"
+          >
+            <ChevronRight className="w-6 h-6 text-gray-600" />
+          </button>
+
+          {/* Indicadores */}
+          <div className="flex justify-center gap-2 mt-6">
+            {plans.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPlanIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentPlanIndex ? 'bg-blue-600 w-4' : 'bg-gray-400'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Versão Desktop (Grid original) */}
+        <div className="hidden lg:grid grid-cols-4 gap-8">
           {plans.map((plan, index) => {
             const Icon = plan.icon;
             const isPopular = plan.popular;
-            
-            const colorVariants = {
-              gray: "hover:border-gray-400 hover:shadow-gray-100",
-              yellow: "hover:border-yellow-400 hover:shadow-yellow-100",
-              blue: "hover:border-blue-400 hover:shadow-blue-100",
-              purple: "hover:border-purple-400 hover:shadow-purple-100"
-            };
 
             return (
               <motion.div
@@ -105,7 +239,7 @@ export function Plans() {
                 {/* Tag Popular */}
                 {isPopular && (
                   <motion.div 
-                    className={`absolute ${isAnnual ? '-top-5 right-22' : '-top-5 left-0 right-0'} flex justify-center z-20 transition-all duration-300 group-hover:-translate-y-1`}
+                    className="absolute -top-5 left-0 right-0 flex justify-center z-20 transition-all duration-300 group-hover:-translate-y-1"
                   >
                     <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
                       {t('plans.popular')}
@@ -122,24 +256,28 @@ export function Plans() {
                   </div>
                 )}
 
-                <div className={`h-full bg-white rounded-2xl p-8 border-2 transition-all duration-300 
-                  ${isPopular ? 'border-blue-200 shadow-xl bg-gradient-to-b from-blue-50/50 to-transparent' : 'border-gray-100 shadow-lg'} 
-                  ${colorVariants[plan.color as keyof typeof colorVariants]}
-                  ${isPopular ? 'hover:shadow-2xl hover:-translate-y-2 hover:bg-gradient-to-b hover:from-blue-50' : 'hover:shadow-xl hover:-translate-y-1'}
-                `}>
+                <motion.div 
+                  className={`group h-full bg-white rounded-2xl p-8 border-2 transition-all duration-300 
+                    ${isPopular ? 'border-blue-200 shadow-xl' : 'border-gray-100 shadow-lg'}
+                    hover:-translate-y-2 hover:shadow-2xl
+                  `}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <div className="flex items-center gap-4 mb-6">
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors duration-300
-                      ${plan.color === 'gray' ? 'bg-gray-100' : 
-                        plan.color === 'yellow' ? 'bg-yellow-100' :
-                        plan.color === 'blue' ? `bg-blue-100 ${isPopular ? 'group-hover:bg-blue-200' : ''}` : 'bg-purple-100'}
+                      ${plan.color === 'gray' ? 'bg-gray-100 group-hover:bg-blue-100' : 
+                        plan.color === 'yellow' ? 'bg-yellow-100 group-hover:bg-blue-100' :
+                        plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100 group-hover:bg-blue-100'}
                     `}>
-                      <Icon className={`w-6 h-6 transition-transform duration-300 ${isPopular ? 'group-hover:scale-110' : ''}
-                        ${plan.color === 'gray' ? 'text-gray-600' :
-                          plan.color === 'yellow' ? 'text-yellow-600' :
-                          plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}
+                      <Icon className={`w-6 h-6 transition-all duration-300
+                        ${plan.color === 'gray' ? 'text-gray-600 group-hover:text-blue-600' :
+                          plan.color === 'yellow' ? 'text-yellow-600 group-hover:text-blue-600' :
+                          plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600 group-hover:text-blue-600'}
+                        group-hover:scale-110
                       `} />
                     </div>
-                    <h3 className={`text-xl font-semibold ${isPopular ? 'text-blue-600' : 'text-gray-900'}`}>
+                    <h3 className={`text-xl font-semibold transition-colors duration-300 ${isPopular ? 'text-blue-600' : 'text-gray-900'} group-hover:text-blue-600`}>
                       {t(`plans.${plan.id}.name`)}
                     </h3>
                   </div>
@@ -151,22 +289,16 @@ export function Plans() {
                   <ul className="space-y-4 mb-8 min-h-[280px]">
                     {t(`plans.${plan.id}.features`, { returnObjects: true }).map((feature: string, featureIndex: number) => (
                       <li key={featureIndex} className="flex items-start gap-3">
-                        <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 transition-colors duration-300
-                          ${plan.color === 'gray' ? 'text-gray-600' :
-                            plan.color === 'yellow' ? 'text-yellow-600' :
-                            plan.color === 'blue' ? `text-blue-600 ${isPopular ? 'group-hover:text-blue-700' : ''}` : 'text-purple-600'}
-                        `} />
+                        <Check className="w-5 h-5 mt-0.5 flex-shrink-0 text-blue-600" />
                         <span className="text-gray-600">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <button className={`w-full py-3 px-6 rounded-full font-medium transition-all duration-300
-                    ${isPopular ? 'bg-blue-600 text-white hover:bg-blue-700 hover:scale-105' : 'bg-gray-900 text-white hover:bg-gray-800'}
-                  `}>
+                  <button className="w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white hover:bg-blue-700 hover:scale-105">
                     {t('plans.cta')}
                   </button>
-                </div>
+                </motion.div>
               </motion.div>
             );
           })}
