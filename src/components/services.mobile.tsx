@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, PanInfo } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { 
   BarChart3, 
@@ -15,6 +15,7 @@ import {
 export function ServicesMobile() {
   const { t } = useTranslation();
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
+  const [dragStart, setDragStart] = useState(0);
 
   const handleCtaClick = () => {
     window.open('https://wa.me/5511994561052?text=Ol%C3%A1,%20vim%20atrav%C3%A9s%20do%20site%20e%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20DC%20Advisors.', '_blank');
@@ -77,6 +78,23 @@ export function ServicesMobile() {
     );
   };
 
+  const handleDragStart = (event: any, info: PanInfo) => {
+    setDragStart(info.point.x);
+  };
+
+  const handleDragEnd = (event: any, info: PanInfo) => {
+    const dragDistance = info.point.x - dragStart;
+    const dragThreshold = 50; // Distância mínima para considerar como swipe
+
+    if (Math.abs(dragDistance) > dragThreshold) {
+      if (dragDistance > 0) {
+        previousService();
+      } else {
+        nextService();
+      }
+    }
+  };
+
   return (
     <section id="servicos" className="pt-12 pb-12 bg-white scroll-mt-16">
       <div className="px-4">
@@ -104,7 +122,12 @@ export function ServicesMobile() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.3 }}
-              className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragStart={handleDragStart}
+              onDragEnd={handleDragEnd}
+              className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden touch-pan-x"
             >
               {(() => {
                 const service = services[currentServiceIndex];
@@ -157,6 +180,19 @@ export function ServicesMobile() {
               })()}
             </motion.div>
           </AnimatePresence>
+
+          {/* Indicadores de página */}
+          <div className="flex justify-center gap-2 mt-6">
+            {services.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentServiceIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentServiceIndex ? 'bg-blue-600 w-4' : 'bg-gray-400'
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="mt-10 text-center">

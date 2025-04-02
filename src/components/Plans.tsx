@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Check, Star, Crown, Diamond, Gem, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence, PanInfo } from 'framer-motion';
+import { Star, Crown, Diamond, Gem, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export function Plans() {
   const { t } = useTranslation();
   const [isAnnual, setIsAnnual] = useState(false);
   const [currentPlanIndex, setCurrentPlanIndex] = useState(0);
+  const [dragStart, setDragStart] = useState(0);
 
   const plans = [
     {
@@ -50,6 +51,23 @@ export function Plans() {
 
   const previousPlan = () => {
     setCurrentPlanIndex((prev) => (prev === 0 ? plans.length - 1 : prev - 1));
+  };
+
+  const handleDragStart = (event: any, info: PanInfo) => {
+    setDragStart(info.point.x);
+  };
+
+  const handleDragEnd = (event: any, info: PanInfo) => {
+    const dragDistance = info.point.x - dragStart;
+    const dragThreshold = 50; // Distância mínima para considerar como swipe
+
+    if (Math.abs(dragDistance) > dragThreshold) {
+      if (dragDistance > 0) {
+        previousPlan();
+      } else {
+        nextPlan();
+      }
+    }
   };
 
   return (
@@ -113,7 +131,12 @@ export function Plans() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -100 }}
                     transition={{ duration: 0.3 }}
-                    className="relative"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.2}
+                    onDragStart={handleDragStart}
+                    onDragEnd={handleDragEnd}
+                    className="relative touch-pan-x"
                   >
                     <div className="relative">
                       <div 
@@ -173,7 +196,6 @@ export function Plans() {
                         <ul className="space-y-4 mb-8 min-h-[280px]">
                           {t(`plans.${plan.id}.features`, { returnObjects: true }).map((feature: string, featureIndex: number) => (
                             <li key={featureIndex} className="flex items-start gap-3">
-                              <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.checkColor}`} />
                               <span className="text-gray-600">{feature}</span>
                             </li>
                           ))}
@@ -208,6 +230,7 @@ export function Plans() {
             <ChevronRight className="w-6 h-6 text-gray-600" />
           </button>
 
+          {/* Indicadores de página */}
           <div className="flex justify-center gap-2 mt-6">
             {plans.map((_, index) => (
               <button
@@ -282,7 +305,6 @@ export function Plans() {
                   <ul className="space-y-4 mb-8 min-h-[280px]">
                     {t(`plans.${plan.id}.features`, { returnObjects: true }).map((feature: string, featureIndex: number) => (
                       <li key={featureIndex} className="flex items-start gap-3">
-                        <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.checkColor}`} />
                         <span className="text-gray-600">{feature}</span>
                       </li>
                     ))}
