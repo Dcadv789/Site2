@@ -68,10 +68,10 @@ export function Footer() {
   };
 
   const socialLinks = [
-    { icon: MessageCircle, href: 'https://wa.me/5511999999999', label: 'WhatsApp' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: MessageCircle, href: 'https://wa.me/5511994561052?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20e%20quero%20agendar%20o%20diagn%C3%B3stico%20financeiro%20GRATUITO%20para%20minha%20empresa.' },
+    { icon: Instagram, href: 'https://www.instagram.com/d.c.advisors', label: 'Instagram' },
+    { icon: Youtube, href: 'https://www.youtube.com/@dcadvisors', label: 'YouTube' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/dca-dvisors', label: 'LinkedIn' },
   ];
 
   return (
@@ -175,7 +175,7 @@ export function Footer() {
               <div className="bg-gray-800/50 rounded-xl p-6">
                 <h3 className="text-lg font-medium mb-4">{t('contact.title')}</h3>
                 <div className="space-y-4">
-                  <a href="tel:+551199999999" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-200">
+                  <a href="https://wa.me/5511994561052?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20e%20quero%20agendar%20o%20diagn%C3%B3stico%20financeiro%20GRATUITO%20para%20minha%20empresa." className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-200">
                     <Phone className="w-5 h-5" />
                     (11) 99456-1052
                   </a>

@@ -158,7 +158,7 @@ export function Contact() {
 
           {/* Informações de Contato Mobile */}
           <div className="space-y-6">
-            <a href="https://wa.me/5511994561052" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors duration-200">
+            <a href="https://wa.me/5511994561052?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20e%20quero%20agendar%20o%20diagn%C3%B3stico%20financeiro%20GRATUITO%20para%20minha%20empresa." target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors duration-200">
               <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
                 <Phone className="w-6 h-6 text-blue-600" />
               </div>

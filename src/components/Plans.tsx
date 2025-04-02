@@ -14,14 +14,16 @@ export function Plans() {
       icon: Star,
       discount: 10,
       color: "gray",
-      checkColor: "text-gray-400"
+      checkColor: "text-gray-400",
+      whatsappLink: "https://wa.me/5511994561052?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20e%20me%20interessei%20pelo%20plano%20SILVER.%20Como%20voc%C3%AAs%20podem%20me%20ajudar?"
     },
     {
       id: "gold",
       icon: Gem,
       discount: 10,
       color: "yellow",
-      checkColor: "text-yellow-600"
+      checkColor: "text-yellow-600",
+      whatsappLink: "https://wa.me/5511994561052?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20e%20me%20interessei%20pelo%20plano%20GOLD.%20Como%20voc%C3%AAs%20podem%20me%20ajudar?"
     },
     {
       id: "platinum",
@@ -29,14 +31,16 @@ export function Plans() {
       discount: 15,
       color: "blue",
       popular: true,
-      checkColor: "text-blue-600"
+      checkColor: "text-blue-600",
+      whatsappLink: "https://wa.me/5511994561052?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20e%20me%20interessei%20pelo%20plano%20PLATINUM.%20Como%20voc%C3%AAs%20podem%20me%20ajudar?"
     },
     {
       id: "diamond",
       icon: Diamond,
       discount: 15,
       color: "purple",
-      checkColor: "text-purple-600"
+      checkColor: "text-purple-600",
+      whatsappLink: "https://wa.me/5511994561052?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20e%20me%20interessei%20pelo%20plano%20DIAMOND.%20Como%20voc%C3%AAs%20podem%20me%20ajudar?"
     }
   ];
 
@@ -175,9 +179,14 @@ export function Plans() {
                           ))}
                         </ul>
 
-                        <button className="w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white hover:scale-105">
+                        <a 
+                          href={plan.whatsappLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white text-center hover:scale-105"
+                        >
                           {t('plans.cta')}
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </motion.div>
@@ -279,9 +288,14 @@ export function Plans() {
                     ))}
                   </ul>
 
-                  <button className="w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white hover:scale-105">
+                  <a 
+                    href={plan.whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white text-center hover:scale-105"
+                  >
                     {t('plans.cta')}
-                  </button>
+                  </a>
                 </div>
               </motion.div>
             );
