@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
@@ -9,10 +8,11 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': {
+      '/api/loops': {
         target: 'https://app.loops.so',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        rewrite: (path) => path.replace(/^\/api\/loops/, ''),
+        secure: false
       },
     },
   },

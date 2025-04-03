@@ -15,7 +15,6 @@ export function Contact() {
   const [num1] = useState(Math.floor(Math.random() * 10) + 1);
   const [num2] = useState(Math.floor(Math.random() * 10) + 1);
   const [userAnswer, setUserAnswer] = useState('');
-  const correctAnswer = num1 + num2;
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState<FormData>({
@@ -64,7 +63,7 @@ export function Contact() {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch("/api/v1/subscribers", {
+      const response = await fetch("/api/loops/api/v1/contacts/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,7 +71,9 @@ export function Contact() {
         },
         body: JSON.stringify({
           email: formData.email,
-          name: formData.name,
+          firstName: formData.name.split(' ')[0],
+          lastName: formData.name.split(' ').slice(1).join(' '),
+          userGroup: "website-contact",
           metadata: {
             whatsapp: formData.whatsapp,
             message: formData.message
@@ -80,7 +81,13 @@ export function Contact() {
         })
       });
 
-      if (response.ok) {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if (data.success) {
         setSubmitStatus('success');
         setFormData({
           name: '',
@@ -90,14 +97,17 @@ export function Contact() {
         });
         setUserAnswer('');
       } else {
-        setSubmitStatus('error');
+        throw new Error('Falha ao enviar formulário');
       }
     } catch (error) {
       setSubmitStatus('error');
+      console.error('Erro ao enviar formulário:', error);
     } finally {
       setIsLoading(false);
     }
   };
+
+  const correctAnswer = num1 + num2;
 
   return (
     <section id="contato" className="pt-12 md:pt-16 pb-12 md:pb-16 bg-gray-50 scroll-mt-16">
