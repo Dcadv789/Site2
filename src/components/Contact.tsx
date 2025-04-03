@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+
+interface FormData {
+  name: string;
+  email: string;
+  whatsapp: string;
+  message: string;
+}
 
 export function Contact() {
   const { t } = useTranslation();
@@ -9,13 +16,17 @@ export function Contact() {
   const [num2] = useState(Math.floor(Math.random() * 10) + 1);
   const [userAnswer, setUserAnswer] = useState('');
   const correctAnswer = num1 + num2;
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    whatsapp: '',
+    message: ''
+  });
 
-  // Função para formatar o número de WhatsApp
   const formatWhatsApp = (value: string) => {
-    // Remove tudo que não for número
     const numbers = value.replace(/\D/g, '');
-    
-    // Aplica a máscara conforme o usuário digita
     let formatted = numbers;
     if (numbers.length > 0) {
       formatted = `(${numbers.slice(0, 2)}`;
@@ -26,25 +37,65 @@ export function Contact() {
         }
       }
     }
-    
     return formatted;
   };
 
   const handleWhatsAppChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const formatted = formatWhatsApp(e.target.value);
-    // Limita o tamanho máximo considerando a máscara
     if (formatted.length <= 15) {
-      e.target.value = formatted;
+      setFormData(prev => ({ ...prev, whatsapp: formatted }));
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (parseInt(userAnswer) === correctAnswer) {
-      // Aqui você pode adicionar a lógica de envio do formulário
-      console.log('Formulário válido, enviando...');
-    } else {
+    
+    if (parseInt(userAnswer) !== correctAnswer) {
       alert('Por favor, verifique sua resposta para a soma.');
+      return;
+    }
+
+    setIsLoading(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch("/api/v1/subscribers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer 5d24ad463dbc4901f4bfe1673f71f755"
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          name: formData.name,
+          metadata: {
+            whatsapp: formData.whatsapp,
+            message: formData.message
+          }
+        })
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          whatsapp: '',
+          message: ''
+        });
+        setUserAnswer('');
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -84,6 +135,9 @@ export function Contact() {
                 <input
                   type="text"
                   id="name-mobile"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500"
                   placeholder={t('contact.form.placeholders.name')}
                   required
@@ -97,6 +151,9 @@ export function Contact() {
                 <input
                   type="email"
                   id="email-mobile"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500"
                   placeholder={t('contact.form.placeholders.email')}
                   required
@@ -110,9 +167,11 @@ export function Contact() {
                 <input
                   type="tel"
                   id="whatsapp-mobile"
+                  name="whatsapp"
+                  value={formData.whatsapp}
+                  onChange={handleWhatsAppChange}
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="(00) 00000-0000"
-                  onChange={handleWhatsAppChange}
                   required
                 />
               </div>
@@ -123,6 +182,9 @@ export function Contact() {
                 </label>
                 <textarea
                   id="message-mobile"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   rows={4}
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500"
                   placeholder={t('contact.form.placeholders.message')}
@@ -144,14 +206,27 @@ export function Contact() {
                 />
               </div>
 
+              {submitStatus === 'success' && (
+                <div className="p-4 bg-green-50 text-green-700 rounded-lg">
+                  Mensagem enviada com sucesso! Em breve entraremos em contato.
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="p-4 bg-red-50 text-red-700 rounded-lg">
+                  Erro ao enviar mensagem. Por favor, tente novamente.
+                </div>
+              )}
+
               <motion.button
                 type="submit"
+                disabled={isLoading}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-blue-600 text-white py-4 px-8 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2"
+                className="w-full bg-blue-600 text-white py-4 px-8 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <Send className="w-5 h-5" />
-                {t('contact.form.submit')}
+                {isLoading ? 'Enviando...' : t('contact.form.submit')}
               </motion.button>
             </form>
           </motion.div>
@@ -291,6 +366,9 @@ export function Contact() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500"
                   placeholder={t('contact.form.placeholders.name')}
                   required
@@ -304,6 +382,9 @@ export function Contact() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500"
                   placeholder={t('contact.form.placeholders.email')}
                   required
@@ -317,9 +398,11 @@ export function Contact() {
                 <input
                   type="tel"
                   id="whatsapp"
+                  name="whatsapp"
+                  value={formData.whatsapp}
+                  onChange={handleWhatsAppChange}
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500"
                   placeholder="(00) 00000-0000"
-                  onChange={handleWhatsAppChange}
                   required
                 />
               </div>
@@ -330,6 +413,9 @@ export function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   rows={4}
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-blue-500"
                   placeholder={t('contact.form.placeholders.message')}
@@ -351,14 +437,27 @@ export function Contact() {
                 />
               </div>
 
+              {submitStatus === 'success' && (
+                <div className="p-4 bg-green-50 text-green-700 rounded-lg">
+                  Mensagem enviada com sucesso! Em breve entraremos em contato.
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="p-4 bg-red-50 text-red-700 rounded-lg">
+                  Erro ao enviar mensagem. Por favor, tente novamente.
+                </div>
+              )}
+
               <motion.button
                 type="submit"
+                disabled={isLoading}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-gray-900 hover:bg-blue-600 text-white py-4 px-8 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2"
+                className="w-full bg-gray-900 hover:bg-blue-600 text-white py-4 px-8 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <Send className="w-5 h-5" />
-                {t('contact.form.submit')}
+                {isLoading ? 'Enviando...' : t('contact.form.submit')}
               </motion.button>
             </form>
           </motion.div>
