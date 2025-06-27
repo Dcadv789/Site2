@@ -71,7 +71,7 @@ export function Plans() {
   };
 
   return (
-    <section id="planos" className="pt-12 md:pt-16 pb-12 md:pb-16 bg-gradient-to-b from-gray-900 to-gray-800 scroll-mt-16">
+    <section id="planos" className="pt-12 md:pt-16 pb-12 md:pb-16 bg-gradient-to-b from-gray-900 to-gray-800 scroll-mt-16 rounded-t-[2rem] md:rounded-t-[3rem] rounded-b-[2rem] md:rounded-b-[3rem]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 lg:mb-16">
           <motion.div

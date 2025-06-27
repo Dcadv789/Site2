@@ -64,14 +64,18 @@ export function Hero() {
               transition={{ delay: 0.2 }}
               className="relative w-full"
             >
-              {/* Efeito de luz principal atrás da imagem */}
-              <div className="absolute inset-0 -inset-x-16 -inset-y-16">
-                {/* Luz central principal */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
-                {/* Luz secundária mais ampla */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-white/10 rounded-full blur-[100px]"></div>
-                {/* Reflexo no fundo azul */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-gradient-to-r from-blue-300/15 via-white/15 to-blue-300/15 rounded-full blur-[120px]"></div>
+              {/* Efeito de luz principal atrás da imagem - INTENSIFICADO */}
+              <div className="absolute inset-0 -inset-x-20 -inset-y-20">
+                {/* Luz central principal - MUITO MAIS FORTE */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/40 rounded-full blur-3xl"></div>
+                {/* Luz secundária mais ampla - INTENSIFICADA */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-white/25 rounded-full blur-[100px]"></div>
+                {/* Reflexo no fundo azul - MUITO MAIS INTENSO */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] bg-gradient-to-r from-blue-200/30 via-white/30 to-blue-200/30 rounded-full blur-[120px]"></div>
+                {/* Nova camada de luz adicional para mais intensidade */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/20 rounded-full blur-[150px]"></div>
+                {/* Luz de destaque central */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-white/50 rounded-full blur-2xl"></div>
               </div>
               <img
                 src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//banner1.svg"
@@ -158,14 +162,16 @@ export function Hero() {
                       transition={{ delay: 0.4 }}
                       className="w-64 relative"
                     >
-                      {/* Efeito de luz menor para a segunda imagem */}
-                      <div className="absolute inset-0 -inset-x-8 -inset-y-8">
-                        {/* Luz central */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-white/15 rounded-full blur-2xl"></div>
-                        {/* Luz secundária */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-60 bg-white/8 rounded-full blur-[80px]"></div>
-                        {/* Reflexo azul */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-48 bg-gradient-to-r from-blue-300/10 via-white/10 to-blue-300/10 rounded-full blur-[90px]"></div>
+                      {/* Efeito de luz menor para a segunda imagem - INTENSIFICADO */}
+                      <div className="absolute inset-0 -inset-x-12 -inset-y-12">
+                        {/* Luz central - MAIS FORTE */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] bg-white/30 rounded-full blur-2xl"></div>
+                        {/* Luz secundária - INTENSIFICADA */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-white/20 rounded-full blur-[80px]"></div>
+                        {/* Reflexo azul - MAIS INTENSO */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[250px] bg-gradient-to-r from-blue-200/20 via-white/20 to-blue-200/20 rounded-full blur-[90px]"></div>
+                        {/* Nova camada adicional */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] bg-white/15 rounded-full blur-[100px]"></div>
                       </div>
                       <img
                         src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//banner2.svg"
@@ -208,14 +214,16 @@ export function Hero() {
             transition={{ delay: 0.3 }}
             className="mb-8 relative"
           >
-            {/* Efeito de luz mobile */}
-            <div className="absolute inset-0 -inset-x-8 -inset-y-8">
-              {/* Luz central mobile */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/18 rounded-full blur-3xl"></div>
-              {/* Luz secundária mobile */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-48 bg-white/10 rounded-full blur-[80px]"></div>
-              {/* Reflexo azul mobile */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-40 bg-gradient-to-r from-blue-300/12 via-white/12 to-blue-300/12 rounded-full blur-[70px]"></div>
+            {/* Efeito de luz mobile - INTENSIFICADO */}
+            <div className="absolute inset-0 -inset-x-12 -inset-y-12">
+              {/* Luz central mobile - MUITO MAIS FORTE */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-white/35 rounded-full blur-3xl"></div>
+              {/* Luz secundária mobile - INTENSIFICADA */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[280px] bg-white/25 rounded-full blur-[80px]"></div>
+              {/* Reflexo azul mobile - MAIS INTENSO */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-gradient-to-r from-blue-200/25 via-white/25 to-blue-200/25 rounded-full blur-[70px]"></div>
+              {/* Nova camada adicional mobile */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-white/20 rounded-full blur-[90px]"></div>
             </div>
             <img
               src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//banner1.svg"
