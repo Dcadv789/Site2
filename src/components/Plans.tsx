@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence, PanInfo } from 'framer-motion';
-import { Star, Crown, Diamond, Gem, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, Crown, Diamond, Gem, ChevronLeft, ChevronRight, CreditCard } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export function Plans() {
@@ -80,9 +80,12 @@ export function Plans() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-[20px] sm:text-[15px] font-bold text-white mb-6 uppercase tracking-wide">
-              {t('plans.title')}
-            </h2>
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <CreditCard className="w-6 h-6 text-[#0131FF]" />
+              <h2 className="text-[20px] sm:text-[15px] font-bold text-white uppercase tracking-wide">
+                PLANOS DA AXORY
+              </h2>
+            </div>
             <p className="text-[24px] sm:text-[30px] text-gray-200 max-w-3xl mx-auto leading-relaxed font-light mb-8">
               {t('plans.subtitle')}
             </p>
@@ -140,8 +143,11 @@ export function Plans() {
                   >
                     <div className="relative">
                       <div 
-                        className={`h-full bg-white rounded-2xl p-8 border-2 mt-4
-                          ${isPopular ? 'border-blue-200 shadow-xl' : 'border-gray-100 shadow-lg'}
+                        className={`h-full rounded-2xl p-8 mt-4
+                          ${isPopular 
+                            ? 'bg-[#0131FF] shadow-xl shadow-blue-500/20' 
+                            : 'bg-white border-2 border-gray-100 shadow-lg'
+                          }
                         `}
                       >
                         {isPopular && (
@@ -153,7 +159,7 @@ export function Plans() {
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.2 }}
                           >
-                            <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+                            <span className="bg-white text-blue-600 px-4 py-1 rounded-full text-sm font-medium">
                               {t('plans.popular')}
                             </span>
                           </motion.div>
@@ -174,29 +180,39 @@ export function Plans() {
 
                         <div className="flex items-center gap-4 mb-6">
                           <div className={`w-12 h-12 rounded-xl flex items-center justify-center
-                            ${plan.color === 'gray' ? 'bg-gray-100' : 
-                              plan.color === 'yellow' ? 'bg-yellow-100' :
-                              plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100'}
+                            ${isPopular 
+                              ? 'bg-white/20' 
+                              : plan.color === 'gray' ? 'bg-gray-100' : 
+                                plan.color === 'yellow' ? 'bg-yellow-100' :
+                                plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100'
+                            }
                           `}>
                             <Icon className={`w-6 h-6
-                              ${plan.color === 'gray' ? 'text-gray-600' :
-                                plan.color === 'yellow' ? 'text-yellow-600' :
-                                plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}
+                              ${isPopular 
+                                ? 'text-white' 
+                                : plan.color === 'gray' ? 'text-gray-600' :
+                                  plan.color === 'yellow' ? 'text-yellow-600' :
+                                  plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'
+                              }
                             `} />
                           </div>
-                          <h3 className={`text-xl font-semibold ${isPopular ? 'text-blue-600' : 'text-gray-900'}`}>
+                          <h3 className={`text-xl font-semibold ${isPopular ? 'text-white' : 'text-gray-900'}`}>
                             {t(`plans.${plan.id}.name`)}
                           </h3>
                         </div>
 
-                        <div className="mb-6 h-16">
-                          <p className="text-gray-600">{t(`plans.${plan.id}.description`)}</p>
+                        <div className="mb-6 h-12">
+                          <p className={`text-sm leading-tight ${isPopular ? 'text-gray-200' : 'text-gray-600'}`}>
+                            {t(`plans.${plan.id}.description`)}
+                          </p>
                         </div>
 
                         <ul className="space-y-4 mb-8 min-h-[280px]">
                           {t(`plans.${plan.id}.features`, { returnObjects: true }).map((feature: string, featureIndex: number) => (
                             <li key={featureIndex} className="flex items-start gap-3">
-                              <span className="text-gray-600">{feature}</span>
+                              <span className={`${isPopular ? 'text-gray-200' : 'text-gray-600'}`}>
+                                {feature}
+                              </span>
                             </li>
                           ))}
                         </ul>
@@ -205,7 +221,12 @@ export function Plans() {
                           href={plan.whatsappLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white text-center hover:scale-105"
+                          className={`block w-full py-3 px-6 rounded-full font-medium transition-all duration-300 text-center hover:scale-105
+                            ${isPopular 
+                              ? 'bg-white text-blue-600 hover:bg-gray-100' 
+                              : 'bg-blue-600 text-white hover:bg-blue-700'
+                            }
+                          `}
                         >
                           {t('plans.cta')}
                         </a>
@@ -262,7 +283,7 @@ export function Plans() {
                   <motion.div 
                     className={`absolute -top-5 ${isAnnual ? 'left-4' : 'left-1/2 -translate-x-1/2'} z-20`}
                   >
-                    <span className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium whitespace-nowrap">
+                    <span className="bg-white text-blue-600 px-4 py-1 rounded-full text-sm font-medium whitespace-nowrap">
                       {t('plans.popular')}
                     </span>
                   </motion.div>
@@ -277,35 +298,48 @@ export function Plans() {
                 )}
 
                 <div 
-                  className={`h-full bg-white rounded-2xl p-8 border-2 
-                    ${isPopular ? 'border-blue-200 shadow-xl' : 'border-gray-100 shadow-lg'}
+                  className={`h-full rounded-2xl p-8
+                    ${isPopular 
+                      ? 'bg-[#0131FF] shadow-xl shadow-blue-500/20' 
+                      : 'bg-white border-2 border-gray-100 shadow-lg'
+                    }
                   `}
                 >
                   <div className="flex items-center gap-4 mb-6">
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center
-                      ${plan.color === 'gray' ? 'bg-gray-100' : 
-                        plan.color === 'yellow' ? 'bg-yellow-100' :
-                        plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100'}
+                      ${isPopular 
+                        ? 'bg-white/20' 
+                        : plan.color === 'gray' ? 'bg-gray-100' : 
+                          plan.color === 'yellow' ? 'bg-yellow-100' :
+                          plan.color === 'blue' ? 'bg-blue-100' : 'bg-purple-100'
+                      }
                     `}>
                       <Icon className={`w-6 h-6
-                        ${plan.color === 'gray' ? 'text-gray-600' :
-                          plan.color === 'yellow' ? 'text-yellow-600' :
-                          plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}
+                        ${isPopular 
+                          ? 'text-white' 
+                          : plan.color === 'gray' ? 'text-gray-600' :
+                            plan.color === 'yellow' ? 'text-yellow-600' :
+                            plan.color === 'blue' ? 'text-blue-600' : 'text-purple-600'
+                        }
                       `} />
                     </div>
-                    <h3 className={`text-xl font-semibold ${isPopular ? 'text-blue-600' : 'text-gray-900'}`}>
+                    <h3 className={`text-xl font-semibold ${isPopular ? 'text-white' : 'text-gray-900'}`}>
                       {t(`plans.${plan.id}.name`)}
                     </h3>
                   </div>
 
-                  <div className="mb-6 h-16">
-                    <p className="text-gray-600">{t(`plans.${plan.id}.description`)}</p>
+                  <div className="mb-6 h-12">
+                    <p className={`text-sm leading-tight ${isPopular ? 'text-gray-200' : 'text-gray-600'}`}>
+                      {t(`plans.${plan.id}.description`)}
+                    </p>
                   </div>
 
                   <ul className="space-y-4 mb-8 min-h-[280px]">
                     {t(`plans.${plan.id}.features`, { returnObjects: true }).map((feature: string, featureIndex: number) => (
                       <li key={featureIndex} className="flex items-start gap-3">
-                        <span className="text-gray-600">{feature}</span>
+                        <span className={`${isPopular ? 'text-gray-200' : 'text-gray-600'}`}>
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -314,7 +348,12 @@ export function Plans() {
                     href={plan.whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full py-3 px-6 rounded-full font-medium transition-all duration-300 bg-blue-600 text-white text-center hover:scale-105"
+                    className={`block w-full py-3 px-6 rounded-full font-medium transition-all duration-300 text-center hover:scale-105
+                      ${isPopular 
+                        ? 'bg-white text-blue-600 hover:bg-gray-100' 
+                        : 'bg-blue-600 text-white hover:bg-blue-700'
+                      }
+                    `}
                   >
                     {t('plans.cta')}
                   </a>
