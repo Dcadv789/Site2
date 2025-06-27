@@ -68,31 +68,31 @@ export const ptBR = {
     },
     benefits: {
       title: 'BENEFÍCIOS',
-      subtitle: 'O que os clientes da DC Advisors ganham',
+      subtitle: 'O que os clientes da Axory ganham',
       items: {
         savings: {
           title: 'Economia Inteligente',
-          description: 'Com a DC Advisors, sua empresa reduz desperdícios e maximiza os lucros através de uma gestão financeira estratégica. Identificamos e eliminamos gastos desnecessários, otimizamos seus recursos e estruturamos processos financeiros para que sua empresa tenha um crescimento sustentável. Nossa abordagem garante que cada real seja utilizado de forma inteligente, permitindo mais eficiência e previsibilidade no seu fluxo de caixa.'
+          description: 'Com a Axory, sua empresa reduz desperdícios e maximiza os lucros através de uma gestão financeira estratégica. Identificamos e eliminamos gastos desnecessários, otimizamos seus recursos e estruturamos processos financeiros para que sua empresa tenha um crescimento sustentável. Nossa abordagem garante que cada real seja utilizado de forma inteligente, permitindo mais eficiência e previsibilidade no seu fluxo de caixa.'
         },
         control: {
           title: 'Controle e Decisão Estratégica',
-          description: 'Ter informações financeiras completas e acessíveis em tempo real é essencial para a tomada de decisões assertivas. Com as soluções da DC Advisors, você terá um panorama financeiro claro e preciso, garantindo que suas escolhas sejam sempre embasadas e alinhadas com seus objetivos de crescimento. Acabe com a incerteza e ganhe confiança para tomar decisões estratégicas que impulsionam seu negócio.'
+          description: 'Ter informações financeiras completas e acessíveis em tempo real é essencial para a tomada de decisões assertivas. Com as soluções da Axory, você terá um panorama financeiro claro e preciso, garantindo que suas escolhas sejam sempre embasadas e alinhadas com seus objetivos de crescimento. Acabe com a incerteza e ganhe confiança para tomar decisões estratégicas que impulsionam seu negócio.'
         },
         organization: {
           title: 'Organização e Transparência',
-          description: 'A falta de controle financeiro pode gerar desorganização, erros e prejuízos. Na DC Advisors, estruturamos seus processos para garantir ordem absoluta e total transparência em suas finanças. Criamos rotinas financeiras eficientes, categorizamos despesas e receitas, e mantemos todas as informações organizadas para que você tenha total clareza sobre a saúde financeira do seu negócio.'
+          description: 'A falta de controle financeiro pode gerar desorganização, erros e prejuízos. Na Axory, estruturamos seus processos para garantir ordem absoluta e total transparência em suas finanças. Criamos rotinas financeiras eficientes, categorizamos despesas e receitas, e mantemos todas as informações organizadas para que você tenha total clareza sobre a saúde financeira do seu negócio.'
         },
         time: {
           title: 'Mais Tempo para Crescer',
-          description: 'Empreendedores passam muito tempo lidando com tarefas financeiras, quando poderiam estar focados no crescimento da empresa. Com a DC Advisors, você delega a gestão financeira para especialistas e ganha tempo para se dedicar ao que realmente importa: atrair clientes, inovar e expandir seu negócio. Nossa equipe assume o trabalho operacional e estratégico das finanças, permitindo que você tenha mais liberdade e tranquilidade no dia a dia.'
+          description: 'Empreendedores passam muito tempo lidando com tarefas financeiras, quando poderiam estar focados no crescimento da empresa. Com a Axory, você delega a gestão financeira para especialistas e ganha tempo para se dedicar ao que realmente importa: atrair clientes, inovar e expandir seu negócio. Nossa equipe assume o trabalho operacional e estratégico das finanças, permitindo que você tenha mais liberdade e tranquilidade no dia a dia.'
         },
         security: {
           title: 'Segurança Financeira Total',
-          description: 'A proteção das suas informações financeiras é uma prioridade absoluta na DC Advisors. Contamos com tecnologia avançada e processos robustos para garantir a segurança, confidencialidade e integridade dos seus dados. Com criptografia, backups e protocolos rigorosos, seu negócio estará protegido contra riscos e vazamentos, permitindo que você trabalhe com total tranquilidade.'
+          description: 'A proteção das suas informações financeiras é uma prioridade absoluta na Axory. Contamos com tecnologia avançada e processos robustos para garantir a segurança, confidencialidade e integridade dos seus dados. Com criptografia, backups e protocolos rigorosos, seu negócio estará protegido contra riscos e vazamentos, permitindo que você trabalhe com total tranquilidade.'
         },
         support: {
           title: 'Consultoria e Suporte Sob Medida',
-          description: 'Cada empresa tem desafios e necessidades específicas. Na DC Advisors, não oferecemos soluções genéricas: nosso suporte é totalmente personalizado para atender as particularidades do seu negócio. Com nossa consultoria especializada, você conta com um parceiro estratégico que entende suas dores e trabalha lado a lado para implementar soluções financeiras eficientes, ajudando sua empresa a crescer de forma estruturada e sustentável.'
+          description: 'Cada empresa tem desafios e necessidades específicas. Na Axory, não oferecemos soluções genéricas: nosso suporte é totalmente personalizado para atender as particularidades do seu negócio. Com nossa consultoria especializada, você conta com um parceiro estratégico que entende suas dores e trabalha lado a lado para implementar soluções financeiras eficientes, ajudando sua empresa a crescer de forma estruturada e sustentável.'
         }
       },
       cta: 'Quero esses benefícios para minha empresa!'
@@ -160,7 +160,7 @@ export const ptBR = {
           }
         },
         tools: {
-          title: 'Hub de Ferramentas DC',
+          title: 'Hub de Ferramentas Ax',
           description: 'Otimização e controle de custos empresariais',
           services: {
             control: 'Planilha de Controle Financeiro Empresarial',
@@ -257,7 +257,7 @@ export const ptBR = {
           title: "Consultoria Empresarial",
           questions: [
             {
-              question: "O que está incluído na consultoria empresarial da DC Advisors?",
+              question: "O que está incluído na consultoria empresarial da Axory?",
               answer: "Nossa consultoria oferece análise detalhada do seu negócio, identificando oportunidades de melhoria, otimizando processos e desenvolvendo estratégias personalizadas para aumentar a lucratividade e eficiência operacional, dando também suporte para decisões estratégicas."
             },
             {
@@ -332,7 +332,7 @@ export const ptBR = {
           title: "Soluções Digitais",
           questions: [
             {
-              question: "Quais soluções digitais a DC Advisors oferece?",
+              question: "Quais soluções digitais a Axory oferece?",
               answer: "Além de ferramentas financeiras, oferecemos serviços como certificado digital e automação de processos empresariais para otimizar a gestão das empresas."
             },
             {
@@ -357,7 +357,7 @@ export const ptBR = {
           title: "Hub de Ferramentas DC",
           questions: [
             {
-              question: "O que é o Hub de Ferramentas DC?",
+              question: "O que é o Hub de Ferramentas Ax?",
               answer: "O Hub é um conjunto de ferramentas digitais criadas para facilitar a rotina dos nossos clientes, oferecendo soluções práticas e diretas."
             },
             {
@@ -382,7 +382,7 @@ export const ptBR = {
           title: "Mentoria e Treinamentos",
           questions: [
             {
-              question: "Como funciona a mentoria financeira da DC Advisors?",
+              question: "Como funciona a mentoria financeira da Axory?",
               answer: "Nossa mentoria ajuda empreendedores e indivíduos a estruturarem suas finanças e tomarem decisões estratégicas."
             },
             {
@@ -430,7 +430,7 @@ export const ptBR = {
       terms: 'Termos de uso',
       newsletter: 'Newsletter',
       emailPlaceholder: 'Seu e-mail',
-      rights: '© 2025 DC Advisors. Todos os direitos reservados.',
+      rights: '© 2025 Axory. Todos os direitos reservados.',
       slogan: 'Levando sua empresa à outro patamar financeiro',
       links: {
         plans: 'Planos',

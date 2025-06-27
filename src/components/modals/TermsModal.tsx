@@ -49,14 +49,14 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
               <section>
                 <h3 className="text-xl font-semibold mb-4">1. Aceitação dos Termos</h3>
                 <p className="text-gray-600">
-                  Ao acessar e usar os serviços da DC Advisors, você concorda em cumprir e estar vinculado a estes Termos de Uso. Se você não concordar com qualquer parte destes termos, não poderá acessar ou usar nossos serviços.
+                  Ao acessar e usar os serviços da Axory, você concorda em cumprir e estar vinculado a estes Termos de Uso. Se você não concordar com qualquer parte destes termos, não poderá acessar ou usar nossos serviços.
                 </p>
               </section>
 
               <section>
                 <h3 className="text-xl font-semibold mb-4">2. Descrição dos Serviços</h3>
                 <p className="text-gray-600">
-                  A DC Advisors fornece serviços de consultoria financeira e empresarial, incluindo mas não se limitando a análise financeira, planejamento estratégico e gestão de recursos.
+                  A Axory fornece serviços de consultoria financeira e empresarial, incluindo mas não se limitando a análise financeira, planejamento estratégico e gestão de recursos.
                 </p>
               </section>
 
@@ -76,7 +76,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
               <section>
                 <h3 className="text-xl font-semibold mb-4">4. Limitação de Responsabilidade</h3>
                 <p className="text-gray-600">
-                  A DC Advisors não será responsável por quaisquer danos diretos, indiretos, incidentais, especiais ou consequentes resultantes do uso ou da incapacidade de usar nossos serviços.
+                  A Axory não será responsável por quaisquer danos diretos, indiretos, incidentais, especiais ou consequentes resultantes do uso ou da incapacidade de usar nossos serviços.
                 </p>
               </section>
             </div>

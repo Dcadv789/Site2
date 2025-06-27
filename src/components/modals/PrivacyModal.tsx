@@ -49,7 +49,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
               <section>
                 <h3 className="text-xl font-semibold mb-4">1. Introdução</h3>
                 <p className="text-gray-600">
-                  A DC Advisors está comprometida em proteger sua privacidade. Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas informações pessoais.
+                  A Axory está comprometida em proteger sua privacidade. Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas informações pessoais.
                 </p>
               </section>
 

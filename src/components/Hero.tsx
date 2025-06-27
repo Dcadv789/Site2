@@ -21,28 +21,28 @@ export function Hero() {
   const socialLinks = [
     { 
       icon: Share2, 
-      href: 'https://wa.me/?text=Confira este serviço de consultoria financeira: https://dcadvisors.com.br',
+      href: 'https://wa.me/?text=Confira este serviço de consultoria financeira: https://axory.com.br',
       label: 'Compartilhar'
     },
     { 
       icon: Instagram, 
-      href: '#',
+      href: 'https://www.instagram.com/axory.capital',
       label: 'Instagram'
     },
     { 
       icon: Youtube, 
-      href: '#',
+      href: 'http://www.youtube.com/@AxoryCap',
       label: 'Youtube'
     },
     { 
       icon: Linkedin, 
-      href: '#',
+      href: 'https://www.linkedin.com/company/axory',
       label: 'LinkedIn'
     }
   ];
 
   return (
-    <section id="inicio" className="pt-12 scroll-mt-16">
+    <section id="inicio" className="pt-12 scroll-mt-16 bg-[#0131FF]">
       {/* Layout Desktop */}
       <div className="hidden md:block relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16 sm:pt-24 sm:pb-28">
         <div className="text-center mb-20">
@@ -50,7 +50,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-gray-900 leading-[1.1]"
+            className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-[1.1]"
           >
             {t('hero.title')}
           </motion.h1>
@@ -80,7 +80,7 @@ export function Hero() {
               className="flex flex-col h-full justify-between"
             >
               <div className="w-full">
-                <h2 className="text-base font-medium text-gray-500 mb-6 text-left">
+                <h2 className="text-base font-medium text-gray-200 mb-6 text-left">
                   {t('hero.subtitle')}
                 </h2>
               </div>
@@ -90,7 +90,7 @@ export function Hero() {
                   <div className="flex items-center justify-between w-full">
                     <button
                       onClick={handleCtaClick}
-                      className="bg-gray-900 hover:bg-blue-600 px-3 py-3 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg min-w-[230px]"
+                      className="bg-white hover:bg-gray-100 px-3 py-3 rounded-full text-[#0131FF] text-base font-medium transition-all duration-300 hover:shadow-lg min-w-[230px]"
                     >
                       {t('hero.cta')}
                     </button>
@@ -104,7 +104,7 @@ export function Hero() {
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-gray-600 hover:text-blue-600 transition-colors bg-white shadow-md p-2 rounded-full hover:shadow-lg group border border-gray-100"
+                            className="text-gray-300 hover:text-white transition-colors bg-white/10 backdrop-blur-sm shadow-md p-2 rounded-full hover:shadow-lg group border border-white/20"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 + (index * 0.1) }}
@@ -133,11 +133,11 @@ export function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 + (index * 0.1) }}
-                            className="flex flex-col items-center bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100"
+                            className="flex flex-col items-center bg-white/10 backdrop-blur-sm p-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-white/20"
                           >
-                            <Icon className="h-5 w-5 text-blue-600 mb-1" />
-                            <span className="text-base font-semibold text-gray-900">{stat.label}</span>
-                            <span className="text-xs text-gray-600 text-center">{stat.description}</span>
+                            <Icon className="h-5 w-5 text-white mb-1" />
+                            <span className="text-base font-semibold text-white">{stat.label}</span>
+                            <span className="text-xs text-gray-200 text-center">{stat.description}</span>
                           </motion.div>
                         );
                       })}
@@ -164,13 +164,13 @@ export function Hero() {
       </div>
 
       {/* Layout Mobile */}
-      <div className="md:hidden px-4 pt-8">
+      <div className="md:hidden px-4 pt-8 pb-12">
         <div className="text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-medium tracking-tight text-gray-900 leading-tight mb-4"
+            className="text-4xl font-medium tracking-tight text-white leading-tight mb-4"
           >
             {t('hero.title')}
           </motion.h1>
@@ -179,7 +179,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-base text-gray-500 mb-8"
+            className="text-base text-gray-200 mb-8"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -202,7 +202,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             onClick={handleCtaClick}
-            className="w-full bg-blue-600 py-4 rounded-full text-white text-base font-medium transition-all duration-300 hover:shadow-lg mb-8"
+            className="w-full bg-white hover:bg-gray-100 py-4 rounded-full text-[#0131FF] text-base font-medium transition-all duration-300 hover:shadow-lg mb-8"
           >
             {t('hero.cta')}
           </motion.button>
@@ -221,11 +221,11 @@ export function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 + (index * 0.1) }}
-                  className="flex flex-col items-center bg-white p-4 rounded-lg shadow-md border border-gray-100"
+                  className="flex flex-col items-center bg-white/10 backdrop-blur-sm p-4 rounded-lg shadow-md border border-white/20"
                 >
-                  <Icon className="h-6 w-6 text-blue-600 mb-2" />
-                  <span className="text-lg font-semibold text-gray-900">{stat.label}</span>
-                  <span className="text-sm text-gray-600 text-center">{stat.description}</span>
+                  <Icon className="h-6 w-6 text-white mb-2" />
+                  <span className="text-lg font-semibold text-white">{stat.label}</span>
+                  <span className="text-sm text-gray-200 text-center">{stat.description}</span>
                 </motion.div>
               );
             })}
@@ -245,7 +245,7 @@ export function Hero() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center h-14 bg-white shadow-md rounded-full hover:shadow-lg border border-gray-100 text-gray-600 hover:text-blue-600 transition-all"
+                  className="flex items-center justify-center h-14 bg-white/10 backdrop-blur-sm shadow-md rounded-full hover:shadow-lg border border-white/20 text-gray-200 hover:text-white transition-all"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

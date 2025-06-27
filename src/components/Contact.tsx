@@ -253,13 +253,13 @@ export function Contact() {
               </div>
             </a>
 
-            <a href="mailto:contato@dcadvisors.com.br" className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors duration-200">
+            <a href="mailto:contato@axory.com.br" className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors duration-200">
               <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
                 <Mail className="w-6 h-6 text-blue-600" />
               </div>
               <div>
                 <h3 className="text-lg font-medium text-gray-900">{t('contact.form.email')}</h3>
-                <p>contato@dcadvisors.com.br</p>
+                <p>contato@axory.com.br</p>
               </div>
             </a>
 
@@ -338,7 +338,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-gray-900">{t('contact.form.email')}</h3>
-                  <p className="text-gray-600">contato@dcadvisors.com.br</p>
+                  <p className="text-gray-600">contato@axory.com.br</p>
                 </div>
               </motion.div>
 

@@ -68,31 +68,31 @@ export const enUS = {
     },
     benefits: {
       title: 'BENEFITS',
-      subtitle: 'What DC Advisors clients gain',
+      subtitle: 'What Axory clients gain',
       items: {
         savings: {
           title: 'Smart Savings',
-          description: 'With DC Advisors, your company reduces waste and maximizes profits through strategic financial management. We identify and eliminate unnecessary expenses, optimize your resources, and structure financial processes for sustainable growth. Our approach ensures that every dollar is used intelligently, allowing for more efficiency and predictability in your cash flow.'
+          description: 'With Axory, your company reduces waste and maximizes profits through strategic financial management. We identify and eliminate unnecessary expenses, optimize your resources, and structure financial processes for sustainable growth. Our approach ensures that every dollar is used intelligently, allowing for more efficiency and predictability in your cash flow.'
         },
         control: {
           title: 'Control and Strategic Decision',
-          description: 'Having complete and accessible financial information in real-time is essential for making assertive decisions. With DC Advisors solutions, you\'ll have a clear and accurate financial overview, ensuring your choices are always well-founded and aligned with your growth objectives. End uncertainty and gain confidence to make strategic decisions that drive your business.'
+          description: 'Having complete and accessible financial information in real-time is essential for making assertive decisions. With Axory solutions, you\'ll have a clear and accurate financial overview, ensuring your choices are always well-founded and aligned with your growth objectives. End uncertainty and gain confidence to make strategic decisions that drive your business.'
         },
         organization: {
           title: 'Organization and Transparency',
-          description: 'Lack of financial control can lead to disorganization, errors, and losses. At DC Advisors, we structure your processes to ensure absolute order and total transparency in your finances. We create efficient financial routines, categorize expenses and revenues, and keep all information organized so you have complete clarity about your business\'s financial health.'
+          description: 'Lack of financial control can lead to disorganization, errors, and losses. At Axory, we structure your processes to ensure absolute order and total transparency in your finances. We create efficient financial routines, categorize expenses and revenues, and keep all information organized so you have complete clarity about your business\'s financial health.'
         },
         time: {
           title: 'More Time to Grow',
-          description: 'Entrepreneurs spend too much time dealing with financial tasks when they could be focused on company growth. With DC Advisors, you delegate financial management to experts and gain time to focus on what really matters: attracting customers, innovating, and expanding your business. Our team takes on operational and strategic financial work, allowing you more freedom and peace of mind in your daily routine.'
+          description: 'Entrepreneurs spend too much time dealing with financial tasks when they could be focused on company growth. With Axory, you delegate financial management to experts and gain time to focus on what really matters: attracting customers, innovating, and expanding your business. Our team takes on operational and strategic financial work, allowing you more freedom and peace of mind in your daily routine.'
         },
         security: {
           title: 'Total Financial Security',
-          description: 'Protecting your financial information is an absolute priority at DC Advisors. We have advanced technology and robust processes to ensure the security, confidentiality, and integrity of your data. With encryption, backups, and rigorous protocols, your business will be protected against risks and leaks, allowing you to work with complete peace of mind.'
+          description: 'Protecting your financial information is an absolute priority at Axory. We have advanced technology and robust processes to ensure the security, confidentiality, and integrity of your data. With encryption, backups, and rigorous protocols, your business will be protected against risks and leaks, allowing you to work with complete peace of mind.'
         },
         support: {
           title: 'Tailored Consulting and Support',
-          description: 'Each company has specific challenges and needs. At DC Advisors, we don\'t offer generic solutions: our support is fully customized to meet your business\'s particularities. With our specialized consulting, you have a strategic partner who understands your pain points and works side by side to implement efficient financial solutions, helping your company grow in a structured and sustainable way.'
+          description: 'Each company has specific challenges and needs. At Axory, we don\'t offer generic solutions: our support is fully customized to meet your business\'s particularities. With our specialized consulting, you have a strategic partner who understands your pain points and works side by side to implement efficient financial solutions, helping your company grow in a structured and sustainable way.'
         }
       },
       cta: 'I want these benefits for my company!'
@@ -257,7 +257,7 @@ export const enUS = {
           title: "Business Consulting",
           questions: [
             {
-              question: "What is included in DC Advisors' business consulting?",
+              question: "What is included in Axory' business consulting?",
               answer: "Our consulting offers detailed analysis of your business, identifying improvement opportunities, optimizing processes, and developing personalized strategies to increase profitability and operational efficiency, also providing support for strategic decisions."
             },
             {
@@ -332,7 +332,7 @@ export const enUS = {
           title: "Digital Solutions",
           questions: [
             {
-              question: "What digital solutions does DC Advisors offer?",
+              question: "What digital solutions does Axory offer?",
               answer: "In addition to financial tools, we offer services such as digital certificates and business process automation to optimize company management."
             },
             {
@@ -382,7 +382,7 @@ export const enUS = {
           title: "Mentoring and Training",
           questions: [
             {
-              question: "How does DC Advisors' financial mentoring work?",
+              question: "How does Axory' financial mentoring work?",
               answer: "Our mentoring helps entrepreneurs and individuals structure their finances and make strategic decisions."
             },
             {
@@ -430,7 +430,7 @@ export const enUS = {
       terms: 'Terms of use',
       newsletter: 'Newsletter',
       emailPlaceholder: 'Your email',
-      rights: '© 2025 DC Advisors. All rights reserved.',
+      rights: '© 2025 Axory. All rights reserved.',
       slogan: 'Taking your company to the next financial level',
       links: {
         plans: 'Plans',

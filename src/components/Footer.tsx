@@ -69,9 +69,9 @@ export function Footer() {
 
   const socialLinks = [
     { icon: MessageCircle, href: 'https://wa.me/5511994561052?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20e%20quero%20agendar%20o%20diagn%C3%B3stico%20financeiro%20GRATUITO%20para%20minha%20empresa.' },
-    { icon: Instagram, href: 'https://www.instagram.com/d.c.advisors', label: 'Instagram' },
-    { icon: Youtube, href: 'https://www.youtube.com/@dcadvisors', label: 'YouTube' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/company/dca-dvisors', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/axory.capital', label: 'Instagram' },
+    { icon: Youtube, href: 'https://www.youtube.com/@AxoryCap', label: 'YouTube' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/axory', label: 'LinkedIn' },
   ];
 
   return (
@@ -81,7 +81,7 @@ export function Footer() {
         <div className="flex flex-col items-center text-center">
           <img
             src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//Logo%20Azul.svg"
-            alt="DC Advisors"
+            alt="Axory Capital"
             className="w-full h-auto brightness-0 invert mb-6"
           />
           <p className="text-gray-400 leading-relaxed mb-8">
@@ -103,7 +103,7 @@ export function Footer() {
               <div className="space-y-8">
                 <img
                   src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//Logo%20Azul.svg"
-                  alt="DC Advisors"
+                  alt="Axory Capital"
                   className="h-12 w-auto brightness-0 invert"
                 />
                 
@@ -179,9 +179,9 @@ export function Footer() {
                     <Phone className="w-5 h-5" />
                     (11) 99456-1052
                   </a>
-                  <a href="mailto:contato@dcadvisors.com.br" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-200">
+                  <a href="mailto:contato@axory.com.br" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-200">
                     <Mail className="w-5 h-5" />
-                    contato@dcadvisors.com.br
+                    contato@axory.com.br
                   </a>
                   <div className="flex items-start gap-3 text-gray-400">
                     <MapPin className="w-5 h-5 flex-shrink-0" />
