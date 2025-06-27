@@ -42,7 +42,7 @@ export function Hero() {
   ];
 
   return (
-    <section id="inicio" className="pt-12 scroll-mt-16 bg-[#0131FF]">
+    <section id="inicio" className="pt-12 scroll-mt-16 bg-[#0131FF] rounded-b-[2rem] md:rounded-b-[3rem] overflow-hidden">
       {/* Layout Desktop */}
       <div className="hidden md:block relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-16 sm:pt-24 sm:pb-28">
         <div className="text-center mb-20">
@@ -64,10 +64,19 @@ export function Hero() {
               transition={{ delay: 0.2 }}
               className="relative w-full"
             >
+              {/* Efeito de luz principal atrás da imagem */}
+              <div className="absolute inset-0 -inset-x-16 -inset-y-16">
+                {/* Luz central principal */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
+                {/* Luz secundária mais ampla */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-white/10 rounded-full blur-[100px]"></div>
+                {/* Reflexo no fundo azul */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-gradient-to-r from-blue-300/15 via-white/15 to-blue-300/15 rounded-full blur-[120px]"></div>
+              </div>
               <img
                 src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//banner1.svg"
                 alt="Banner ilustrativo"
-                className="w-full h-auto"
+                className="w-full h-auto relative z-10"
               />
             </motion.div>
           </div>
@@ -147,12 +156,21 @@ export function Hero() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4 }}
-                      className="w-64"
+                      className="w-64 relative"
                     >
+                      {/* Efeito de luz menor para a segunda imagem */}
+                      <div className="absolute inset-0 -inset-x-8 -inset-y-8">
+                        {/* Luz central */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-white/15 rounded-full blur-2xl"></div>
+                        {/* Luz secundária */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-60 bg-white/8 rounded-full blur-[80px]"></div>
+                        {/* Reflexo azul */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-48 bg-gradient-to-r from-blue-300/10 via-white/10 to-blue-300/10 rounded-full blur-[90px]"></div>
+                      </div>
                       <img
                         src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//banner2.svg"
                         alt="Banner secundário"
-                        className="w-full h-full object-contain"
+                        className="w-full h-full object-contain relative z-10"
                       />
                     </motion.div>
                   </div>
@@ -188,12 +206,21 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mb-8"
+            className="mb-8 relative"
           >
+            {/* Efeito de luz mobile */}
+            <div className="absolute inset-0 -inset-x-8 -inset-y-8">
+              {/* Luz central mobile */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/18 rounded-full blur-3xl"></div>
+              {/* Luz secundária mobile */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-48 bg-white/10 rounded-full blur-[80px]"></div>
+              {/* Reflexo azul mobile */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-40 bg-gradient-to-r from-blue-300/12 via-white/12 to-blue-300/12 rounded-full blur-[70px]"></div>
+            </div>
             <img
               src="https://aznchizusxvfegpubttp.supabase.co/storage/v1/object/public/logos//banner1.svg"
               alt="Banner ilustrativo"
-              className="w-full h-auto"
+              className="w-full h-auto relative z-10"
             />
           </motion.div>
 
